@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="tk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AÝ-ÇYZUW | Mekdep we Ofis Harytlary</title>
+<script src="data.js"></script>
+<style>
+:root{--b:#12487E;--d:#0B2E52;--g:#D4912A;--lg:#F8EFE0;--bg:#F4F6F9;--t:#1E293B;--w:#FFF}
+*{margin:0;padding:0;box-sizing:border-box;font-family:sans-serif}
+body{background:var(--bg);color:var(--t)}
+header{background:var(--w);box-shadow:0 3px 10px rgba(0,0,0,.08);position:sticky;top:0;z-index:9}
+.top{background:var(--b);color:var(--w);font-size:13px;padding:7px 4%;display:flex;justify-content:space-between;align-items:center}
+.top a{color:#fff;text-decoration:none;font-weight:700}
+.lang button{background:none;border:1px solid #ffffff80;color:var(--w);padding:3px 9px;border-radius:4px;font-weight:700;cursor:pointer}
+.lang button.on{background:var(--g);border-color:var(--g)}
+.head{display:flex;align-items:center;justify-content:space-between;padding:10px 4%;gap:10px;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:8px;cursor:pointer;font-weight:900;font-size:20px;color:var(--b)}
+.logo img{height:48px;width:auto;object-fit:contain}
+.srch{flex:1;min-width:180px;display:flex;border:2px solid var(--b);border-radius:8px;overflow:hidden}
+.srch input{flex:1;min-width:0;border:none;padding:8px 10px;font-size:14px;outline:none}
+.srch button{background:var(--b);color:var(--w);border:none;padding:0 14px;font-weight:700;cursor:pointer}
+.cbtn{background:var(--lg);border:1px solid var(--g);color:var(--b);padding:8px 12px;border-radius:8px;font-weight:700;cursor:pointer}
+.admin{display:none;background:#FEF3C7;border-bottom:2px solid var(--g);padding:10px 4%;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+.xlbtn{background:#1D6F42;color:#fff;padding:8px 11px;border-radius:6px;cursor:pointer;font-weight:700;font-size:12px;border:none}
+.jsbtn{background:#12487E;color:#fff;border:none;padding:8px 11px;border-radius:6px;cursor:pointer;font-weight:700;font-size:12px}
+.clbtn{background:#DC2626;color:#fff;border:none;padding:8px 11px;border-radius:6px;cursor:pointer;font-weight:700;font-size:12px}
+.pastebox{display:none;background:#FFFBEB;padding:12px 4%;border-bottom:2px solid var(--g)}
+.pastebox textarea{width:100%;height:110px;padding:8px;border:1.5px solid var(--b);border-radius:8px;font-size:12px;margin-bottom:8px}
+.wrap{display:flex;gap:16px;padding:15px 4%;max-width:1300px;margin:auto}
+.side{width:250px;flex-shrink:0;background:var(--w);border-radius:12px;padding:14px;height:fit-content}
+.side h3{color:var(--b);font-size:16px;margin-bottom:8px;padding-bottom:6px;border-bottom:2px solid var(--lg)}
+.cats{list-style:none}
+.cats li{padding:8px 10px;border-radius:6px;cursor:pointer;font-size:13px;font-weight:600;display:flex;justify-content:space-between;margin-bottom:3px}
+.cats li.on{background:var(--b);color:var(--w)}
+.cats li span.n{background:var(--lg);color:var(--b);font-size:11px;padding:2px 6px;border-radius:8px}
+.main{flex:1}
+.fbar{display:flex;justify-content:space-between;align-items:center;background:var(--w);padding:10px 14px;border-radius:8px;margin-bottom:14px;font-size:13px;font-weight:600;flex-wrap:wrap;gap:8px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(165px,1fr));gap:12px}
+.card{background:var(--w);border-radius:10px;padding:10px;border:1px solid #E2E8F0;display:flex;flex-direction:column;justify-content:space-between}
+.pimg{width:100%;height:140px;background:#F8FAFC;border-radius:8px;margin-bottom:8px;display:flex;align-items:center;justify-content:center;overflow:hidden;border:1px dashed #CBD5E1}
+.pimg img{width:100%;height:100%;object-fit:contain}
+.noimg{font-size:11px;color:#94A3B8;text-align:center;padding:5px}
+.cc{font-size:10px;color:var(--g);font-weight:700;margin-bottom:3px}
+.ct{font-size:13px;font-weight:600;margin-bottom:5px;line-height:1.3}
+.cd{font-size:11px;color:#64748B;margin-bottom:8px}
+.cf{display:flex;justify-content:space-between;align-items:center;padding-top:8px;border-top:1px solid #F1F5F9}
+.pr{font-size:15px;font-weight:800;color:var(--b)}
+.add{background:var(--b);color:var(--w);border:none;padding:6px 10px;border-radius:5px;font-weight:600;font-size:12px;cursor:pointer}
+.more{width:100%;margin-top:16px;padding:12px;background:var(--w);border:2px solid var(--b);color:var(--b);font-weight:700;border-radius:8px;cursor:pointer}
+.mod{display:none;position:fixed;inset:0;background:#00000080;z-index:20;justify-content:flex-end}
+.drw{background:var(--w);width:350px;max-width:100%;height:100%;padding:16px;display:flex;flex-direction:column;justify-content:space-between;overflow-y:auto}
+.ci{flex:1;overflow-y:auto;margin:8px 0;min-height:120px}
+.it{display:flex;align-items:center;gap:8px;padding:7px 0;border-bottom:1px solid #E2E8F0;font-size:12px}
+.it img{width:42px;height:42px;object-fit:contain;border-radius:5px;border:1px solid #CBD5E1;background:#F8FAFC}
+.qbtn{background:#E2E8F0;border:none;width:22px;height:22px;border-radius:4px;font-weight:700;cursor:pointer}
+.inp{width:100%;padding:9px 10px;margin-bottom:8px;border:1.5px solid #CBD5E1;border-radius:7px;font-size:13px;outline:none}
+.chk{width:100%;background:var(--g);color:var(--w);border:none;padding:12px;border-radius:8px;font-size:15px;font-weight:700;cursor:pointer}
+@media(max-width:768px){.wrap{flex-direction:column}.side{width:100%}}
+header{position:static !important;}
+</style>
+</head>
+<body>
+<header>
+  <div class="top">
+    <a href="tel:+99365637644">📞 +993 65 63-76-44</a>
+    <div class="lang"><button id="btk" class="on" onclick="sl('tk')">TM</button> <button id="bru" onclick="sl('ru')">RU</button></div>
+  </div>
+  <div class="admin" id="adm">
+    <span style="font-size:12px;font-weight:700;color:#92400E">🔐 Admin:</span>
+    <div style="display:flex;gap:6px;flex-wrap:wrap">
+      <button class="xlbtn" onclick="togglePaste()">📋 1. Excel-den Goý</button>
+      <button class="jsbtn" onclick="exportJS()">💾 2. data.js ýükle</button>
+      <button class="clbtn" onclick="clearDB()">🗑️</button>
+      <button onclick="document.getElementById('adm').style.display='none';document.getElementById('pbox').style.display='none'" style="border:none;background:none;font-weight:700">✕</button>
+    </div>
+  </div>
+  <div class="pastebox" id="pbox">
+    <p style="font-size:12px;margin-bottom:6px;font-weight:600">Excel tablisaňyzdan 4 sütüni (Barkod, Ady, Stok, Baha) göçürip şu ýere goýuň (Paste):</p>
+    <textarea id="ptxt" placeholder="Excel-den göçüren harytlaryňyzy şu ýere goýuň..."></textarea>
+    <button class="xlbtn" onclick="parsePaste()">✅ Harytlary Ýükle</button>
+  </div>
+    <!-- Bu bölek sahypa aşak süýşürilende ýokaryk gidip ýiter -->
+  <div class="head" style="justify-content:center;padding:14px 15px 6px 15px">
+    <div class="logo" onclick="tapLogo()" style="display:flex;align-items:center;justify-content:center;gap:12px;cursor:pointer;width:100%">
+      <img src="logo.png" onerror="if(this.src.endsWith('.png'))this.src='logo.jpg';else if(this.src.endsWith('.jpg'))this.src='logo.jpeg';else this.style.display='none'" alt="AÝ-ÇYZUW" style="height:56px;width:auto;object-fit:contain">
+      <div style="display:flex;flex-direction:column;text-align:center">
+        <span style="font-size:23px;font-weight:800;color:var(--b,#13315c);line-height:1.1;letter-spacing:0.6px">AÝ-ÇYZUW</span>
+        <span id="sub-title" style="font-size:13.5px;font-weight:600;color:#d49a2a;margin-top:3px">Mekdep we ofis harytlary</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Bu zolak bolsa sahypa aşak süýşürilende ekranyň iň ýokarsynda ýelmeşip durar -->
+<div class="sticky-bar" style="position:sticky;top:0;z-index:15;background:var(--w,#ffffff);padding:10px 15px;box-shadow:0 3px 10px rgba(0,0,0,0.08);display:flex;width:100%;gap:8px;align-items:center">
+  <div class="srch" style="flex:1;margin:0">
+    <input id="q" onkeyup="lim=40;rn()" placeholder="Haryt ýa-da barkod...">
+    <button id="t2" onclick="rn()">Gözle</button>
+  </div>
+  <button class="cbtn" onclick="tc()" style="white-space:nowrap">🛒 <span id="t3">Sebet</span> (<span id="cc">0</span>)</button>
+</div>
+
+<div class="wrap">
+  <aside class="side"><h3 id="t4">Kategoriýalar</h3><ul class="cats" id="cl"></ul></aside>
+  <main class="main">
+    <div class="fbar">
+      <span id="rc">Haryt: 0</span>
+      <label><input type="checkbox" id="sk" checked onchange="lim=40;rn()"> <span id="t7">Diňe ammarda barlar</span></label>
+    </div>
+    <div class="grid" id="gr"></div>
+    <button class="more" id="mb" onclick="lim+=40;rn()" style="display:none">Ýene görkez (+40)</button>
+  </main>
+</div>
+<div class="mod" id="md" onclick="if(event.target===this)tc()">
+  <div class="drw">
+    <div>
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <h2 id="t8" style="color:var(--b);font-size:18px">Sebet</h2>
+        <button onclick="tc()" style="border:none;background:none;font-size:20px">✕</button>
+      </div>
+      <div class="ci" id="ci"></div>
+    </div>
+    <div>
+      <div style="display:flex;justify-content:space-between;font-weight:800;margin:8px 0;font-size:15px">
+        <span id="t9">Jemi:</span><span id="ct">0.00 TMT</span>
+      </div>
+      <input type="tel" id="cphone" class="inp" placeholder="Telefon nomeriňiz (+993 6X XXXXXX)">
+      <input type="text" id="caddr" class="inp" placeholder="Eltip bermeli salgysy (Adres)">
+      <button class="chk" id="t10" onclick="ord()">Sargyt Etmek</button>
+    </div>
+  </div>
+</div>
+<script>
+const MY_GMAIL = "aycyzuw.tm.arkadag@gmail.com";
+const SHOP_GMAIL = "aycyzuw.tm2026@gmail.com";
+
+let lg='tk',sc='all',cr=[],db=(typeof INITIAL_DB!=='undefined')?INITIAL_DB:[],lim=40,taps=0;
+const ADMIN_PASS="2026";
+const tx={
+tk:{ph:"Haryt ýa-da barkod...",t2:"Gözle",t3:"Sebet",t4:"Kategoriýalar",t7:"Diňe ammarda barlar",t8:"Siziň Sebediňiz",t9:"Jemi:",t10:"Sargyt Etmek",add:"+ Goş",f:"Tapylan haryt:",noimg:"Surat ýok",pph:"Telefon nomeriňiz (+993...)",aph:"Eltip bermeli salgysy (Adres)",err:"Telefon nomeriňizi we adresiňizi ýazyň!",wait:"Ugradylýar...",ok:"Sargydyňyz kabul edildi! Operator ýakyn wagtda habarlaşar."},
+ru:{ph:"Товар или штрих-код...",t2:"Найти",t3:"Корзина",t4:"Категории",t7:"Только в наличии",t8:"Ваша корзина",t9:"Итого:",t10:"Оформить заказ",add:"+ В корзину",f:"Найдено:",noimg:"Нет фото",pph:"Ваш телефон (+993...)",aph:"Адрес доставки",err:"Укажите номер телефона и адрес!",wait:"Отправка...",ok:"Ваш заказ принят! Оператор скоро свяжется с вами."}
+};
+const cts=[
+{id:'all',tk:'Ähli harytlar',ru:'Все товары'},
+{id:'pens',tk:'Ruçkalar we Galamlar',ru:'Ручки и карандаши'},
+{id:'notebooks',tk:'Depderler we Bloknotlar',ru:'Тетради и блокноты'},
+{id:'art',tk:'Çeperçilik we Surat',ru:'Творчество и рисование'},
+{id:'office',tk:'Ofis Harytlary',ru:'Офисные принадлежности'},
+{id:'bags',tk:'Penallar we Sumkalar',ru:'Пеналы и рюкзаки'},
+{id:'books',tk:'Kitaplar we Okuw',ru:'Книги и обучение'},
+{id:'toys',tk:'Oýunjaklar we Sowgatlar',ru:'Игрушки и подарки'},
+{id:'decor',tk:'Bezeg we Aksesuarlar',ru:'Декор и аксессуары'}
+];
+function tapLogo(){
+  taps++;
+  if(taps>=3){taps=0;if(prompt("Admin paroly:")===ADMIN_PASS)document.getElementById('adm').style.display='flex';}
+}
+function togglePaste(){const p=document.getElementById('pbox');p.style.display=p.style.display==='block'?'none':'block';}
+function clearDB(){if(confirm("Bazany arassalamalymy?")){db=[];localStorage.removeItem('aycyzuw_db');rc();rn();}}
+function exportJS(){
+  if(!db.length)return alert("Ilki harytlary ýükläň!");
+  const blob=new Blob(["const INITIAL_DB = "+JSON.stringify(db)+";"],{type:"application/javascript"});
+  const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="data.js";a.click();
+}
+function getCat(n){
+  const s=String(n).toLowerCase();
+  if(/ручк|rucka|ruçka|карандаш|galam|стержен|грифел|маркер|marker|текст|layner|haylayter|хаýлаýтер|стиралк|pozgy|точилк|tocilk/.test(s))return'pens';
+  if(/тетрад|tetrad|depder|блокнот|bloknot|ежедневник|дневник|gundelik|gündelik|обложк|oblozk|kitap daşy|записн/.test(s))return'notebooks';
+  if(/краск|krask|акварел|akwarel|гуаш|холст|holst|кист|kist|çotka|палитр|palitr|пластилин|plastilin|глина|скетч|sketch|альбом|albom|alpom|мольберт|malbert|мастихин|mastihin|подрамник|podramnik|разукраш|раскраск|raskraska|мозаик/.test(s))return'art';
+  if(/бумаг|kagyz|ватман|файл|faýl|папк|papk|степлер|stepler|скоб|skob|дырокол|dyrakol|скотч|skoc|skoç|клей|kley|kleý|калькулятор|kalkul|ножниц|gaycy|зажим|gysgy|скрепк|skrepk|лине|line|циркул|sirkul|ламинат|laminat|термолент|чек|çek|печа|pecat|органайзер|organayzer|лоток|корректор|замазк|zamazk|стикер|stiker|zametka|конверт|konwert/.test(s))return'office';
+  if(/пенал|penal|рюкзак|rukzak|портфел|portfel|сумк|sumk|мешок|шоппер|бутылк|butilk|butulk|термос|ланч|барсетк|кошел|gapjyk/.test(s))return'bags';
+  if(/книг|kitap|атлас|карт|karta|пропис|sözlük|sozluk|словарь|энциклопед|сказк|ertek|учебн|алфавит|elipbi|азбук|глобус|globus|счет|çot|палочк/.test(s))return'books';
+  if(/игруш|oyunjak|лего|lego|кукл|gurjak|машин|masyn|пистолет|pistolet|шар|şar|мяч|top|шахмат|küşt|kust|домино|монопол|уно|uno|мафи|пазл|pazl|бассейн|basseyka|вертол|поезд|poyuz|робот|микрофон|колонк|kalonka|трактор|свеч|şem|открытк|подар|sowgat/.test(s))return'toys';
+  return'decor';
+}
+function parsePaste(){
+  const text=document.getElementById('ptxt').value.trim();
+  if(!text)return alert("Ilki Excel-den göçürip ýokarky boşluga goýuň!");
+  const lines=text.split(/\r?\n/);
+  db=[];
+  for(let i=0;i<lines.length;i++){
+    if(!lines[i].trim())continue;
+    const sep=lines[i].includes('\t')?'\t':(lines[i].includes(';')?';':',');
+    const row=lines[i].split(sep);
+    if(row.length>=4){
+      const c=row[0].trim();
+      const n=row[1].trim();
+      if(c.toLowerCase()==='barkod'||n.toLowerCase()==='ady')continue;
+      const s=parseFloat(row[2].replace(',','.'))||0;
+      const p=parseFloat(row[3].replace(',','.'))||0;
+      if(n)db.push({c,n,s,p,k:getCat(n)});
+    }
+  }
+  try{localStorage.setItem('aycyzuw_db',JSON.stringify(db));}catch(err){}
+  document.getElementById('ptxt').value='';
+  document.getElementById('pbox').style.display='none';
+  rc();rn();
+  alert("Üstünlikli ýüklendi: "+db.length+" haryt!");
+}
+if(!db.length){try{const saved=localStorage.getItem('aycyzuw_db');if(saved)db=JSON.parse(saved);}catch(e){}}
+function sl(l){
+  lg=l;document.getElementById('btk').classList.toggle('on',l==='tk');document.getElementById('bru').classList.toggle('on',l==='ru');
+  const t=tx[l];for(let k in t)if(document.getElementById(k))document.getElementById(k).innerText=t[k];
+  document.getElementById('q').placeholder=t.ph;
+  document.getElementById('cphone').placeholder=t.pph;
+  document.getElementById('caddr').placeholder=t.aph;
+  rc();rn();rci();
+}
+function rc(){
+  document.getElementById('cl').innerHTML=cts.map(c=>{
+    const cnt=c.id==='all'?db.length:db.filter(x=>x.k===c.id).length;
+    return `<li class="${sc===c.id?'on':''}" onclick="sc='${c.id}';lim=40;rc();rn()"><span>${c[lg]}</span><span class="n">${cnt}</span></li>`;
+  }).join('');
+}
+function rn(){
+  const q=document.getElementById('q').value.toLowerCase(),sk=document.getElementById('sk').checked,t=tx[lg];
+  const f=db.filter(x=>(sc==='all'||x.k===sc)&&(x.n.toLowerCase().includes(q)||x.c.includes(q))&&(!sk||x.s>0));
+  document.getElementById('rc').innerText=`${t.f} ${f.length}`;
+  const show=f.slice(0,lim);
+  document.getElementById('mb').style.display=f.length>lim?'block':'none';
+  document.getElementById('gr').innerHTML=show.map(x=>{
+    const co=cts.find(c=>c.id===x.k);
+    return `<div class="card"><div>
+      <div class="pimg"><img src="img/${x.c}.jpg" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><div class="noimg" style="display:none">📷 ${t.noimg}<br><small>${x.c}.jpg</small></div></div>
+      <div class="cc">${co?co[lg]:''}</div><div class="ct">${x.n}</div><div class="cd">Kod: ${x.c} • Stok: ${x.s}</div>
+    </div><div class="cf"><div class="pr">${x.p} TMT</div><button class="add" onclick="ad('${x.c}')">${t.add}</button></div></div>`;
+  }).join('');
+}
+function ad(c){const p=db.find(x=>x.c===c),e=cr.find(x=>x.c===c);if(e){if(e.q<p.s)e.q++;}else cr.push({...p,q:1});rci();}
+function cq(c,d){const i=cr.findIndex(x=>x.c===c);if(i>-1){cr[i].q+=d;if(cr[i].q<=0)cr.splice(i,1);rci();}}
+function rci(){
+  document.getElementById('cc').innerText=cr.reduce((a,b)=>a+b.q,0);
+  document.getElementById('ct').innerText=cr.reduce((a,b)=>a+b.p*b.q,0).toFixed(2)+' TMT';
+  document.getElementById('ci').innerHTML=cr.map(x=>`
+    <div class="it">
+      <img src="img/${x.c}.jpg" onerror="this.style.display='none'">
+      <div style="flex:1"><b>${x.n}</b><br><small>Kod: ${x.c} | ${x.p} TMT</small></div>
+      <div style="display:flex;align-items:center;gap:4px">
+        <button class="qbtn" onclick="cq('${x.c}',-1)">-</button>
+        <b>${x.q}</b>
+        <button class="qbtn" onclick="cq('${x.c}',1)">+</button>
+      </div>
+    </div>`).join('');
+}
+function tc(){const m=document.getElementById('md');m.style.display=m.style.display==='flex'?'none':'flex';}
+function ord(){
+  const t=tx[lg];
+  if(!cr.length)return;
+  const ph=document.getElementById('cphone').value.trim();
+  const ad=document.getElementById('caddr').value.trim();
+  if(!ph||!ad)return alert(t.err);
+  const btn=document.getElementById('t10');
+  btn.innerText=t.wait;btn.disabled=true;
+  const base=location.href.substring(0,location.href.lastIndexOf('/'));
+  let list=cr.map((x,i)=>`${i+1}) ${x.n}\n   Barkod: ${x.c} | Sany: ${x.q} | Baha: ${x.p} TMT | Jemi: ${(x.p*x.q).toFixed(2)} TMT\n   Surat: ${base}/img/${x.c}.jpg`).join('\n\n');
+  fetch("https://formsubmit.co"+MY_GMAIL,{
+    method:"POST",
+    headers:{"Content-Type":"application/json","Accept":"application/json"},
+    body:JSON.stringify({
+      _subject:"🛒 TÄZE SARGYT (AÝ-ÇYZUW) - "+ph,
+      _cc:SHOP_GMAIL,
+      _template:"table",
+      "Müşderiniň Telefony":ph,
+      "Eltip bermeli Adresi":ad,
+      "Jemi Baha":document.getElementById('ct').innerText,
+      "Sargyt edilen harytlar":list
+    })
+  }).then(r=>r.json()).then(()=>{
+    alert(t.ok);
+    cr=[];document.getElementById('cphone').value='';document.getElementById('caddr').value='';
+    rci();tc();
+  }).catch(()=>alert("Internet baglanyşygyny barlaň!")).finally(()=>{btn.innerText=t.t10;btn.disabled=false;});
+}
+rc();rn();
+</script>
+</body>
+</html>
