@@ -33,7 +33,8 @@ body{background:var(--bg);color:var(--t);padding-bottom:74px;transition:backgrou
 .all{font-size:13.5px;font-weight:600;color:var(--p);cursor:pointer}
 .cgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px}
 .ccard{text-align:center;font-size:12.5px;font-weight:600;cursor:pointer}
-.cbox{width:100%;aspect-ratio:1/1;background:var(--c);border:1px solid var(--b);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:36px;margin-bottom:6px;transition:transform .15s}
+.cbox{width:100%;aspect-ratio:1/1;background:#fff;border:1px solid var(--b);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:36px;margin-bottom:6px;transition:transform .15s;overflow:hidden}
+.cbox img{width:100%;height:100%;object-fit:cover}
 .ccard:active .cbox{transform:scale(.96)}
 .pgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .card{border:1px solid var(--b);border-radius:14px;padding:0;background:var(--c);display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden;cursor:pointer;box-shadow:0 2px 8px rgba(15,23,42,.03)}
@@ -309,15 +310,15 @@ lImg.onerror = function(){
 };
 
 var cats = [
-  {id:"Ofis",tk:"Ofis üçin",ru:"Для офиса",i:"🗂️"},
-  {id:"Torba",tk:"Mekdep üçin",ru:"Для школы",i:"🎒"},
-  {id:"Kagyz",tk:"Kagyz önümleri",ru:"Бумажная продукция",i:"📄"},
-  {id:"Ýazuw",tk:"Ýazuw esbaplary",ru:"Письменные товары",i:"🖊️"},
-  {id:"Döredijilik",tk:"Döredijilik",ru:"Творчество",i:"🎨"},
-  {id:"Kitap",tk:"Kitaplar",ru:"Книги",i:"📚"},
-  {id:"Oýunjak",tk:"Oýunjaklar",ru:"Игрушки",i:"🧸"},
-  {id:"Baýramçylyk",tk:"Baýramçylyk",ru:"Праздник",i:"🎈"},
-  {id:"Umumy",tk:"Umumy harytlar",ru:"Общие товары",i:"🛍️"}
+  {id:"Ofis",tk:"Ofis üçin",ru:"Для офиса",i:"🗂️",img:"img/ofis.jpg"},
+  {id:"Torba",tk:"Mekdep üçin",ru:"Для школы",i:"🎒",img:"img/mekdep.jpg"},
+  {id:"Kagyz",tk:"Kagyz önümleri",ru:"Бумажная продукция",i:"📄",img:"img/kagyz.jpg"},
+  {id:"Ýazuw",tk:"Ýazuw esbaplary",ru:"Письменные товары",i:"🖊️",img:"img/yazuw.jpg"},
+  {id:"Döredijilik",tk:"Döredijilik",ru:"Творчество",i:"🎨",img:"img/doredijilik.jpg"},
+  {id:"Kitap",tk:"Kitaplar",ru:"Книги",i:"📚",img:"img/kitaplar.jpg"},
+  {id:"Oýunjak",tk:"Oýunjaklar",ru:"Игрушки",i:"🧸",img:"img/oyunjak.jpg"},
+  {id:"Baýramçylyk",tk:"Baýramçylyk",ru:"Праздник",i:"🎈",img:"img/bayramcylyk.jpg"},
+  {id:"Umumy",tk:"Umumy harytlar",ru:"Общие товары",i:"🛍️",img:"img/umumy.jpg"}
 ];
 
 function lsGet(k,d){ try{ var v=localStorage.getItem(k); return v?JSON.parse(v):d; }catch(e){ return d; } }
@@ -465,22 +466,34 @@ function makeCard(x){
   info.appendChild(btn); card.appendChild(pimg); card.appendChild(info);
   return card;
 }
+function makeCatCard(c, fc){
+  var d = document.createElement("div"); d.className = "ccard";
+  var box = document.createElement("div"); box.className = "cbox";
+  if(c.img){
+    var im = document.createElement("img");
+    im.src = c.img;
+    im.alt = c[lang];
+    im.onerror = function(){ box.innerHTML = c.i; };
+    box.appendChild(im);
+  } else {
+    box.innerHTML = c.i;
+  }
+  var sp = document.createElement("span");
+  sp.innerText = c[lang];
+  d.appendChild(box);
+  d.appendChild(sp);
+  d.onclick = function(){ fc.value = c.id; showTab("home"); render(); };
+  return d;
+}
+
 function initF(){
   var g1=document.getElementById("cgrid1"), g2=document.getElementById("cgrid2"), fc=document.getElementById("fcat"), fb=document.getElementById("fbr");
   g1.innerHTML=""; g2.innerHTML="";
   fc.innerHTML='<option value="">' + (lang==="tk"?"Ähli kategoriýalar":"Все категории") + '</option>';
   for(var i=0;i<cats.length;i++){
     var c=cats[i];
-    if(i<6){
-      var d1=document.createElement("div"); d1.className="ccard";
-      d1.innerHTML='<div class="cbox">'+c.i+'</div><span>'+c[lang]+'</span>';
-      (function(id){ d1.onclick=function(){ fc.value=id; showTab("home"); render(); }; })(c.id);
-      g1.appendChild(d1);
-    }
-    var d2=document.createElement("div"); d2.className="ccard";
-    d2.innerHTML='<div class="cbox">'+c.i+'</div><span>'+c[lang]+'</span>';
-    (function(id){ d2.onclick=function(){ fc.value=id; showTab("home"); render(); }; })(c.id);
-    g2.appendChild(d2);
+    if(i<6) g1.appendChild(makeCatCard(c, fc));
+    g2.appendChild(makeCatCard(c, fc));
     var o=document.createElement("option"); o.value=c.id; o.innerText=c[lang]; fc.appendChild(o);
   }
   var brs={};
@@ -538,7 +551,6 @@ function renderOrders(){
   }
   ol.innerHTML = h;
 }
-
 function addCart(p){
   var f=null;
   for(var i=0;i<cart.length;i++) if(cart[i].id===p.id) f=cart[i];
@@ -593,6 +605,7 @@ function updRep(){
   document.getElementById("repProfit").innerText = st.p.toFixed(2)+" m";
   document.getElementById("repCount").innerText = st.c;
 }
+
 document.getElementById("detBack").onclick = function(){ document.getElementById("detPage").classList.remove("open"); };
 document.getElementById("logoBtn").onclick = function(){
   taps++; clearTimeout(tt); tt = setTimeout(function(){ taps=0; }, 800);
@@ -614,7 +627,6 @@ document.getElementById("goOrd").onclick = function(){ showTab("orders"); };
 document.getElementById("backProf").onclick = function(){ showTab("prof"); };
 document.getElementById("goLang").onclick = function(){ setL(lang==="tk"?"ru":"tk"); };
 document.getElementById("goDark").onclick = function(){ document.body.classList.toggle("dark"); };
-
 document.getElementById("btnCheckAdm").onclick = function(){
   if(document.getElementById("admPass").value === "1234"){
     document.getElementById("adminPanel").style.display = "block";
@@ -714,9 +726,9 @@ document.getElementById("btnOrd").onclick = function(){
 };
 
 var nbtns = document.querySelectorAll(".nbtn");
-for(var i=0; i<nbtns.length; i++) nbtns[i].onclick = function(){ showTab(this.getAttribute("data-t")); };
+for(var i=0;i<nbtns.length;i++) nbtns[i].onclick = function(){ showTab(this.getAttribute("data-t")); };
 var clsBtns = document.querySelectorAll(".cls");
-for(var j=0; j<clsBtns.length; j++) clsBtns[j].onclick = function(){ document.getElementById(this.getAttribute("data-m")).classList.remove("open"); };
+for(var j=0;j<clsBtns.length;j++) clsBtns[j].onclick = function(){ document.getElementById(this.getAttribute("data-m")).classList.remove("open"); };
 
 initF(); render(); updCart();
 </script>
