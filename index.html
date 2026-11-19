@@ -36,16 +36,21 @@ body{background:var(--bg);color:var(--t);padding-bottom:74px;transition:backgrou
 .cbox{width:100%;aspect-ratio:1/1;background:var(--c);border:1px solid var(--b);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:36px;margin-bottom:6px;transition:transform .15s}
 .ccard:active .cbox{transform:scale(.96)}
 .pgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.card{border:1px solid var(--b);border-radius:13px;padding:0;background:var(--c);display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden;cursor:pointer}
-.fav-btn{position:absolute;top:8px;right:8px;z-index:5;background:rgba(255,255,255,.9);border:none;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:14px;box-shadow:0 2px 6px rgba(0,0,0,.12)}
+.card{border:1px solid var(--b);border-radius:14px;padding:0;background:var(--c);display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden;cursor:pointer;box-shadow:0 2px 8px rgba(15,23,42,.03)}
+.fav-btn{position:absolute;top:9px;right:9px;z-index:5;background:rgba(255,255,255,.92);border:1px solid var(--b);border-radius:50%;width:29px;height:29px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--m);box-shadow:0 2px 6px rgba(0,0,0,.06);transition:transform .15s,color .2s}
+.fav-btn:active{transform:scale(.88)}
+.fav-btn.liked{color:#ef4444;border-color:#fecaca;background:#fff5f5}
 body.dark .fav-btn{background:rgba(30,41,59,.9)}
+body.dark .fav-btn.liked{background:rgba(239,68,68,.15);border-color:#7f1d1d}
 .pimg{height:165px;width:100%;background:#fff;display:flex;align-items:center;justify-content:center;font-size:46px;overflow:hidden;border-bottom:1px solid var(--b)}
 .pimg img{width:100%;height:100%;object-fit:contain;padding:2px}
 .cbody{padding:9px;display:flex;flex-direction:column;flex:1;justify-content:space-between}
 .prc{font-size:15.5px;font-weight:800;color:var(--p);margin-bottom:3px}
 .ttl{font-size:12.5px;color:var(--t);line-height:1.3;height:33px;overflow:hidden;margin-bottom:8px}
-.add{width:100%;padding:8px;border:none;background:var(--p);color:#fff;border-radius:8px;font-size:12.5px;font-weight:600;cursor:pointer}
-.add:disabled{background:var(--m);opacity:.5;cursor:not-allowed}
+.add{width:100%;padding:8px 10px;border:1px solid rgba(19,102,158,.22);background:rgba(19,102,158,.08);color:var(--p);border-radius:9px;font-size:12.5px;font-weight:700;cursor:pointer;transition:all .15s}
+.add:active{background:var(--p);color:#fff;transform:scale(.98)}
+body.dark .add{background:rgba(56,189,248,.12);border-color:rgba(56,189,248,.25);color:#38bdf8}
+.add:disabled{background:var(--g);border-color:var(--b);color:var(--m);opacity:.6;cursor:not-allowed}
 .plist{background:var(--c);border-radius:12px;border:1px solid var(--b);margin-bottom:12px;overflow:hidden}
 .pitem{padding:14px 12px;border-bottom:1px solid var(--b);display:flex;justify-content:space-between;align-items:center;font-size:14px;cursor:pointer}
 .pitem:last-child{border-bottom:none}
@@ -71,11 +76,11 @@ select,textarea,input{width:100%;padding:10px;border:1px solid var(--b);border-r
 .det-back{background:none;border:none;font-size:22px;color:var(--t);cursor:pointer;padding-right:10px}
 .det-title-bar{flex:1;font-size:15px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .det-icons{display:flex;gap:12px;align-items:center}
-.det-ico-btn{background:none;border:none;font-size:19px;cursor:pointer;color:var(--t)}
+.det-ico-btn{background:none;border:none;cursor:pointer;color:var(--t);display:flex;align-items:center;justify-content:center}
 .det-img-box{width:100%;height:310px;background:#fff;display:flex;align-items:center;justify-content:center;position:relative;border-bottom:1px solid var(--b)}
 .det-img-box img{width:100%;height:100%;object-fit:contain;padding:10px}
 .det-float{position:absolute;right:14px;bottom:14px;display:flex;flex-direction:column;gap:10px}
-.det-fbtn{width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.92);border:1px solid var(--b);box-shadow:0 3px 10px rgba(0,0,0,.1);display:flex;align-items:center;justify-content:center;font-size:18px;cursor:pointer}
+.det-fbtn{width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.94);border:1px solid var(--b);box-shadow:0 3px 10px rgba(0,0,0,.08);display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--t)}
 .det-info{background:var(--c);padding:15px;margin-bottom:10px;border-bottom:1px solid var(--b)}
 .det-prow{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
 .det-prc{font-size:21px;font-weight:800;color:var(--p)}
@@ -97,7 +102,7 @@ select,textarea,input{width:100%;padding:10px;border:1px solid var(--b);border-r
 <div class="hdr">
   <div class="top">
     <div class="brand" id="logoBtn">
-      <img src="img/logo.png" id="logoImg" alt="AÝ-ÇYZUW">
+      <img src="img/logo.png" id="logoImg" alt="">
       <div id="logoTxt">AÝ-<span>ÇYZUW</span></div>
     </div>
     <div class="lsw">
@@ -161,6 +166,7 @@ select,textarea,input{width:100%;padding:10px;border:1px solid var(--b);border-r
   <div class="stitle"><span data-tk="Halananlar" data-ru="Избранное">Halananlar</span></div>
   <div class="pgrid" id="fgrid"></div>
 </div>
+
 <div id="s-prof" class="sec">
   <div class="stitle"><span data-tk="Profil" data-ru="Профиль">Profil</span></div>
   <div class="plist">
@@ -212,15 +218,15 @@ select,textarea,input{width:100%;padding:10px;border:1px solid var(--b);border-r
     <button class="det-back" id="detBack">←</button>
     <div class="det-title-bar" id="detTopTitle">Haryt</div>
     <div class="det-icons">
-      <button class="det-ico-btn" id="detTopShare">🔗</button>
-      <button class="det-ico-btn" id="detTopFav">🤍</button>
+      <button class="det-ico-btn" id="detTopShare"></button>
+      <button class="det-ico-btn" id="detTopFav"></button>
     </div>
   </div>
   <div class="det-img-box" id="detImgBox">
     <div id="detImgWrap" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:70px"></div>
     <div class="det-float">
-      <button class="det-fbtn" id="detFloatShare">🔗</button>
-      <button class="det-fbtn" id="detFloatFav">🤍</button>
+      <button class="det-fbtn" id="detFloatShare"></button>
+      <button class="det-fbtn" id="detFloatFav"></button>
     </div>
   </div>
   <div class="det-info">
@@ -247,6 +253,7 @@ select,textarea,input{width:100%;padding:10px;border:1px solid var(--b);border-r
     <button class="btn1" id="detAddBtn">🛒 Sebede goş</button>
   </div>
 </div>
+
 <div class="modal" id="admLogin">
   <div class="mbox">
     <div class="stitle"><span>Admin Giriş</span><span class="cls" data-m="admLogin" style="cursor:pointer">✕</span></div>
@@ -282,9 +289,6 @@ select,textarea,input{width:100%;padding:10px;border:1px solid var(--b);border-r
   <button class="nbtn" data-t="menu"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg><span data-tk="Menýu" data-ru="Меню">Menýu</span></button>
   <button class="nbtn" data-t="cart"><span class="cbdg" id="cnt">0</span><svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg><span data-tk="Sebet" data-ru="Корзина">Sebet</span></button>
   <button class="nbtn" data-t="fav"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg><span data-tk="Halananlar" data-ru="Избранное">Halananlar</span></button>
-  <button class="nbtn" data-t="prof"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span data-tk="Profil" data-ru="Профиль">Profil</span></button>
-</div>
-
 <script>
 var githubBaza = [
   { id: "1", t: "Kagyz A4 DOUBLE A 80gms", p: 78, cost: 65, s: 10, c: "Kagyz", b: "Double A" },
@@ -292,6 +296,10 @@ var githubBaza = [
   { id: "3", t: "Ruçka Pensan My-Tech 0.7mm gök", p: 3.5, cost: 2, s: 50, c: "Ýazuw", b: "Pensan" },
   { id: "4", t: "Depder 48 list gözenek Hatber", p: 6, cost: 4, s: 35, c: "Kagyz", b: "Hatber" }
 ];
+
+var hSvg0 = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>';
+var hSvg1 = '<svg width="16" height="16" viewBox="0 0 24 24" fill="#ef4444" stroke="#ef4444" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>';
+var shSvg = '<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>';
 
 var lImg = document.getElementById("logoImg");
 lImg.onload = function(){ document.getElementById("logoTxt").style.display = "none"; };
@@ -340,41 +348,40 @@ function aCat(n){
 
 function aBr(n){
   var bs=["Dolphin","Hatber","Maped","ErichKrause","Faber-Castell","Pensan","Student","Сонет","Гамма","Луч","Double A","Yalong","Kangaro","Cello","Piano","Deli"];
-  for(var i=0;i<bs.length;i++) if(String(n).toLowerCase().indexOf(bs.at(i).toLowerCase())>-1) return bs.at(i);
+  for(var i=0;i<bs.length;i++) if(String(n).toLowerCase().indexOf(bs[i].toLowerCase())>-1) return bs[i];
   return"Beýleki";
 }
 
 function ico(c){
-  for(var i=0;i<cats.length;i++) if(cats.at(i).id===c) return cats.at(i).i;
+  for(var i=0;i<cats.length;i++) if(cats[i].id===c) return cats[i].i;
   return"📦";
 }
 
 function catName(c){
-  for(var i=0;i<cats.length;i++) if(cats.at(i).id===c) return cats.at(i)[lang];
+  for(var i=0;i<cats.length;i++) if(cats[i].id===c) return cats[i][lang];
   return c;
 }
+
 function toggleFav(id){
   var idx = favs.indexOf(id);
   if(idx > -1) favs.splice(idx, 1);
   else favs.push(id);
   lsSet("ay_favs", favs);
-  render();
-  renderFavs();
+  render(); renderFavs();
   if(curDet && curDet.id === id) updDetFav(id);
 }
 
 function updDetFav(id){
   var isF = favs.indexOf(id) > -1;
-  document.getElementById("detTopFav").innerText = isF ? "❤️" : "🤍";
-  document.getElementById("detFloatFav").innerText = isF ? "❤️" : "🤍";
+  document.getElementById("detTopFav").innerHTML = isF ? hSvg1 : hSvg0;
+  document.getElementById("detFloatFav").innerHTML = isF ? hSvg1 : hSvg0;
   document.getElementById("detLikes").innerText = (isF ? 1 : 0) + (parseInt(id,36)%5 + 1);
 }
 
 function shareProd(x){
   var txt = x.t + " — " + x.p + " m\n" + location.href;
-  if(navigator.share){
-    navigator.share({title: x.t, text: txt}).catch(function(){});
-  } else {
+  if(navigator.share){ navigator.share({title: x.t, text: txt}).catch(function(){}); }
+  else if(navigator.clipboard){
     navigator.clipboard.writeText(txt).then(function(){
       alert(lang==="tk"?"Salgy kopiýalandy!":"Ссылка скопирована!");
     }).catch(function(){});
@@ -385,7 +392,6 @@ function openDet(x){
   curDet = x;
   views[x.id] = (views[x.id] || (parseInt(x.id,36)%40 + 12)) + 1;
   lsSet("ay_views", views);
-
   document.getElementById("detTopTitle").innerText = x.t;
   document.getElementById("detName").innerText = x.t;
   document.getElementById("detPrc").innerText = x.p + " m";
@@ -393,101 +399,79 @@ function openDet(x){
   document.getElementById("detCat").innerText = catName(x.c);
   document.getElementById("detBr").innerText = x.b;
   document.getElementById("detCode").innerText = x.id;
+  document.getElementById("detTopShare").innerHTML = shSvg;
+  document.getElementById("detFloatShare").innerHTML = shSvg;
   updDetFav(x.id);
 
-  var iw = document.getElementById("detImgWrap");
-  iw.innerHTML = "";
-  var im = document.createElement("img");
-  im.src = "img/" + x.id + ".jpg";
+  var iw = document.getElementById("detImgWrap"); iw.innerHTML = "";
+  var im = document.createElement("img"); im.src = "img/" + x.id + ".jpg";
   (function(ic){ im.onerror = function(){ iw.innerHTML = ic; }; })(ico(x.c));
   iw.appendChild(im);
 
   var ab = document.getElementById("detAddBtn");
-  if(x.s <= 0){
-    ab.disabled = true;
-    ab.innerText = lang==="tk" ? "Gutarandy" : "Нет в наличии";
-  } else {
-    ab.disabled = false;
-    ab.innerText = lang==="tk" ? "🛒 Sebede goş" : "🛒 Добавить в корзину";
+  if(x.s <= 0){ ab.disabled = true; ab.innerText = lang==="tk" ? "Gutarandy" : "Нет в наличии"; }
+  else {
+    ab.disabled = false; ab.innerText = lang==="tk" ? "🛒 Sebede goş" : "🛒 Добавить в корзину";
     ab.onclick = function(){ addCart(x); alert(lang==="tk"?"Sebede goşuldy!":"Добавлено в корзину!"); };
   }
-
   document.getElementById("detTopFav").onclick = function(){ toggleFav(x.id); };
   document.getElementById("detFloatFav").onclick = function(){ toggleFav(x.id); };
   document.getElementById("detTopShare").onclick = function(){ shareProd(x); };
   document.getElementById("detFloatShare").onclick = function(){ shareProd(x); };
 
-  var simBox = document.getElementById("detSim");
-  simBox.innerHTML = "";
+  var simBox = document.getElementById("detSim"); simBox.innerHTML = "";
   var scnt = 0;
   for(var i=0;i<db.length;i++){
-    var s = db.at(i);
+    var s = db[i];
     if(s.id !== x.id && s.c === x.c && scnt < 10){
-      var sc = document.createElement("div");
-      sc.className = "sim-card";
-      var si = document.createElement("div");
-      si.className = "sim-img";
-      var simg = document.createElement("img");
-      simg.src = "img/" + s.id + ".jpg";
+      var sc = document.createElement("div"); sc.className = "sim-card";
+      var si = document.createElement("div"); si.className = "sim-img";
+      var simg = document.createElement("img"); simg.src = "img/" + s.id + ".jpg";
       (function(ic){ simg.onerror = function(){ this.parentElement.innerHTML = ic; }; })(ico(s.c));
       si.appendChild(simg);
-      var sb = document.createElement("div");
-      sb.style.padding = "8px";
+      var sb = document.createElement("div"); sb.style.padding = "8px";
       sb.innerHTML = '<div style="font-size:13.5px;font-weight:800;color:var(--p);margin-bottom:2px">'+s.p+' m</div><div style="font-size:11.5px;height:30px;overflow:hidden;line-height:1.25">'+s.t+'</div>';
-      sc.appendChild(si);
-      sc.appendChild(sb);
+      sc.appendChild(si); sc.appendChild(sb);
       (function(item){ sc.onclick = function(){ openDet(item); document.getElementById("detPage").scrollTop = 0; }; })(s);
-      simBox.appendChild(sc);
-      scnt++;
+      simBox.appendChild(sc); scnt++;
     }
   }
   document.getElementById("detPage").classList.add("open");
 }
 
 function makeCard(x){
-  var card = document.createElement("div");
-  card.className = "card";
+  var card = document.createElement("div"); card.className = "card";
   card.onclick = function(){ openDet(x); };
-
+  var isLiked = favs.indexOf(x.id) > -1;
   var fbtn = document.createElement("button");
-  fbtn.className = "fav-btn";
-  fbtn.innerText = favs.indexOf(x.id) > -1 ? "❤️" : "🤍";
+  fbtn.className = "fav-btn" + (isLiked ? " liked" : "");
+  fbtn.innerHTML = isLiked ? hSvg1 : hSvg0;
   fbtn.onclick = function(e){ e.stopPropagation(); toggleFav(x.id); };
   card.appendChild(fbtn);
 
-  var pimg = document.createElement("div");
-  pimg.className = "pimg";
-  var img = document.createElement("img");
-  img.src = "img/" + x.id + ".jpg";
+  var pimg = document.createElement("div"); pimg.className = "pimg";
+  var img = document.createElement("img"); img.src = "img/" + x.id + ".jpg";
   (function(ic){ img.onerror = function(){ this.parentElement.innerHTML = ic; }; })(ico(x.c));
   pimg.appendChild(img);
 
-  var info = document.createElement("div");
-  info.className = "cbody";
+  var info = document.createElement("div"); info.className = "cbody";
   info.innerHTML = '<div class="prc">' + x.p + ' m</div><div class="ttl">' + x.t + '</div>';
 
-  var btn = document.createElement("button");
-  btn.className = "add";
-  if(x.s <= 0){
-    btn.disabled = true;
-    btn.innerText = lang === "tk" ? "Gutarandy" : "Нет в наличии";
-  } else {
+  var btn = document.createElement("button"); btn.className = "add";
+  if(x.s <= 0){ btn.disabled = true; btn.innerText = lang === "tk" ? "Gutarandy" : "Нет в наличии"; }
+  else {
     btn.innerText = lang === "tk" ? "+ Sebede goş" : "+ В корзину";
     btn.onclick = function(e){ e.stopPropagation(); addCart(x); };
   }
-
-  info.appendChild(btn);
-  card.appendChild(pimg);
-  card.appendChild(info);
+  info.appendChild(btn); card.appendChild(pimg); card.appendChild(info);
   return card;
 }
-
 function initF(){
   var g1=document.getElementById("cgrid1"), g2=document.getElementById("cgrid2"), fc=document.getElementById("fcat"), fb=document.getElementById("fbr");
   g1.innerHTML=""; g2.innerHTML="";
   fc.innerHTML='<option value="">' + (lang==="tk"?"Ähli kategoriýalar":"Все категории") + '</option>';
   for(var i=0;i<cats.length;i++){
-    var c=cats.at(i);
+    var c=cats[i];
     if(i<6){
       var d1=document.createElement("div"); d1.className="ccard";
       d1.innerHTML='<div class="cbox">'+c.i+'</div><span>'+c[lang]+'</span>';
@@ -498,17 +482,13 @@ function initF(){
     d2.innerHTML='<div class="cbox">'+c.i+'</div><span>'+c[lang]+'</span>';
     (function(id){ d2.onclick=function(){ fc.value=id; showTab("home"); render(); }; })(c.id);
     g2.appendChild(d2);
-
     var o=document.createElement("option"); o.value=c.id; o.innerText=c[lang]; fc.appendChild(o);
   }
   var brs={};
   fb.innerHTML='<option value="">' + (lang==="tk"?"Ähli brendler":"Все бренды") + '</option>';
   for(var j=0;j<db.length;j++){
-    var item=db.at(j);
-    if(!brs[item.b]){
-      brs[item.b]=1;
-      var ob=document.createElement("option"); ob.value=item.b; ob.innerText=item.b; fb.appendChild(ob);
-    }
+    var item=db[j];
+    if(!brs[item.b]){ brs[item.b]=1; var ob=document.createElement("option"); ob.value=item.b; ob.innerText=item.b; fb.appendChild(ob); }
   }
 }
 
@@ -521,7 +501,7 @@ function render(){
   pg.innerHTML="";
   var cnt=0;
   for(var i=0;i<db.length;i++){
-    var x=db.at(i);
+    var x=db[i];
     if((!hz||x.s>0) && (x.t.toLowerCase().indexOf(q)>-1 || String(x.id).toLowerCase().indexOf(q)>-1) && (!fc||x.c===fc) && (!fb||x.b===fb) && (x.p>=mn && x.p<=mx)){
       if(cnt<100) pg.appendChild(makeCard(x));
       cnt++;
@@ -530,52 +510,31 @@ function render(){
 }
 
 function renderFavs(){
-  var fg = document.getElementById("fgrid");
-  fg.innerHTML = "";
-  var found = 0;
+  var fg = document.getElementById("fgrid"); fg.innerHTML = ""; var found = 0;
   for(var i=0;i<db.length;i++){
-    var item = db.at(i);
-    if(favs.indexOf(item.id) > -1){
-      fg.appendChild(makeCard(item));
-      found++;
-    }
+    if(favs.indexOf(db[i].id) > -1){ fg.appendChild(makeCard(db[i])); found++; }
   }
   if(!found) fg.innerHTML = '<p style="grid-column:1/-1;text-align:center;color:var(--m);padding:30px">' + (lang==="tk"?"Halanan haryt ýok":"Нет избранных товаров") + '</p>';
 }
 
 function renderStockList(){
-  var sl = document.getElementById("stockList");
-  sl.innerHTML = "";
+  var sl = document.getElementById("stockList"); sl.innerHTML = "";
   for(var i=0;i<db.length;i++){
-    var x = db.at(i);
-    var row = document.createElement("div");
-    row.className = "adm-row";
+    var x = db[i], row = document.createElement("div"); row.className = "adm-row";
     row.innerHTML = '<span style="max-width:65%"><b>['+x.id+']</b> '+x.t+'</span>';
-    var inp = document.createElement("input");
-    inp.type = "number";
-    inp.value = x.s;
+    var inp = document.createElement("input"); inp.type = "number"; inp.value = x.s;
     inp.style.cssText = "width:65px;padding:4px 6px;margin:0;text-align:center";
-    (function(idx){
-      inp.onchange = function(){
-        db.at(idx).s = Math.max(0, parseFloat(this.value) || 0);
-        lsSet("ay_db_v10", db);
-        render();
-      };
-    })(i);
-    row.appendChild(inp);
-    sl.appendChild(row);
+    (function(idx){ inp.onchange = function(){ db[idx].s = Math.max(0, parseFloat(this.value) || 0); lsSet("ay_db_v10", db); render(); }; })(i);
+    row.appendChild(inp); sl.appendChild(row);
   }
 }
 
 function renderOrders(){
   var ol = document.getElementById("olist");
-  if(!orders.length){
-    ol.innerHTML = '<p style="text-align:center;color:var(--m);padding:30px">' + (lang==="tk"?"Heniz sargyt ýok":"Заказов пока нет") + '</p>';
-    return;
-  }
+  if(!orders.length){ ol.innerHTML = '<p style="text-align:center;color:var(--m);padding:30px">' + (lang==="tk"?"Heniz sargyt ýok":"Заказов пока нет") + '</p>'; return; }
   var h = "";
   for(var i=orders.length-1;i>=0;i--){
-    var o = orders.at(i);
+    var o = orders[i];
     h += '<div style="background:var(--c);border:1px solid var(--b);padding:12px;border-radius:11px;margin-bottom:8px;font-size:13px"><b>Sargyt '+o.id+' — '+o.tot+'</b><br><span style="color:var(--m)">'+o.nm+' ('+o.ph+') - '+o.ad+'</span><div style="margin-top:6px;white-space:pre-wrap;font-size:11.5px;background:var(--g);padding:8px;border-radius:8px">'+o.det+'</div></div>';
   }
   ol.innerHTML = h;
@@ -583,29 +542,168 @@ function renderOrders(){
 
 function addCart(p){
   var f=null;
-  for(var i=0;i<cart.length;i++) if(cart.at(i).id===p.id) f=cart.at(i);
-  if(f){
-    if(f.q < p.s) f.q++;
-    else alert(lang==="tk"?"Ammarda diňe "+p.s+" sany bar!":"На складе только "+p.s+" шт!");
-  } else {
-    cart.push({id:p.id,t:p.t,p:p.p,cost:p.cost,q:1,max:p.s});
-  }
+  for(var i=0;i<cart.length;i++) if(cart[i].id===p.id) f=cart[i];
+  if(f){ if(f.q < p.s) f.q++; else alert(lang==="tk"?"Ammarda diňe "+p.s+" sany bar!":"На складе только "+p.s+" шт!"); }
+  else { cart.push({id:p.id,t:p.t,p:p.p,cost:p.cost,q:1,max:p.s}); }
   updCart();
 }
 
 function updCart(){
-  var c=0, t=0, cl=document.getElementById("clist");
-  cl.innerHTML="";
+  var c=0, t=0, cl=document.getElementById("clist"); cl.innerHTML="";
   for(var i=0;i<cart.length;i++){
-    var item = cart.at(i);
-    c += item.q;
-    t += item.p * item.q;
-    var div = document.createElement("div");
-    div.className = "citem";
+    var item = cart[i]; c += item.q; t += item.p * item.q;
+    var div = document.createElement("div"); div.className = "citem";
     div.innerHTML = '<div style="flex:1"><div style="font-size:13px;font-weight:600">'+item.t+'</div><div style="font-size:12px;color:var(--p);font-weight:700">'+(item.p*item.q).toFixed(2)+' m</div></div>';
-    var qc = document.createElement("div");
-    qc.className = "qctrl";
+    var qc = document.createElement("div"); qc.className = "qctrl";
     var bm = document.createElement("button"); bm.className="qbtn"; bm.innerText="-";
     var qn = document.createElement("span"); qn.style.fontSize="13px"; qn.innerText=item.q;
     var bp = document.createElement("button"); bp.className="qbtn"; bp.innerText="+";
     (function(idx){
+      bm.onclick = function(){ cart[idx].q--; if(cart[idx].q<=0) cart.splice(idx,1); updCart(); };
+      bp.onclick = function(){ if(cart[idx].q < cart[idx].max){ cart[idx].q++; updCart(); } };
+    })(i);
+    qc.appendChild(bm); qc.appendChild(qn); qc.appendChild(bp); div.appendChild(qc); cl.appendChild(div);
+  }
+  document.getElementById("cnt").innerText = c;
+  document.getElementById("tot").innerText = t.toFixed(2);
+  document.getElementById("obox").style.display = cart.length ? "block" : "none";
+  if(!cart.length) cl.innerHTML = '<p style="text-align:center;color:var(--m);padding:30px">'+(lang==="tk"?"Sebet boş":"Корзина пуста")+'</p>';
+}
+
+function showTab(t){
+  var s=document.querySelectorAll(".sec"), n=document.querySelectorAll(".nbtn");
+  for(var i=0;i<s.length;i++) s[i].classList.remove("act");
+  for(var j=0;j<n.length;j++) n[j].classList.toggle("act", n[j].getAttribute("data-t")===t);
+  document.getElementById("s-"+t).classList.add("act");
+  if(t==="fav") renderFavs();
+  if(t==="orders") renderOrders();
+}
+
+function setL(l){
+  lang=l;
+  document.getElementById("ltm").classList.toggle("act", l==="tk");
+  document.getElementById("lru").classList.toggle("act", l==="ru");
+  var els=document.querySelectorAll("[data-tk]");
+  for(var i=0;i<els.length;i++) els[i].innerText = els[i].getAttribute("data-"+l);
+  document.getElementById("q").placeholder = l==="tk"?"Gözleg...":"Поиск...";
+  initF(); render(); updCart();
+}
+
+function updRep(){
+  document.getElementById("repSales").innerText = st.s.toFixed(2)+" m";
+  document.getElementById("repProfit").innerText = st.p.toFixed(2)+" m";
+  document.getElementById("repCount").innerText = st.c;
+}
+document.getElementById("detBack").onclick = function(){ document.getElementById("detPage").classList.remove("open"); };
+document.getElementById("logoBtn").onclick = function(){
+  taps++; clearTimeout(tt); tt = setTimeout(function(){ taps=0; }, 800);
+  if(taps===3){ taps=0; document.getElementById("admLogin").classList.add("open"); }
+};
+document.getElementById("ltm").onclick = function(){ setL("tk"); };
+document.getElementById("lru").onclick = function(){ setL("ru"); };
+document.getElementById("q").onkeyup = render;
+document.getElementById("hideZero").onchange = render;
+document.getElementById("clrQ").onclick = function(){ document.getElementById("q").value=""; render(); };
+document.getElementById("btnSort").onclick = function(){ document.getElementById("sm").classList.add("open"); };
+document.getElementById("btnFilt").onclick = function(){ document.getElementById("fm").classList.add("open"); };
+document.getElementById("btnAll").onclick = function(){ document.getElementById("q").value=""; document.getElementById("fcat").value=""; document.getElementById("fbr").value=""; document.getElementById("mn").value=""; document.getElementById("mx").value=""; render(); };
+document.getElementById("btnApplyF").onclick = function(){ render(); document.getElementById("fm").classList.remove("open"); };
+document.getElementById("btnResetF").onclick = function(){ document.getElementById("btnAll").onclick(); document.getElementById("fm").classList.remove("open"); };
+document.getElementById("srt1").onclick = function(){ db.sort(function(a,b){return a.p-b.p;}); render(); document.getElementById("sm").classList.remove("open"); };
+document.getElementById("srt2").onclick = function(){ db.sort(function(a,b){return b.p-a.p;}); render(); document.getElementById("sm").classList.remove("open"); };
+document.getElementById("goOrd").onclick = function(){ showTab("orders"); };
+document.getElementById("backProf").onclick = function(){ showTab("prof"); };
+document.getElementById("goLang").onclick = function(){ setL(lang==="tk"?"ru":"tk"); };
+document.getElementById("goDark").onclick = function(){ document.body.classList.toggle("dark"); };
+
+document.getElementById("btnCheckAdm").onclick = function(){
+  if(document.getElementById("admPass").value === "1234"){
+    document.getElementById("adminPanel").style.display = "block";
+    document.getElementById("admMail1").value = m1; document.getElementById("admMail2").value = m2; document.getElementById("admSms").value = smsPh;
+    document.getElementById("admStat").innerText = "Jemi haryt sany: " + db.length;
+    updRep(); renderStockList(); document.getElementById("admLogin").classList.remove("open"); showTab("prof");
+  } else alert("Nädogry parol!");
+};
+
+document.getElementById("btnSaveMail").onclick = function(){
+  m1 = document.getElementById("admMail1").value.trim(); m2 = document.getElementById("admMail2").value.trim(); smsPh = document.getElementById("admSms").value.trim();
+  lsSet("ay_m1", m1); lsSet("ay_m2", m2); lsSet("ay_sms", smsPh);
+  alert("Gmail we SMS belgi ýatda saklandy!");
+};
+
+document.getElementById("btnResetRep").onclick = function(){ st = {s:0, p:0, c:0}; lsSet("ay_st", st); updRep(); };
+document.getElementById("btnClear").onclick = function(){
+  if(confirm("Ähli ýatda saklanan maglumatlary arassalamalymy?")){
+    try{ localStorage.removeItem("ay_db_v10"); }catch(e){}
+    db = githubBaza.slice(); render(); renderStockList(); initF();
+    document.getElementById("admStat").innerText = "Jemi haryt sany: " + db.length;
+  }
+};
+document.getElementById("btnLogout").onclick = function(){ document.getElementById("adminPanel").style.display = "none"; document.getElementById("admPass").value = ""; };
+
+document.getElementById("btnImport").onclick = function(){
+  var raw = document.getElementById("pasteBox").value.trim();
+  if(!raw) return alert("Excel maglumatyny goýuň!");
+  var lines = raw.split(/\r?\n/), added = 0;
+  for(var i=0; i<lines.length; i++){
+    var cols = lines[i].split("\t");
+    if(cols.length < 4) continue;
+    var id = cols.shift().trim();
+    var t = cols.shift().trim();
+    var s = parseFloat(String(cols.shift()).replace(",", ".")) || 0;
+    var p = parseFloat(String(cols.shift()).replace(",", ".")) || 0;
+    var cost = cols.length ? (parseFloat(String(cols.shift()).replace(",", ".")) || 0) : 0;
+    if(!id || !t) continue;
+    var found = false;
+    for(var j=0; j<db.length; j++){
+      if(db[j].id === id){ db[j].t = t; db[j].s = s; db[j].p = p; if(cost) db[j].cost = cost; found = true; break; }
+    }
+    if(!found) db.push({id:id, t:t, p:p, cost:cost, s:s, c:aCat(t), b:aBr(t)});
+    added++;
+  }
+  lsSet("ay_db_v10", db); render(); renderStockList(); initF();
+  document.getElementById("admStat").innerText = "Ýüklendi: " + added + " | Jemi: " + db.length;
+  document.getElementById("pasteBox").value = "";
+};
+
+document.getElementById("btnCopyGit").onclick = function(){
+  var txt = "var githubBaza = " + JSON.stringify(db, null, 2) + ";";
+  if(navigator.clipboard){ navigator.clipboard.writeText(txt).then(function(){ alert("baza.js üçin kod kopiýalandy!"); }).catch(function(){ alert("Kopiýalap bolmady!"); }); }
+};
+
+document.getElementById("btnOrd").onclick = function(){
+  var nm = document.getElementById("nm").value.trim(), ph = document.getElementById("ph").value.trim(), ad = document.getElementById("ad").value.trim();
+  if(!nm || !ph || !ad) return alert(lang==="tk"?"Ähli öýjükleri dolduryň!":"Заполните все поля!");
+  var det = "", tot = 0, prof = 0;
+  for(var i=0; i<cart.length; i++){
+    var it = cart[i];
+    det += (i+1) + ". " + it.t + " x" + it.q + " = " + (it.p*it.q).toFixed(2) + " m\n";
+    tot += it.p * it.q; prof += (it.p - (it.cost||0)) * it.q;
+    for(var j=0; j<db.length; j++) if(db[j].id === it.id) db[j].s = Math.max(0, db[j].s - it.q);
+  }
+  var oid = "#" + String(Date.now()).slice(-5), totStr = tot.toFixed(2) + " m";
+  orders.push({id:oid, nm:nm, ph:ph, ad:ad, det:det, tot:totStr});
+  st.s += tot; st.p += prof; st.c += 1;
+  lsSet("ay_db_v10", db); lsSet("ay_orders", orders); lsSet("ay_st", st);
+
+  var msg = "Täze sargyt " + oid + "\nMüşderi: " + nm + "\nTel: " + ph + "\nSalgy: " + ad + "\n\n" + det + "\nJemi: " + totStr;
+  var mails = [m1, m2].filter(Boolean).join(",");
+  if(mails && (!smsPh || smsPh.length < 8 || confirm(lang==="tk"?"Gmail arkaly ibermelimi? (SMS üçin Otmena basyň)":"Отправить через Gmail? (Нажмите Отмена для SMS)"))){
+    window.location.href = "mailto:" + encodeURIComponent(mails) + "?subject=" + encodeURIComponent("AÝ-ÇYZUW Sargyt " + oid) + "&body=" + encodeURIComponent(msg);
+  } else if(smsPh && smsPh.length >= 8){
+    window.location.href = "sms:" + smsPh + "?body=" + encodeURIComponent(msg);
+  }
+  cart = []; updCart(); render();
+  alert(lang==="tk"?"Sargydyňyz kabul edildi! ("+oid+")":"Ваш заказ принят! ("+oid+")");
+  showTab("orders");
+};
+
+var nbtns = document.querySelectorAll(".nbtn");
+for(var i=0; i<nbtns.length; i++) nbtns[i].onclick = function(){ showTab(this.getAttribute("data-t")); };
+var clsBtns = document.querySelectorAll(".cls");
+for(var j=0; j<clsBtns.length; j++) clsBtns[j].onclick = function(){ document.getElementById(this.getAttribute("data-m")).classList.remove("open"); };
+
+initF(); render(); updCart();
+</script>
+</body>
+</html>
