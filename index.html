@@ -36,13 +36,13 @@ body{background:var(--bg);color:var(--t);padding-bottom:74px;transition:backgrou
 .cbox{width:100%;aspect-ratio:1/1;background:var(--c);border:1px solid var(--b);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:36px;margin-bottom:6px;transition:transform .15s}
 .ccard:active .cbox{transform:scale(.96)}
 .pgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.card{border:1px solid var(--b);border-radius:13px;padding:9px;background:var(--c);display:flex;flex-direction:column;justify-content:space-between;position:relative}
-.fav-btn{position:absolute;top:14px;right:14px;z-index:5;background:rgba(255,255,255,.85);border:none;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:15px;box-shadow:0 2px 5px rgba(0,0,0,.1)}
-body.dark .fav-btn{background:rgba(30,41,59,.85)}
-.pimg{height:118px;background:var(--g);border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:44px;margin-bottom:8px;overflow:hidden}
-.prc-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:3px}
-.prc{font-size:15px;font-weight:800;color:var(--p)}
-.stk{font-size:11px;color:var(--m);background:var(--g);padding:2px 6px;border-radius:6px}
+.card{border:1px solid var(--b);border-radius:13px;padding:0;background:var(--c);display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden;cursor:pointer}
+.fav-btn{position:absolute;top:8px;right:8px;z-index:5;background:rgba(255,255,255,.9);border:none;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:14px;box-shadow:0 2px 6px rgba(0,0,0,.12)}
+body.dark .fav-btn{background:rgba(30,41,59,.9)}
+.pimg{height:165px;width:100%;background:#fff;display:flex;align-items:center;justify-content:center;font-size:46px;overflow:hidden;border-bottom:1px solid var(--b)}
+.pimg img{width:100%;height:100%;object-fit:contain;padding:2px}
+.cbody{padding:9px;display:flex;flex-direction:column;flex:1;justify-content:space-between}
+.prc{font-size:15.5px;font-weight:800;color:var(--p);margin-bottom:3px}
 .ttl{font-size:12.5px;color:var(--t);line-height:1.3;height:33px;overflow:hidden;margin-bottom:8px}
 .add{width:100%;padding:8px;border:none;background:var(--p);color:#fff;border-radius:8px;font-size:12.5px;font-weight:600;cursor:pointer}
 .add:disabled{background:var(--m);opacity:.5;cursor:not-allowed}
@@ -65,10 +65,35 @@ select,textarea,input{width:100%;padding:10px;border:1px solid var(--b);border-r
 .nbtn.act{color:var(--p);font-weight:700}
 .nbtn svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.7;margin-bottom:3px}
 .cbdg{position:absolute;top:-2px;right:22%;background:var(--err);color:#fff;font-size:9px;font-weight:800;padding:1px 5px;border-radius:8px}
+.det-page{display:none;position:fixed;inset:0;background:var(--bg);z-index:45;overflow-y:auto;padding-bottom:76px}
+.det-page.open{display:block}
+.det-top{position:sticky;top:0;background:var(--c);padding:12px 15px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--b);z-index:10}
+.det-back{background:none;border:none;font-size:22px;color:var(--t);cursor:pointer;padding-right:10px}
+.det-title-bar{flex:1;font-size:15px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.det-icons{display:flex;gap:12px;align-items:center}
+.det-ico-btn{background:none;border:none;font-size:19px;cursor:pointer;color:var(--t)}
+.det-img-box{width:100%;height:310px;background:#fff;display:flex;align-items:center;justify-content:center;position:relative;border-bottom:1px solid var(--b)}
+.det-img-box img{width:100%;height:100%;object-fit:contain;padding:10px}
+.det-float{position:absolute;right:14px;bottom:14px;display:flex;flex-direction:column;gap:10px}
+.det-fbtn{width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.92);border:1px solid var(--b);box-shadow:0 3px 10px rgba(0,0,0,.1);display:flex;align-items:center;justify-content:center;font-size:18px;cursor:pointer}
+.det-info{background:var(--c);padding:15px;margin-bottom:10px;border-bottom:1px solid var(--b)}
+.det-prow{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.det-prc{font-size:21px;font-weight:800;color:var(--p)}
+.det-stats{display:flex;gap:12px;font-size:13px;color:var(--m);align-items:center}
+.det-name{font-size:16px;font-weight:600;line-height:1.4;color:var(--t)}
+.det-spec{background:var(--c);padding:15px;margin-bottom:10px;border-top:1px solid var(--b);border-bottom:1px solid var(--b)}
+.det-spec h4{font-size:16px;font-weight:700;margin-bottom:10px}
+.spec-row{display:flex;justify-content:space-between;font-size:13.5px;padding:6px 0;border-bottom:1px dashed var(--b)}
+.spec-row:last-child{border-bottom:none}
+.det-sim{padding:12px 15px}
+.sim-scroll{display:flex;gap:10px;overflow-x:auto;padding-bottom:6px}
+.sim-card{min-width:145px;max-width:145px;background:var(--c);border:1px solid var(--b);border-radius:12px;overflow:hidden;cursor:pointer;flex-shrink:0}
+.sim-img{height:120px;background:#fff;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--b)}
+.sim-img img{width:100%;height:100%;object-fit:contain;padding:4px}
+.det-bar{position:fixed;bottom:0;left:0;right:0;background:var(--c);padding:10px 15px;border-top:1px solid var(--b);z-index:48}
 </style>
 </head>
 <body>
-
 <div class="hdr">
   <div class="top">
     <div class="brand" id="logoBtn">
@@ -136,7 +161,6 @@ select,textarea,input{width:100%;padding:10px;border:1px solid var(--b);border-r
   <div class="stitle"><span data-tk="Halananlar" data-ru="Избранное">Halananlar</span></div>
   <div class="pgrid" id="fgrid"></div>
 </div>
-
 <div id="s-prof" class="sec">
   <div class="stitle"><span data-tk="Profil" data-ru="Профиль">Profil</span></div>
   <div class="plist">
@@ -156,7 +180,8 @@ select,textarea,input{width:100%;padding:10px;border:1px solid var(--b);border-r
 
     <input id="admMail1" placeholder="1-nji Gmail (Özüňiziňki)">
     <input id="admMail2" placeholder="2-nji Gmail (Dükan)">
-    <button class="btn1" id="btnSaveMail" style="margin-bottom:12px">💾 Gmail ýatda sakla</button>
+    <input id="admSms" placeholder="SMS üçin telefon (+9936XXXXXXX)">
+    <button class="btn1" id="btnSaveMail" style="margin-bottom:12px">💾 Gmail we SMS belgini ýatda sakla</button>
 
     <div style="font-size:12px;color:var(--m);margin-bottom:4px">Excel tertibi: <b>Kod | Ady | Galyndy | Satlyk | Geliş</b></div>
     <textarea id="pasteBox" rows="4" placeholder="Excel-den kopya edip şu ýere goýuň..."></textarea>
@@ -182,6 +207,46 @@ select,textarea,input{width:100%;padding:10px;border:1px solid var(--b);border-r
   <div id="olist"></div>
 </div>
 
+<div class="det-page" id="detPage">
+  <div class="det-top">
+    <button class="det-back" id="detBack">←</button>
+    <div class="det-title-bar" id="detTopTitle">Haryt</div>
+    <div class="det-icons">
+      <button class="det-ico-btn" id="detTopShare">🔗</button>
+      <button class="det-ico-btn" id="detTopFav">🤍</button>
+    </div>
+  </div>
+  <div class="det-img-box" id="detImgBox">
+    <div id="detImgWrap" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:70px"></div>
+    <div class="det-float">
+      <button class="det-fbtn" id="detFloatShare">🔗</button>
+      <button class="det-fbtn" id="detFloatFav">🤍</button>
+    </div>
+  </div>
+  <div class="det-info">
+    <div class="det-prow">
+      <div class="det-prc" id="detPrc">0 m</div>
+      <div class="det-stats">
+        <span>❤️ <b id="detLikes">0</b></span>
+        <span>👁️ <b id="detViews">0</b></span>
+      </div>
+    </div>
+    <div class="det-name" id="detName"></div>
+  </div>
+  <div class="det-spec">
+    <h4 data-tk="Häsiýetleri" data-ru="Характеристики">Häsiýetleri</h4>
+    <div class="spec-row"><span style="color:var(--m)" data-tk="Kategoriýa:" data-ru="Категория:">Kategoriýa:</span><b id="detCat"></b></div>
+    <div class="spec-row"><span style="color:var(--m)" data-tk="Brend:" data-ru="Бренд:">Brend:</span><b id="detBr"></b></div>
+    <div class="spec-row"><span style="color:var(--m)" data-tk="Haryt kody:" data-ru="Код товара:">Haryt kody:</span><b id="detCode"></b></div>
+  </div>
+  <div class="det-sim">
+    <div class="stitle" style="margin-top:0"><span data-tk="Meňzeş harytlar" data-ru="Похожие товары">Meňzeş harytlar</span></div>
+    <div class="sim-scroll" id="detSim"></div>
+  </div>
+  <div class="det-bar">
+    <button class="btn1" id="detAddBtn">🛒 Sebede goş</button>
+  </div>
+</div>
 <div class="modal" id="admLogin">
   <div class="mbox">
     <div class="stitle"><span>Admin Giriş</span><span class="cls" data-m="admLogin" style="cursor:pointer">✕</span></div>
@@ -221,7 +286,6 @@ select,textarea,input{width:100%;padding:10px;border:1px solid var(--b);border-r
 </div>
 
 <script>
-// Harytlar bazasy (baza.js bilen birleşdirilen - telefondan hem-de GitHub-dan göni açylýar)
 var githubBaza = [
   { id: "1", t: "Kagyz A4 DOUBLE A 80gms", p: 78, cost: 65, s: 10, c: "Kagyz", b: "Double A" },
   { id: "2", t: "Faýl Dolphin 40micr 100s", p: 20, cost: 15, s: 15, c: "Ofis", b: "Dolphin" },
@@ -253,11 +317,13 @@ function lsSet(k,v){ try{ localStorage.setItem(k,JSON.stringify(v)); }catch(e){}
 
 var db = lsGet("ay_db_v10", githubBaza);
 var favs = lsGet("ay_favs", []);
+var views = lsGet("ay_views", {});
 var orders = lsGet("ay_orders", []);
 var m1 = lsGet("ay_m1", "aycyzuw@gmail.com");
 var m2 = lsGet("ay_m2", "");
+var smsPh = lsGet("ay_sms", "+9936");
 var st = lsGet("ay_st", {s:0,p:0,c:0});
-var cart = [], lang = "tk", taps = 0, tt;
+var cart = [], lang = "tk", taps = 0, tt, curDet = null;
 
 function aCat(n){
   var s=String(n).toLowerCase();
@@ -274,15 +340,19 @@ function aCat(n){
 
 function aBr(n){
   var bs=["Dolphin","Hatber","Maped","ErichKrause","Faber-Castell","Pensan","Student","Сонет","Гамма","Луч","Double A","Yalong","Kangaro","Cello","Piano","Deli"];
-  for(var i=0;i<bs.length;i++) if(String(n).toLowerCase().indexOf(bs[i].toLowerCase())>-1) return bs[i];
+  for(var i=0;i<bs.length;i++) if(String(n).toLowerCase().indexOf(bs.at(i).toLowerCase())>-1) return bs.at(i);
   return"Beýleki";
 }
 
 function ico(c){
-  for(var i=0;i<cats.length;i++) if(cats[i].id===c) return cats[i].i;
+  for(var i=0;i<cats.length;i++) if(cats.at(i).id===c) return cats.at(i).i;
   return"📦";
 }
 
+function catName(c){
+  for(var i=0;i<cats.length;i++) if(cats.at(i).id===c) return cats.at(i)[lang];
+  return c;
+}
 function toggleFav(id){
   var idx = favs.indexOf(id);
   if(idx > -1) favs.splice(idx, 1);
@@ -290,11 +360,94 @@ function toggleFav(id){
   lsSet("ay_favs", favs);
   render();
   renderFavs();
+  if(curDet && curDet.id === id) updDetFav(id);
+}
+
+function updDetFav(id){
+  var isF = favs.indexOf(id) > -1;
+  document.getElementById("detTopFav").innerText = isF ? "❤️" : "🤍";
+  document.getElementById("detFloatFav").innerText = isF ? "❤️" : "🤍";
+  document.getElementById("detLikes").innerText = (isF ? 1 : 0) + (parseInt(id,36)%5 + 1);
+}
+
+function shareProd(x){
+  var txt = x.t + " — " + x.p + " m\n" + location.href;
+  if(navigator.share){
+    navigator.share({title: x.t, text: txt}).catch(function(){});
+  } else {
+    navigator.clipboard.writeText(txt).then(function(){
+      alert(lang==="tk"?"Salgy kopiýalandy!":"Ссылка скопирована!");
+    }).catch(function(){});
+  }
+}
+
+function openDet(x){
+  curDet = x;
+  views[x.id] = (views[x.id] || (parseInt(x.id,36)%40 + 12)) + 1;
+  lsSet("ay_views", views);
+
+  document.getElementById("detTopTitle").innerText = x.t;
+  document.getElementById("detName").innerText = x.t;
+  document.getElementById("detPrc").innerText = x.p + " m";
+  document.getElementById("detViews").innerText = views[x.id];
+  document.getElementById("detCat").innerText = catName(x.c);
+  document.getElementById("detBr").innerText = x.b;
+  document.getElementById("detCode").innerText = x.id;
+  updDetFav(x.id);
+
+  var iw = document.getElementById("detImgWrap");
+  iw.innerHTML = "";
+  var im = document.createElement("img");
+  im.src = "img/" + x.id + ".jpg";
+  (function(ic){ im.onerror = function(){ iw.innerHTML = ic; }; })(ico(x.c));
+  iw.appendChild(im);
+
+  var ab = document.getElementById("detAddBtn");
+  if(x.s <= 0){
+    ab.disabled = true;
+    ab.innerText = lang==="tk" ? "Gutarandy" : "Нет в наличии";
+  } else {
+    ab.disabled = false;
+    ab.innerText = lang==="tk" ? "🛒 Sebede goş" : "🛒 Добавить в корзину";
+    ab.onclick = function(){ addCart(x); alert(lang==="tk"?"Sebede goşuldy!":"Добавлено в корзину!"); };
+  }
+
+  document.getElementById("detTopFav").onclick = function(){ toggleFav(x.id); };
+  document.getElementById("detFloatFav").onclick = function(){ toggleFav(x.id); };
+  document.getElementById("detTopShare").onclick = function(){ shareProd(x); };
+  document.getElementById("detFloatShare").onclick = function(){ shareProd(x); };
+
+  var simBox = document.getElementById("detSim");
+  simBox.innerHTML = "";
+  var scnt = 0;
+  for(var i=0;i<db.length;i++){
+    var s = db.at(i);
+    if(s.id !== x.id && s.c === x.c && scnt < 10){
+      var sc = document.createElement("div");
+      sc.className = "sim-card";
+      var si = document.createElement("div");
+      si.className = "sim-img";
+      var simg = document.createElement("img");
+      simg.src = "img/" + s.id + ".jpg";
+      (function(ic){ simg.onerror = function(){ this.parentElement.innerHTML = ic; }; })(ico(s.c));
+      si.appendChild(simg);
+      var sb = document.createElement("div");
+      sb.style.padding = "8px";
+      sb.innerHTML = '<div style="font-size:13.5px;font-weight:800;color:var(--p);margin-bottom:2px">'+s.p+' m</div><div style="font-size:11.5px;height:30px;overflow:hidden;line-height:1.25">'+s.t+'</div>';
+      sc.appendChild(si);
+      sc.appendChild(sb);
+      (function(item){ sc.onclick = function(){ openDet(item); document.getElementById("detPage").scrollTop = 0; }; })(s);
+      simBox.appendChild(sc);
+      scnt++;
+    }
+  }
+  document.getElementById("detPage").classList.add("open");
 }
 
 function makeCard(x){
   var card = document.createElement("div");
   card.className = "card";
+  card.onclick = function(){ openDet(x); };
 
   var fbtn = document.createElement("button");
   fbtn.className = "fav-btn";
@@ -306,13 +459,12 @@ function makeCard(x){
   pimg.className = "pimg";
   var img = document.createElement("img");
   img.src = "img/" + x.id + ".jpg";
-  img.style.cssText = "max-width:92%;max-height:92%;object-fit:contain";
   (function(ic){ img.onerror = function(){ this.parentElement.innerHTML = ic; }; })(ico(x.c));
   pimg.appendChild(img);
 
   var info = document.createElement("div");
-  var stkTxt = lang === "tk" ? ("Stok: " + x.s) : ("Ост: " + x.s);
-  info.innerHTML = '<div class="prc-row"><span class="prc">' + x.p + ' m</span><span class="stk">' + stkTxt + '</span></div><div class="ttl">' + x.t + '</div>';
+  info.className = "cbody";
+  info.innerHTML = '<div class="prc">' + x.p + ' m</div><div class="ttl">' + x.t + '</div>';
 
   var btn = document.createElement("button");
   btn.className = "add";
@@ -321,7 +473,7 @@ function makeCard(x){
     btn.innerText = lang === "tk" ? "Gutarandy" : "Нет в наличии";
   } else {
     btn.innerText = lang === "tk" ? "+ Sebede goş" : "+ В корзину";
-    btn.onclick = function(){ addCart(x); };
+    btn.onclick = function(e){ e.stopPropagation(); addCart(x); };
   }
 
   info.appendChild(btn);
@@ -335,7 +487,7 @@ function initF(){
   g1.innerHTML=""; g2.innerHTML="";
   fc.innerHTML='<option value="">' + (lang==="tk"?"Ähli kategoriýalar":"Все категории") + '</option>';
   for(var i=0;i<cats.length;i++){
-    var c=cats[i];
+    var c=cats.at(i);
     if(i<6){
       var d1=document.createElement("div"); d1.className="ccard";
       d1.innerHTML='<div class="cbox">'+c.i+'</div><span>'+c[lang]+'</span>';
@@ -352,9 +504,10 @@ function initF(){
   var brs={};
   fb.innerHTML='<option value="">' + (lang==="tk"?"Ähli brendler":"Все бренды") + '</option>';
   for(var j=0;j<db.length;j++){
-    if(!brs[db[j].b]){
-      brs[db[j].b]=1;
-      var ob=document.createElement("option"); ob.value=db[j].b; ob.innerText=db[j].b; fb.appendChild(ob);
+    var item=db.at(j);
+    if(!brs[item.b]){
+      brs[item.b]=1;
+      var ob=document.createElement("option"); ob.value=item.b; ob.innerText=item.b; fb.appendChild(ob);
     }
   }
 }
@@ -368,7 +521,7 @@ function render(){
   pg.innerHTML="";
   var cnt=0;
   for(var i=0;i<db.length;i++){
-    var x=db[i];
+    var x=db.at(i);
     if((!hz||x.s>0) && (x.t.toLowerCase().indexOf(q)>-1 || String(x.id).toLowerCase().indexOf(q)>-1) && (!fc||x.c===fc) && (!fb||x.b===fb) && (x.p>=mn && x.p<=mx)){
       if(cnt<100) pg.appendChild(makeCard(x));
       cnt++;
@@ -381,8 +534,9 @@ function renderFavs(){
   fg.innerHTML = "";
   var found = 0;
   for(var i=0;i<db.length;i++){
-    if(favs.indexOf(db[i].id) > -1){
-      fg.appendChild(makeCard(db[i]));
+    var item = db.at(i);
+    if(favs.indexOf(item.id) > -1){
+      fg.appendChild(makeCard(item));
       found++;
     }
   }
@@ -393,7 +547,7 @@ function renderStockList(){
   var sl = document.getElementById("stockList");
   sl.innerHTML = "";
   for(var i=0;i<db.length;i++){
-    var x = db[i];
+    var x = db.at(i);
     var row = document.createElement("div");
     row.className = "adm-row";
     row.innerHTML = '<span style="max-width:65%"><b>['+x.id+']</b> '+x.t+'</span>';
@@ -403,7 +557,7 @@ function renderStockList(){
     inp.style.cssText = "width:65px;padding:4px 6px;margin:0;text-align:center";
     (function(idx){
       inp.onchange = function(){
-        db[idx].s = Math.max(0, parseFloat(this.value) || 0);
+        db.at(idx).s = Math.max(0, parseFloat(this.value) || 0);
         lsSet("ay_db_v10", db);
         render();
       };
@@ -421,7 +575,7 @@ function renderOrders(){
   }
   var h = "";
   for(var i=orders.length-1;i>=0;i--){
-    var o = orders[i];
+    var o = orders.at(i);
     h += '<div style="background:var(--c);border:1px solid var(--b);padding:12px;border-radius:11px;margin-bottom:8px;font-size:13px"><b>Sargyt '+o.id+' — '+o.tot+'</b><br><span style="color:var(--m)">'+o.nm+' ('+o.ph+') - '+o.ad+'</span><div style="margin-top:6px;white-space:pre-wrap;font-size:11.5px;background:var(--g);padding:8px;border-radius:8px">'+o.det+'</div></div>';
   }
   ol.innerHTML = h;
@@ -429,7 +583,7 @@ function renderOrders(){
 
 function addCart(p){
   var f=null;
-  for(var i=0;i<cart.length;i++) if(cart[i].id===p.id) f=cart[i];
+  for(var i=0;i<cart.length;i++) if(cart.at(i).id===p.id) f=cart.at(i);
   if(f){
     if(f.q < p.s) f.q++;
     else alert(lang==="tk"?"Ammarda diňe "+p.s+" sany bar!":"На складе только "+p.s+" шт!");
@@ -443,7 +597,7 @@ function updCart(){
   var c=0, t=0, cl=document.getElementById("clist");
   cl.innerHTML="";
   for(var i=0;i<cart.length;i++){
-    var item = cart[i];
+    var item = cart.at(i);
     c += item.q;
     t += item.p * item.q;
     var div = document.createElement("div");
@@ -455,176 +609,3 @@ function updCart(){
     var qn = document.createElement("span"); qn.style.fontSize="13px"; qn.innerText=item.q;
     var bp = document.createElement("button"); bp.className="qbtn"; bp.innerText="+";
     (function(idx){
-      bm.onclick = function(){ cart[idx].q--; if(cart[idx].q<=0) cart.splice(idx,1); updCart(); };
-      bp.onclick = function(){ if(cart[idx].q < cart[idx].max){ cart[idx].q++; updCart(); } };
-    })(i);
-    qc.appendChild(bm); qc.appendChild(qn); qc.appendChild(bp);
-    div.appendChild(qc);
-    cl.appendChild(div);
-  }
-  document.getElementById("cnt").innerText = c;
-  document.getElementById("tot").innerText = t.toFixed(2);
-  document.getElementById("obox").style.display = cart.length ? "block" : "none";
-  if(!cart.length) cl.innerHTML = '<p style="text-align:center;color:var(--m);padding:30px">'+(lang==="tk"?"Sebet boş":"Корзина пуста")+'</p>';
-}
-
-function showTab(t){
-  var s=document.querySelectorAll(".sec"), n=document.querySelectorAll(".nbtn");
-  for(var i=0;i<s.length;i++) s[i].classList.remove("act");
-  for(var j=0;j<n.length;j++) n[j].classList.toggle("act", n[j].getAttribute("data-t")===t);
-  document.getElementById("s-"+t).classList.add("act");
-  if(t==="fav") renderFavs();
-  if(t==="orders") renderOrders();
-}
-
-function setL(l){
-  lang=l;
-  document.getElementById("ltm").classList.toggle("act", l==="tk");
-  document.getElementById("lru").classList.toggle("act", l==="ru");
-  var els=document.querySelectorAll("[data-tk]");
-  for(var i=0;i<els.length;i++) els[i].innerText = els[i].getAttribute("data-"+l);
-  document.getElementById("q").placeholder = l==="tk"?"Gözleg...":"Поиск...";
-  initF(); render(); updCart();
-}
-
-function updRep(){
-  document.getElementById("repSales").innerText = st.s.toFixed(2)+" m";
-  document.getElementById("repProfit").innerText = st.p.toFixed(2)+" m";
-  document.getElementById("repCount").innerText = st.c;
-}
-
-document.getElementById("logoBtn").onclick = function(){
-  taps++; clearTimeout(tt);
-  tt = setTimeout(function(){ taps=0; }, 800);
-  if(taps===3){ taps=0; document.getElementById("admLogin").classList.add("open"); }
-};
-
-document.getElementById("ltm").onclick = function(){ setL("tk"); };
-document.getElementById("lru").onclick = function(){ setL("ru"); };
-document.getElementById("q").onkeyup = render;
-document.getElementById("hideZero").onchange = render;
-document.getElementById("clrQ").onclick = function(){ document.getElementById("q").value=""; render(); };
-document.getElementById("btnSort").onclick = function(){ document.getElementById("sm").classList.add("open"); };
-document.getElementById("btnFilt").onclick = function(){ document.getElementById("fm").classList.add("open"); };
-document.getElementById("btnAll").onclick = function(){ document.getElementById("q").value=""; document.getElementById("fcat").value=""; document.getElementById("fbr").value=""; document.getElementById("mn").value=""; document.getElementById("mx").value=""; render(); };
-document.getElementById("btnApplyF").onclick = function(){ render(); document.getElementById("fm").classList.remove("open"); };
-document.getElementById("btnResetF").onclick = function(){ document.getElementById("btnAll").onclick(); document.getElementById("fm").classList.remove("open"); };
-document.getElementById("srt1").onclick = function(){ db.sort(function(a,b){return a.p-b.p;}); render(); document.getElementById("sm").classList.remove("open"); };
-document.getElementById("srt2").onclick = function(){ db.sort(function(a,b){return b.p-a.p;}); render(); document.getElementById("sm").classList.remove("open"); };
-document.getElementById("goOrd").onclick = function(){ showTab("orders"); };
-document.getElementById("backProf").onclick = function(){ showTab("prof"); };
-document.getElementById("goLang").onclick = function(){ setL(lang==="tk"?"ru":"tk"); };
-document.getElementById("goDark").onclick = function(){ document.body.classList.toggle("dark"); };
-
-document.getElementById("btnCheckAdm").onclick = function(){
-  if(document.getElementById("admPass").value === "1234"){
-    document.getElementById("adminPanel").style.display = "block";
-    document.getElementById("admMail1").value = m1;
-    document.getElementById("admMail2").value = m2;
-    document.getElementById("admStat").innerText = "Jemi haryt sany: " + db.length;
-    updRep(); renderStockList();
-    document.getElementById("admLogin").classList.remove("open");
-    showTab("prof");
-  } else alert("Nädogry parol!");
-};
-
-document.getElementById("btnSaveMail").onclick = function(){
-  m1 = document.getElementById("admMail1").value.trim();
-  m2 = document.getElementById("admMail2").value.trim();
-  lsSet("ay_m1", m1); lsSet("ay_m2", m2);
-  alert("Gmail salgylary ýatda saklandy!");
-};
-
-document.getElementById("btnResetRep").onclick = function(){ st={s:0,p:0,c:0}; lsSet("ay_st",st); updRep(); };
-document.getElementById("btnClear").onclick = function(){
-  try{ localStorage.removeItem("ay_db_v10"); }catch(e){}
-  db = githubBaza; initF(); render(); renderStockList();
-  alert("Baza täzeden ýüklendi!");
-};
-document.getElementById("btnLogout").onclick = function(){ document.getElementById("adminPanel").style.display="none"; };
-
-document.getElementById("btnImport").onclick = function(){
-  var txt = document.getElementById("pasteBox").value;
-  if(!txt.trim()) return alert("Excel-den kopya edip goýuň!");
-  var ls = txt.split(/\r?\n/), nd = [];
-  for(var i=0;i<ls.length;i++){
-    if(!ls[i].trim()) continue;
-    var r = ls[i].split("\t");
-    if(r.length < 4) r = ls[i].split(";");
-    if(r.length < 4) r = ls[i].split(",");
-    if(r.length >= 4){
-      var id = String(r[0]||"").trim();
-      var t = String(r[1]||"").trim();
-      var s = parseFloat(String(r[2]||0).replace(",",".")) || 0;
-      var p = parseFloat(String(r[3]||0).replace(",",".")) || 0;
-      var cost = parseFloat(String(r[4]||0).replace(",",".")) || 0;
-      if(t && p > 0 && t.toLowerCase() !== "ady"){
-        nd.push({id:id||String(i+1), t:t, p:p, cost:cost, s:s, c:aCat(t), b:aBr(t)});
-      }
-    }
-  }
-  if(nd.length){
-    db = nd; lsSet("ay_db_v10", db);
-    document.getElementById("admStat").innerText = "✅ " + db.length + " haryt ýüklendi!";
-    document.getElementById("pasteBox").value = "";
-    initF(); render(); renderStockList();
-    alert("✅ " + db.length + " haryt üstünlikli ýüklendi!");
-  } else alert("Format gabat gelmedi! Tertip: Kod | Ady | Galyndy | Satlyk baha | Geliş baha");
-};
-
-document.getElementById("btnCopyGit").onclick = function(){
-  var code = "var githubBaza = " + JSON.stringify(db, null, 2) + ";";
-  navigator.clipboard.writeText(code).then(function(){
-    alert("✅ Baza kody kopiýalandy! Kody täzelemek üçin 'var githubBaza = [...]' ýerine goýuň.");
-  }).catch(function(){
-    document.getElementById("pasteBox").value = code;
-    alert("Kody ýokardaky tekst gutusyndan kopiýalap alyň!");
-  });
-};
-
-document.getElementById("btnOrd").onclick = function(){
-  var nm = document.getElementById("nm").value.trim();
-  var ph = document.getElementById("ph").value.trim();
-  var ad = document.getElementById("ad").value.trim();
-  if(!nm || !ph) return alert("Adyňyzy we telefon belgiňizi ýazyň!");
-
-  var oid = "#" + Date.now().toString().slice(-4), sum = 0, prof = 0, det = "";
-  var base = location.origin.indexOf("http")===0 ? location.origin+"/img/" : "img/";
-
-  for(var i=0;i<cart.length;i++){
-    var x = cart[i], im = base + x.id + ".jpg";
-    sum += x.p * x.q;
-    prof += (x.cost > 0 ? (x.p - x.cost) : 0) * x.q;
-    det += (i+1) + ") Kod:" + x.id + " | " + x.t + " | x" + x.q + " | " + x.p + "m | Surat: " + im + "\n";
-
-    for(var j=0;j<db.length;j++){
-      if(db[j].id === x.id) db[j].s = Math.max(0, db[j].s - x.q);
-    }
-  }
-  lsSet("ay_db_v10", db);
-
-  var tot = sum.toFixed(2) + " TMT";
-  st.s += sum; st.p += prof; st.c += 1;
-  lsSet("ay_st", st); updRep();
-
-  orders.push({id:oid, tot:tot, nm:nm, ph:ph, ad:ad, det:det});
-  lsSet("ay_orders", orders);
-
-  var md = {_subject:"Sargyt "+oid+" ("+tot+")", _template:"table", Musderi:nm, Telefon:ph, Salgy:ad, Jemi:tot, Arassa_Peyda:prof.toFixed(2)+" TMT", Harytlar:det};
-  if(m1) fetch("https://formsubmit.co/ajax/"+m1, {method:"POST", headers:{"Content-Type":"application/json","Accept":"application/json"}, body:JSON.stringify(md)}).catch(function(){});
-  if(m2) fetch("https://formsubmit.co/ajax/"+m2, {method:"POST", headers:{"Content-Type":"application/json","Accept":"application/json"}, body:JSON.stringify(md)}).catch(function(){});
-
-  alert("Sag boluň! Sargydyňyz kabul edildi.");
-  cart = []; updCart(); render(); showTab("orders");
-};
-
-var nbtns = document.querySelectorAll(".nbtn");
-for(var k=0;k<nbtns.length;k++) (function(b){ b.onclick = function(){ showTab(b.getAttribute("data-t")); }; })(nbtns[k]);
-
-var clss = document.querySelectorAll(".cls");
-for(var m=0;m<clss.length;m++) (function(c){ c.onclick = function(){ document.getElementById(c.getAttribute("data-m")).classList.remove("open"); }; })(clss[m]);
-
-initF(); render(); updCart(); updRep();
-</script>
-</body>
-</html>
