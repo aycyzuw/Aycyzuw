@@ -166,7 +166,6 @@ select,textarea,input{width:100%;padding:10px;border:1px solid var(--b);border-r
   <div class="stitle"><span data-tk="Halananlar" data-ru="Избранное">Halananlar</span></div>
   <div class="pgrid" id="fgrid"></div>
 </div>
-
 <div id="s-prof" class="sec">
   <div class="stitle"><span data-tk="Profil" data-ru="Профиль">Profil</span></div>
   <div class="plist">
@@ -243,7 +242,6 @@ select,textarea,input{width:100%;padding:10px;border:1px solid var(--b);border-r
     <h4 data-tk="Häsiýetleri" data-ru="Характеристики">Häsiýetleri</h4>
     <div class="spec-row"><span style="color:var(--m)" data-tk="Kategoriýa:" data-ru="Категория:">Kategoriýa:</span><b id="detCat"></b></div>
     <div class="spec-row"><span style="color:var(--m)" data-tk="Brend:" data-ru="Бренд:">Brend:</span><b id="detBr"></b></div>
-    <div class="spec-row"><span style="color:var(--m)" data-tk="Haryt kody:" data-ru="Код товара:">Haryt kody:</span><b id="detCode"></b></div>
   </div>
   <div class="det-sim">
     <div class="stitle" style="margin-top:0"><span data-tk="Meňzeş harytlar" data-ru="Похожие товары">Meňzeş harytlar</span></div>
@@ -289,6 +287,8 @@ select,textarea,input{width:100%;padding:10px;border:1px solid var(--b);border-r
   <button class="nbtn" data-t="menu"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg><span data-tk="Menýu" data-ru="Меню">Menýu</span></button>
   <button class="nbtn" data-t="cart"><span class="cbdg" id="cnt">0</span><svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg><span data-tk="Sebet" data-ru="Корзина">Sebet</span></button>
   <button class="nbtn" data-t="fav"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg><span data-tk="Halananlar" data-ru="Избранное">Halananlar</span></button>
+  <button class="nbtn" data-t="prof"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span data-tk="Profil" data-ru="Профиль">Profil</span></button>
+</div>
 <script>
 var githubBaza = [
   { id: "1", t: "Kagyz A4 DOUBLE A 80gms", p: 78, cost: 65, s: 10, c: "Kagyz", b: "Double A" },
@@ -327,9 +327,9 @@ var db = lsGet("ay_db_v10", githubBaza);
 var favs = lsGet("ay_favs", []);
 var views = lsGet("ay_views", {});
 var orders = lsGet("ay_orders", []);
-var m1 = lsGet("ay_m1", "aycyzuw@gmail.com");
-var m2 = lsGet("ay_m2", "");
-var smsPh = lsGet("ay_sms", "+9936");
+var m1 = lsGet("ay_m1", "aycyzuw.tm.arkadag@gmail.com");
+var m2 = lsGet("ay_m2", "aycyzuw.tm2026@gmail.com");
+var smsPh = lsGet("ay_sms", "+99365637644");
 var st = lsGet("ay_st", {s:0,p:0,c:0});
 var cart = [], lang = "tk", taps = 0, tt, curDet = null;
 
@@ -398,7 +398,6 @@ function openDet(x){
   document.getElementById("detViews").innerText = views[x.id];
   document.getElementById("detCat").innerText = catName(x.c);
   document.getElementById("detBr").innerText = x.b;
-  document.getElementById("detCode").innerText = x.id;
   document.getElementById("detTopShare").innerHTML = shSvg;
   document.getElementById("detFloatShare").innerHTML = shSvg;
   updDetFav(x.id);
@@ -674,6 +673,7 @@ document.getElementById("btnCopyGit").onclick = function(){
 document.getElementById("btnOrd").onclick = function(){
   var nm = document.getElementById("nm").value.trim(), ph = document.getElementById("ph").value.trim(), ad = document.getElementById("ad").value.trim();
   if(!nm || !ph || !ad) return alert(lang==="tk"?"Ähli öýjükleri dolduryň!":"Заполните все поля!");
+  var btn = this; btn.disabled = true; btn.innerText = lang==="tk" ? "Iberilýär..." : "Отправка...";
   var det = "", tot = 0, prof = 0;
   for(var i=0; i<cart.length; i++){
     var it = cart[i];
@@ -686,16 +686,31 @@ document.getElementById("btnOrd").onclick = function(){
   st.s += tot; st.p += prof; st.c += 1;
   lsSet("ay_db_v10", db); lsSet("ay_orders", orders); lsSet("ay_st", st);
 
-  var msg = "Täze sargyt " + oid + "\nMüşderi: " + nm + "\nTel: " + ph + "\nSalgy: " + ad + "\n\n" + det + "\nJemi: " + totStr;
-  var mails = [m1, m2].filter(Boolean).join(",");
-  if(mails && (!smsPh || smsPh.length < 8 || confirm(lang==="tk"?"Gmail arkaly ibermelimi? (SMS üçin Otmena basyň)":"Отправить через Gmail? (Нажмите Отмена для SMS)"))){
-    window.location.href = "mailto:" + encodeURIComponent(mails) + "?subject=" + encodeURIComponent("AÝ-ÇYZUW Sargyt " + oid) + "&body=" + encodeURIComponent(msg);
-  } else if(smsPh && smsPh.length >= 8){
-    window.location.href = "sms:" + smsPh + "?body=" + encodeURIComponent(msg);
-  }
-  cart = []; updCart(); render();
-  alert(lang==="tk"?"Sargydyňyz kabul edildi! ("+oid+")":"Ваш заказ принят! ("+oid+")");
-  showTab("orders");
+  var mainMail = m1 || "aycyzuw.tm.arkadag@gmail.com";
+  var payload = {
+    _subject: "AÝ-ÇYZUW Täze Sargyt " + oid,
+    _template: "table",
+    _captcha: "false",
+    Sargyt_ID: oid,
+    Musderi: nm,
+    Telefon: ph,
+    Salgy: ad,
+    Harytlar: det,
+    Jemi: totStr
+  };
+  if(m2) payload._cc = m2;
+
+  fetch("https://formsubmit.co" + encodeURIComponent(mainMail), {
+    method: "POST",
+    headers: { "Content-Type": "application/json", "Accept": "application/json" },
+    body: JSON.stringify(payload)
+  }).finally(function(){
+    btn.disabled = false;
+    btn.innerText = lang==="tk" ? "SARGYDY TASSYKLA" : "ПОДТВЕРДИТЬ ЗАКАЗ";
+    cart = []; updCart(); render();
+    alert(lang==="tk"?"Sargydyňyz kabul edildi! ("+oid+")":"Ваш заказ принят! ("+oid+")");
+    showTab("orders");
+  });
 };
 
 var nbtns = document.querySelectorAll(".nbtn");
