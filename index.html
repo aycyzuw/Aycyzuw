@@ -2,194 +2,163 @@
 <html lang="tk">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 <title>AÝ-ÇYZUW — Mekdep we Ofis Harytlary</title>
-<style>
-:root{--bg:#f8fafc;--c:#ffffff;--g:#f1f5f9;--t:#0f172a;--m:#64748b;--b:#e2e8f0;--p:#13669e;--a:#e59424;--ok:#16a34a;--err:#dc2626}
-body.dark{--bg:#0f172a;--c:#1e293b;--g:#334155;--t:#f8fafc;--m:#94a3b8;--b:#334155}
-*{box-sizing:border-box;margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
-body{background:var(--bg);color:var(--t);padding-bottom:74px;transition:background .2s,color .2s}
-.hdr{background:var(--c);padding:10px 15px;position:sticky;top:0;z-index:20;border-bottom:1px solid var(--b)}
-.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
-.brand{display:flex;align-items:center;gap:8px;font-weight:900;font-size:21px;color:var(--p);cursor:pointer;user-select:none}
-.brand span{color:var(--a)}
-.brand img{height:38px;max-width:200px;object-fit:contain;border-radius:4px}
-.lsw{display:flex;background:var(--g);padding:3px;border-radius:9px;border:1px solid var(--b)}
-.lopt{padding:4px 10px;border-radius:7px;font-size:12px;font-weight:700;cursor:pointer;color:var(--m);transition:.2s}
-.lopt.act{background:var(--p);color:#fff}
-.sbox{display:flex;align-items:center;gap:8px;background:var(--g);padding:0 12px;border-radius:10px;height:40px;border:1px solid var(--b)}
-.sbox:focus-within{border-color:var(--p);background:var(--c)}
-.sbox svg{width:17px;height:17px;stroke:var(--m);fill:none;stroke-width:2;flex-shrink:0}
-.sbox input{flex:1;background:none;border:none;outline:none;font-size:14px;color:var(--t)}
-.tbar{display:flex;justify-content:space-between;padding:9px 16px;background:var(--c);border-bottom:1px solid var(--b)}
-.tbtn{background:none;border:none;color:var(--t);font-size:13.5px;font-weight:600;display:flex;align-items:center;gap:6px;cursor:pointer}
-.tbtn svg{width:17px;height:17px;stroke:var(--t);fill:none;stroke-width:1.8}
-.sec{display:none;padding:12px 15px 15px}.sec.act{display:block}
-.slider{position:relative;border-radius:18px;overflow:hidden;margin-bottom:18px;box-shadow:0 8px 20px rgba(19,102,158,.18);aspect-ratio:16/8;background:linear-gradient(125deg,#0b3b66 0%,#13669e 60%,#1e88c9 100%)}
-.slides{display:flex;height:100%;transition:transform .5s ease}
-.slide{min-width:100%;height:100%;position:relative;display:flex;align-items:center;justify-content:center}
-.slide img{width:100%;height:100%;object-fit:cover;display:block}
-.sfallback{width:100%;height:100%;padding:20px 18px;color:#fff;display:none;flex-direction:column;justify-content:center;background:linear-gradient(125deg,#0b3b66 0%,#13669e 60%,#e59424 140%)}
-.sfallback h3{font-size:18px;font-weight:800;margin-bottom:6px}
-.sfallback p{font-size:13px;opacity:.92}
-.sdots{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);display:flex;gap:6px;z-index:3;background:rgba(0,0,0,.22);padding:4px 8px;border-radius:12px}
-.sdot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.5);transition:.3s;cursor:pointer}
-.sdot.act{width:18px;border-radius:6px;background:#fff}
-.stitle{font-size:17px;font-weight:700;margin:10px 0 12px;display:flex;justify-content:space-between;align-items:center}
-.all{font-size:13.5px;font-weight:600;color:var(--p);cursor:pointer}
-.cgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px}
-.ccard{text-align:center;font-size:12.5px;font-weight:600;cursor:pointer}
-.cbox{width:100%;aspect-ratio:1/1;background:#fff;border:1px solid var(--b);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:36px;margin-bottom:6px;transition:transform .15s;overflow:hidden}
-.cbox img{width:100%;height:100%;object-fit:contain;padding:4px}
-.ccard:active .cbox{transform:scale(.96)}
-.pgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.card{border:1px solid var(--b);border-radius:14px;padding:0;background:var(--c);display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden;cursor:pointer;box-shadow:0 2px 8px rgba(15,23,42,.03)}
-.fav-btn{position:absolute;top:9px;right:9px;z-index:5;background:rgba(255,255,255,.92);border:1px solid var(--b);border-radius:50%;width:29px;height:29px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--m);box-shadow:0 2px 6px rgba(0,0,0,.06);transition:transform .15s,color .2s}
-.fav-btn:active{transform:scale(.88)}
-.fav-btn.liked{color:#ef4444;border-color:#fecaca;background:#fff5f5}
-body.dark .fav-btn{background:rgba(30,41,59,.9)}
-body.dark .fav-btn.liked{background:rgba(239,68,68,.15);border-color:#7f1d1d}
-.pimg{height:165px;width:100%;background:#fff;display:flex;align-items:center;justify-content:center;font-size:46px;overflow:hidden;border-bottom:1px solid var(--b)}
-.pimg img{width:100%;height:100%;object-fit:contain;padding:2px}
-.cbody{padding:9px;display:flex;flex-direction:column;flex:1;justify-content:space-between}
-.prc{font-size:15.5px;font-weight:800;color:var(--p);margin-bottom:3px}
-.ttl{font-size:12.5px;color:var(--t);line-height:1.3;height:33px;overflow:hidden;margin-bottom:8px}
-.add{width:100%;padding:8px 10px;border:1px solid rgba(19,102,158,.22);background:rgba(19,102,158,.08);color:var(--p);border-radius:9px;font-size:12.5px;font-weight:700;cursor:pointer;transition:all .15s}
-.add:active{background:var(--p);color:#fff;transform:scale(.98)}
-body.dark .add{background:rgba(56,189,248,.12);border-color:rgba(56,189,248,.25);color:#38bdf8}
-.add:disabled{background:var(--g);border-color:var(--b);color:var(--m);opacity:.6;cursor:not-allowed}
-.plist{background:var(--c);border-radius:12px;border:1px solid var(--b);margin-bottom:12px;overflow:hidden}
-.pitem{padding:14px 12px;border-bottom:1px solid var(--b);display:flex;justify-content:space-between;align-items:center;font-size:14px;cursor:pointer}
-.pitem:last-child{border-bottom:none}
-.citem{background:var(--c);border:1px solid var(--b);border-radius:11px;padding:10px 12px;margin-bottom:8px;display:flex;justify-content:space-between;align-items:center;gap:8px}
-.qctrl{display:flex;align-items:center;gap:8px;background:var(--g);padding:3px 7px;border-radius:8px}
-.qbtn{border:none;background:none;color:var(--t);font-weight:800;font-size:16px;cursor:pointer;padding:0 4px}
-.adm-box{background:var(--c);border:1.5px solid var(--p);border-radius:14px;padding:14px;margin-top:12px}
-.adm-row{display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px solid var(--b);font-size:12.5px}
-.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:50;align-items:flex-end}
-.modal.open{display:flex}
-.mbox{background:var(--c);width:100%;border-radius:18px 18px 0 0;padding:18px;max-height:85vh;overflow-y:auto}
-select,textarea,input{width:100%;padding:10px;border:1px solid var(--b);border-radius:9px;margin:4px 0 8px;background:var(--g);color:var(--t);font-size:13.5px}
-.btn1{width:100%;background:var(--p);color:#fff;border:none;padding:11px;border-radius:10px;font-weight:700;cursor:pointer;font-size:14px}
-.btn2{width:100%;background:var(--g);color:var(--t);border:1px solid var(--b);padding:9px;border-radius:10px;font-weight:600;margin-top:6px;cursor:pointer;font-size:13px}
-.nav{position:fixed;bottom:0;left:0;right:0;background:var(--c);display:flex;border-top:1px solid var(--b);padding:6px 0 7px;z-index:30}
-.nbtn{flex:1;background:none;border:none;display:flex;flex-direction:column;align-items:center;color:var(--m);font-size:10.5px;position:relative;cursor:pointer}
-.nbtn.act{color:var(--p);font-weight:700}
-.nbtn svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.7;margin-bottom:3px}
-.cbdg{position:absolute;top:-2px;right:22%;background:var(--err);color:#fff;font-size:9px;font-weight:800;padding:1px 5px;border-radius:8px}
-.det-page{display:none;position:fixed;inset:0;background:var(--bg);z-index:45;overflow-y:auto;padding-bottom:76px}
-.det-page.open{display:block}
-.det-top{position:sticky;top:0;background:var(--c);padding:10px 14px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--b);z-index:10;gap:10px}
-.det-back{width:36px;height:36px;border-radius:10px;background:var(--g);border:1px solid var(--b);display:flex;align-items:center;justify-content:center;color:var(--t);cursor:pointer;flex-shrink:0;transition:transform .15s}
-.det-back:active{transform:scale(.92)}
-.det-title-bar{flex:1;font-size:15.5px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.det-icons{display:flex;gap:12px;align-items:center}
-.det-ico-btn{background:none;border:none;cursor:pointer;color:var(--t);display:flex;align-items:center;justify-content:center}
-.det-img-box{width:100%;height:310px;background:#fff;display:flex;align-items:center;justify-content:center;position:relative;border-bottom:1px solid var(--b)}
-.det-img-box img{width:100%;height:100%;object-fit:contain;padding:10px}
-.det-float{position:absolute;right:14px;bottom:14px;display:flex;flex-direction:column;gap:10px}
-.det-fbtn{width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.94);border:1px solid var(--b);box-shadow:0 3px 10px rgba(0,0,0,.08);display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--t)}
-.det-info{background:var(--c);padding:15px;margin-bottom:10px;border-bottom:1px solid var(--b)}
-.det-prow{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
-.det-prc{font-size:21px;font-weight:800;color:var(--p)}
-.det-stats{display:flex;gap:10px;font-size:13px;color:var(--m);align-items:center}
-.stat-item{display:inline-flex;align-items:center;gap:5px;background:var(--g);padding:4px 9px;border-radius:8px}
-.det-name{font-size:16px;font-weight:600;line-height:1.4;color:var(--t)}
-.det-spec{background:var(--c);padding:15px;margin-bottom:10px;border-top:1px solid var(--b);border-bottom:1px solid var(--b)}
-.det-spec h4{font-size:16px;font-weight:700;margin-bottom:10px}
-.spec-row{display:flex;justify-content:space-between;font-size:13.5px;padding:6px 0;border-bottom:1px dashed var(--b)}
-.spec-row:last-child{border-bottom:none}
-.det-sim{padding:12px 15px}
-.sim-scroll{display:flex;gap:10px;overflow-x:auto;padding-bottom:6px}
-.sim-card{min-width:145px;max-width:145px;background:var(--c);border:1px solid var(--b);border-radius:12px;overflow:hidden;cursor:pointer;flex-shrink:0}
-.sim-img{height:120px;background:#fff;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--b)}
-.sim-img img{width:100%;height:100%;object-fit:contain;padding:4px}
-.det-bar{position:fixed;bottom:0;left:0;right:0;background:var(--c);padding:10px 15px;border-top:1px solid var(--b);z-index:48}
-</style>
+<link rel="stylesheet" href="style.css?v=2">
 </head>
 <body>
+
 <div class="hdr">
   <div class="top">
     <div class="brand" id="logoBtn">
       <img src="img/logo.png" id="logoImg" alt="">
       <div id="logoTxt">AÝ-<span>ÇYZUW</span></div>
     </div>
-    <div class="lsw">
-      <div class="lopt act" id="ltm">TM</div>
-      <div class="lopt" id="lru">RU</div>
+    <div class="top-r">
+      <div class="lsw">
+        <div class="lopt act" id="ltm">TM</div>
+        <div class="lopt" id="lru">RU</div>
+      </div>
     </div>
   </div>
-  <div class="sbox">
-    <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="20" y1="20" x2="16.2" y2="16.2"/></svg>
-    <input id="q" placeholder="Gözleg...">
-    <span id="clrQ" style="color:var(--m);font-size:14px;cursor:pointer;display:none">✕</span>
+  <div class="search-wrap" id="searchWrap">
+    <div class="sbox">
+      <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="20" y1="20" x2="16.2" y2="16.2"/></svg>
+      <input id="q" placeholder="Gözleg...">
+      <span id="clrQ" style="color:var(--m);font-size:15px;cursor:pointer;display:none;padding:0 4px">✕</span>
+      <button class="cam-btn" id="btnCam" title="Surat boýunça gözleg">
+        <svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+      </button>
+    </div>
   </div>
 </div>
 
-<div class="tbar">
-  <button class="tbtn" id="btnSort">
-    <svg viewBox="0 0 24 24"><path d="M7 4v16M7 4l-3 3M7 4l3 3M17 20V4M17 20l-3-3M17 20l3-3"/></svg>
-    <span data-tk="Yzygiderlik" data-ru="Сортировка">Yzygiderlik</span>
+<div class="tbar-4" id="filterBar">
+  <button class="chip4" id="btnSort">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 4v16M7 4l-3 3M7 4l3 3M17 20V4M17 20l-3-3M17 20l3-3"/></svg>
+    <span data-tk="Tertip" data-ru="Сорт.">Tertip</span>
   </button>
-  <button class="tbtn" id="btnFilt">
-    <svg viewBox="0 0 24 24"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
+  <button class="chip4" id="btnFilt">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
     <span data-tk="Filter" data-ru="Фильтр">Filter</span>
+  </button>
+  <button class="chip4" id="chipLow">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>
+    <span data-tk="Az galan" data-ru="Мало">Az galan</span>
+  </button>
+  <button class="chip4" id="chip10">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+    <span data-tk="10 m çenli" data-ru="До 10 м">10 m çenli</span>
   </button>
 </div>
 
 <div id="s-home" class="sec act">
-  <div class="slider" id="topSlider">
-    <div class="slides" id="slideTrack">
-      <div class="slide">
-        <img src="img/slayd1.jpg" alt="Slayd 1" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-        <div class="sfallback">
-          <h3 data-tk="MEKDEP WE OFIS HARYTLARY" data-ru="ШКОЛЬНЫЕ И ОФИСНЫЕ ТОВАРЫ">MEKDEP WE OFIS HARYTLARY</h3>
-          <p data-tk="Ýokary hilli kanselýariýa önümleri we çalt eltip bermek hyzmaty!" data-ru="Качественные канцтовары и быстрая доставка!">Ýokary hilli kanselýariýa önümleri we çalt eltip bermek hyzmaty!</p>
+  <div id="homeTopBlocks">
+    <div class="slider" id="topSlider">
+      <div class="slides" id="slideTrack">
+        <div class="slide" onclick="document.getElementById('btnCam').click()">
+          <img src="img/slayd1.jpg" alt="Slayd 1" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="sfallback">
+            <h3 data-tk="SURAT BOÝUNÇA GÖZLEG" data-ru="ПОИСК ПО ФОТО">SURAT BOÝUNÇA GÖZLEG</h3>
+            <p data-tk="Gutaran harydyň suratyny düşüriň – şol bada tapalyň!" data-ru="Сфотографируйте товар – мы сразу найдем его!">Gutaran harydyň suratyny düşüriň – şol bada tapalyň!</p>
+          </div>
+        </div>
+        <div class="slide" onclick="showTab('prof')">
+          <img src="img/slayd2.jpg" alt="Slayd 2" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="sfallback">
+            <h3 data-tk="HER SARGYTDAN 5%-E ÇENLI KEŞBEK" data-ru="ДО 5% КЭШБЭК С КАЖДОГО ЗАКАЗА">HER SARGYTDAN 5%-E ÇENLI KEŞBEK</h3>
+            <p data-tk="Bürünç, Kümüş we Altyn derejeleri gazanyň!" data-ru="Повышайте статус: Бронза, Серебро и Золото!">Bürünç, Kümüş we Altyn derejeleri gazanyň!</p>
+          </div>
+        </div>
+        <div class="slide" onclick="showTab('school')">
+          <img src="img/slayd3.jpg" alt="Slayd 3" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="sfallback">
+            <h3 data-tk="MEKDEP WE OFIS HARYTLARY" data-ru="ШКОЛЬНЫЕ И ОФИСНЫЕ ТОВАРЫ">MEKDEP WE OFIS HARYTLARY</h3>
+            <p data-tk="Ýokary hilli kanselýariýa önümleri we çalt eltip bermek hyzmaty!" data-ru="Качественные канцтовары и быстрая доставка!">Ýokary hilli kanselýariýa önümleri we çalt eltip bermek hyzmaty!</p>
+          </div>
         </div>
       </div>
-      <div class="slide">
-        <img src="img/slayd2.jpg" alt="Slayd 2" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-        <div class="sfallback">
-          <h3 data-tk="DÖREDIJILIK WE KITAPLAR" data-ru="ТВОРЧЕСТВО И КНИГИ">DÖREDIJILIK WE KITAPLAR</h3>
-          <p data-tk="Çagalar we ulular üçin täze kitaplar we surat esbaplary." data-ru="Новые книги и товары для творчества для детей и взрослых.">Çagalar we ulular üçin täze kitaplar we surat esbaplary.</p>
-        </div>
-      </div>
-      <div class="slide">
-        <img src="img/slayd3.jpg" alt="Slayd 3" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-        <div class="sfallback">
-          <h3 data-tk="BAÝRAMÇYLYK WE SOWGATLAR" data-ru="ПРАЗДНИКИ И ПОДАРКИ">BAÝRAMÇYLYK WE SOWGATLAR</h3>
-          <p data-tk="Ähli baýramçylyklar üçin owadan sowgatlyklar we bezegler!" data-ru="Красивые подарки и украшения для всех праздников!">Ähli baýramçylyklar üçin owadan sowgatlyklar we bezegler!</p>
-        </div>
+      <div class="sdots" id="slideDots">
+        <div class="sdot act" onclick="event.stopPropagation();goSlide(0)"></div>
+        <div class="sdot" onclick="event.stopPropagation();goSlide(1)"></div>
+        <div class="sdot" onclick="event.stopPropagation();goSlide(2)"></div>
       </div>
     </div>
-    <div class="sdots" id="slideDots">
-      <div class="sdot act" onclick="goSlide(0)"></div>
-      <div class="sdot" onclick="goSlide(1)"></div>
-      <div class="sdot" onclick="goSlide(2)"></div>
+
+    <div class="mb-banner" id="openSchoolBuilder">
+      <img src="img/mekdep_bazary.jpg" alt="Mekdep Bazary" onerror="if(!this.dataset.t){this.dataset.t='1';this.src='img/mekdep_bazary.png';}else{this.style.display='none';this.nextElementSibling.style.display='flex';}">
+      <div class="mb-fallback" style="display:none">
+        <div>
+          <div class="sh-title" data-tk="🎒 Mekdep Bazary" data-ru="🎒 Школьный Базар">🎒 Mekdep Bazary</div>
+          <div class="sh-sub" data-tk="Synpyňyzy we býujetiňizi saýlaň — taýýar sanawy bir basyşda sebede goşuň!" data-ru="Выберите класс и бюджет — добавьте готовый список в корзину!">Synpyňyzy we býujetiňizi saýlaň — taýýar sanawy bir basyşda sebede goşuň!</div>
+        </div>
+        <button class="sh-btn" data-tk="Saýla ›" data-ru="Выбрать ›">Saýla ›</button>
+      </div>
     </div>
+
+    <div class="stitle"><span data-tk="Kategoriýalar" data-ru="Категории">Kategoriýalar</span></div>
+    <div class="cgrid" id="cgrid1"></div>
   </div>
 
-  <div class="stitle"><span data-tk="Kategoriýalar" data-ru="Категории">Kategoriýalar</span></div>
-  <div class="cgrid" id="cgrid1"></div>
-  <div class="stitle">
+  <div class="cat-banner" id="catBanner">
+    <div class="cat-banner-l" id="catBannerTitle">Kategoriýa</div>
+    <span class="all" id="btnExitCat" data-tk="✕ Ählisini görkez" data-ru="✕ Показать все">✕ Ählisini görkez</span>
+  </div>
+
+  <div class="stitle" id="prodHeader">
     <span data-tk="Harytlar" data-ru="Товары">Harytlar</span>
     <span class="all" id="btnAll" data-tk="Hemmesi >" data-ru="Все >">Hemmesi ></span>
   </div>
   <div class="pgrid" id="pgrid"></div>
 </div>
+<div id="s-school" class="sec">
+  <div class="stitle">
+    <span id="backFromSchool" style="cursor:pointer;display:inline-flex;align-items:center;gap:6px">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5"/><polyline points="12 19 5 12 12 5"/></svg>
+      <span data-tk="Mekdep Bazary" data-ru="Школьный Базар">Mekdep Bazary</span>
+    </span>
+  </div>
+  <div class="grade-scroll" id="gradeScroll"></div>
+  <div class="tier-tabs" id="tierTabs">
+    <div class="t-tab act" data-tier="cheap">
+      <span data-tk="💸 Iň arzan" data-ru="💸 Эконом">💸 Iň arzan</span>
+      <small data-tk="Tygşytly bukja" data-ru="Бюджетный">Tygşytly bukja</small>
+    </div>
+    <div class="t-tab" data-tier="mid">
+      <span data-tk="⚖️ Aralyk baha" data-ru="⚖️ Стандарт">⚖️ Aralyk baha</span>
+      <small data-tk="Ortaça hil" data-ru="Оптимальный">Ortaça hil</small>
+    </div>
+    <div class="t-tab" data-tier="pro">
+      <span data-tk="💎 Ýokary hilli" data-ru="💎 Премиум">💎 Ýokary hilli</span>
+      <small data-tk="Iň gowy brendler" data-ru="Лучшие бренды">Iň gowy brendler</small>
+    </div>
+  </div>
+  <div id="schoolListWrap"></div>
+  <div style="background:var(--c);border:1px solid var(--b);border-radius:14px;padding:12px;margin-top:10px">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;font-size:15px">
+      <span data-tk="Toplumyň jemi bahasy:" data-ru="Итого за набор:">Toplumyň jemi bahasy:</span>
+      <b style="font-size:18px;color:var(--p)"><span id="schoolTotal">0.00</span> m</b>
+    </div>
+    <button class="btn1" id="btnAddAllSchool" data-tk="🛒 Ählisini sebede goş" data-ru="🛒 Добавить всё в корзину">🛒 Ählisini sebede goş</button>
+  </div>
+</div>
 
 <div id="s-menu" class="sec">
-  <div class="stitle"><span data-tk="Menýu" data-ru="Меню">Menýu</span></div>
+  <div class="stitle"><span data-tk="Kategoriýalar" data-ru="Категории">Kategoriýalar</span></div>
   <div class="cgrid" id="cgrid2"></div>
 </div>
 
 <div id="s-cart" class="sec">
   <div class="stitle">
     <span data-tk="Sebet" data-ru="Корзина">Sebet</span>
-    <span style="color:var(--p)"><span id="tot">0.00</span> m</span>
+    <span style="color:var(--p);font-weight:900"><span id="tot">0.00</span> m</span>
   </div>
   <div id="clist"></div>
   <div id="obox" style="display:none;margin-top:12px">
+    <div class="cb-use-box" id="cbUseWrap" style="display:none">
+      <span>🪙 Keşbek ulan (<b id="cbAvail">0.00</b> m):</span>
+      <input type="checkbox" id="useCbChk" style="width:20px;height:20px;margin:0">
+    </div>
     <input id="nm" placeholder="Adyňyz / Имя">
     <input id="ph" type="tel" placeholder="Telefon (+993...)">
     <input id="ad" placeholder="Salgyňyz / Адрес доставки">
@@ -201,12 +170,75 @@ select,textarea,input{width:100%;padding:10px;border:1px solid var(--b);border-r
   <div class="stitle"><span data-tk="Halananlar" data-ru="Избранное">Halananlar</span></div>
   <div class="pgrid" id="fgrid"></div>
 </div>
+
 <div id="s-prof" class="sec">
   <div class="stitle"><span data-tk="Profil" data-ru="Профиль">Profil</span></div>
+  <div class="cb-card">
+    <div class="cb-top-row">
+      <span class="cb-tier-badge" id="cbTierName">🥉 BÜRÜNÇ DEREJE</span>
+      <span class="cb-rate-pill" id="cbRateTxt">2% Keşbek</span>
+    </div>
+    <small data-tk="Elýeterli keşbek balansyňyz" data-ru="Ваш доступный кэшбэк баланс">Elýeterli keşbek balansyňyz</small>
+    <h2><span id="profCbVal">0.00</span> m</h2>
+    <div class="cb-prog-wrap"><div class="cb-prog-bar" id="cbProgBar" style="width:8%"></div></div>
+    <div class="cb-prog-txt">
+      <span id="cbProgLeft">Indiki derejä: 300 m galdy</span>
+      <span id="cbNextTier">Kümüş (3%)</span>
+    </div>
+    <div class="cb-stats-row">
+      <div class="cb-stat-box">
+        <span data-tk="Jemi söwdaňyz" data-ru="Всего покупок">Jemi söwdaňyz</span>
+        <b><span id="cbTotalSpent">0.00</span> m</b>
+      </div>
+      <div class="cb-stat-box">
+        <span data-tk="Jemi gazanylan" data-ru="Всего накоплено">Jemi gazanylan</span>
+        <b><span id="cbTotalEarned">0.00</span> m</b>
+      </div>
+    </div>
+  </div>
   <div class="plist">
-    <div class="pitem" id="goOrd"><span data-tk="📦 Sargytlarym" data-ru="📦 Мои заказы">📦 Sargytlarym</span><span>›</span></div>
-    <div class="pitem" id="goLang"><span data-tk="⚙️ Dil: TM / RU" data-ru="⚙️ Язык: TM / RU">⚙️ Dil: TM / RU</span><span>›</span></div>
-    <div class="pitem" id="goDark"><span data-tk="🌓 Tema (Gije / Gündiz)" data-ru="🌓 Тема (День / Ночь)">🌓 Tema (Gije / Gündiz)</span><span>›</span></div>
+    <div class="pitem" id="goOrd">
+      <div class="pitem-l">
+        <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+        <span data-tk="Sargytlarym" data-ru="Мои заказы">Sargytlarym</span>
+      </div>
+      <span>›</span>
+    </div>
+    <div class="pitem" id="goAddr">
+      <div class="pitem-l">
+        <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <span data-tk="Salgym we maglumatlarym" data-ru="Мой адрес и данные">Salgym we maglumatlarym</span>
+      </div>
+      <span>›</span>
+    </div>
+    <div class="pitem" id="goCall">
+      <div class="pitem-l">
+        <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <span data-tk="Dükana jaň etmek" data-ru="Позвонить в магазин">Dükana jaň etmek</span>
+      </div>
+      <span>›</span>
+    </div>
+    <div class="pitem" id="goSms">
+      <div class="pitem-l">
+        <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        <span data-tk="SMS habar ýazmak" data-ru="Написать SMS">SMS habar ýazmak</span>
+      </div>
+      <span>›</span>
+    </div>
+    <div class="pitem" id="goLang">
+      <div class="pitem-l">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        <span data-tk="Dil: TM / RU" data-ru="Язык: TM / RU">Dil: TM / RU</span>
+      </div>
+      <span>›</span>
+    </div>
+    <div class="pitem" id="goDark">
+      <div class="pitem-l">
+        <svg viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <span data-tk="Tema (Gije / Gündiz)" data-ru="Тема (День / Ночь)">Tema (Gije / Gündiz)</span>
+      </div>
+      <span>›</span>
+    </div>
   </div>
 
   <div id="adminPanel" class="adm-box" style="display:none">
@@ -218,16 +250,38 @@ select,textarea,input{width:100%;padding:10px;border:1px solid var(--b);border-r
       <button id="btnResetRep" class="btn2" style="padding:5px;font-size:11.5px">↺ Hasabaty nolla</button>
     </div>
 
+    <span class="flabel">Täze Admin paroly:</span>
+    <input id="admNewPass" type="password" placeholder="Täze parol ýazyň (boş goýsaňyz üýtgemeýär)">
+    <span class="flabel">Sargyt gelýän Gmail we SMS belgi:</span>
     <input id="admMail1" placeholder="1-nji Gmail (Özüňiziňki)">
     <input id="admMail2" placeholder="2-nji Gmail (Dükan)">
-    <input id="admSms" placeholder="SMS üçin telefon (+9936XXXXXXX)">
-    <button class="btn1" id="btnSaveMail" style="margin-bottom:12px">💾 Gmail we SMS belgini ýatda sakla</button>
+    <input id="admSms" placeholder="Telefon belgi (+9936XXXXXXX)">
+    <button class="btn1" id="btnSaveMail" style="margin-bottom:12px">💾 Sazlamalary we paroly ýatda sakla</button>
 
-    <div style="font-size:12px;color:var(--m);margin-bottom:4px">Excel tertibi: <b>Kod | Ady | Galyndy | Satlyk | Geliş</b></div>
-    <textarea id="pasteBox" rows="4" placeholder="Excel-den kopya edip şu ýere goýuň..."></textarea>
+    <div style="font-size:11.5px;color:var(--m);margin-bottom:4px;line-height:1.4">
+      <b>Excel tertibi (6 sütün):</b><br>
+      Barkod | Ady | Satuw baha | Aluw baha | Kategoriýa | Kiçi bölümçe
+    </div>
+    <textarea id="pasteBox" rows="4" placeholder="Excel-den 6 sütüni kopya edip şu ýere goýuň..."></textarea>
     <button class="btn1" id="btnImport" style="margin-bottom:8px">✅ Harytlary ýükle</button>
-    <button class="btn2" id="btnCopyGit" style="margin-bottom:8px;border-color:var(--p);color:var(--p)">📋 GitHub (baza.js) üçin kopiýala</button>
+    <button class="btn2" id="btnCopyGit" style="margin-bottom:12px;border-color:var(--p);color:var(--p)">📋 GitHub (baza.js) üçin kopiýala</button>
     <div id="admStat" style="font-size:12.5px;color:var(--ok);font-weight:600;margin:6px 0"></div>
+
+    <!-- MEKDEP BAZARY ADMIN REDAKTORY -->
+    <div style="background:var(--g);border-radius:12px;padding:10px;margin:10px 0;border:1px solid var(--b)">
+      <b style="font-size:13px;color:var(--p);display:block;margin-bottom:6px">🎒 Mekdep Bazary sanawyny düzet:</b>
+      <div style="display:flex;gap:6px">
+        <select id="admSchGrade" style="margin:0"></select>
+        <select id="admSchTier" style="margin:0">
+          <option value="cheap">💸 Iň arzan</option>
+          <option value="mid">⚖️ Aralyk baha</option>
+          <option value="pro">💎 Ýokary hilli</option>
+        </select>
+      </div>
+      <div style="font-size:11px;color:var(--m);margin:5px 0">Her setirde: <b>Barkod | Mukdar</b> ýa-da <b>Haryt ady | Mukdar | Baha</b></div>
+      <textarea id="admSchBox" rows="4" placeholder="Mysal:&#10;6	5&#10;3	3&#10;Depder 12 list	5	2"></textarea>
+      <button class="btn1" id="btnSaveSchList" style="padding:9px;font-size:12.5px">💾 Synp sanawyny ýatda sakla</button>
+    </div>
 
     <label style="font-size:12.5px;display:flex;align-items:center;gap:6px;margin:8px 0">
       <input type="checkbox" id="hideZero" checked style="width:auto;margin:0"> Stogy 0 bolanlary gizle
@@ -241,7 +295,6 @@ select,textarea,input{width:100%;padding:10px;border:1px solid var(--b);border-r
     <button class="btn2" id="btnLogout">🚪 Çykyş</button>
   </div>
 </div>
-
 <div id="s-orders" class="sec">
   <div class="stitle"><span id="backProf" style="cursor:pointer;display:inline-flex;align-items:center;gap:6px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><polyline points="12 19 5 12 12 5"/></svg><span data-tk="Sargytlarym" data-ru="Мои заказы">Sargytlarym</span></span></div>
   <div id="olist"></div>
@@ -260,90 +313,164 @@ select,textarea,input{width:100%;padding:10px;border:1px solid var(--b);border-r
   </div>
   <div class="det-img-box" id="detImgBox">
     <div id="detImgWrap" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:70px"></div>
-    <div class="det-float">
-      <button class="det-fbtn" id="detFloatShare"></button>
-      <button class="det-fbtn" id="detFloatFav"></button>
-    </div>
   </div>
   <div class="det-info">
     <div class="det-prow">
       <div class="det-prc" id="detPrc">0 m</div>
       <div class="det-stats">
-        <span class="stat-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="#ef4444" stroke="#ef4444" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg> <b id="detLikes">0</b></span>
-        <span class="stat-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg> <b id="detViews">0</b></span>
+        <span class="stat-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="#f43f5e" stroke="#f43f5e" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg> <b id="detLikes">0</b></span>
+        <span class="stat-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg> <b id="detViews">0</b></span>
       </div>
     </div>
     <div class="det-name" id="detName"></div>
+    <div class="det-desc" id="detDesc"></div>
+    <div class="det-act-box" id="detBarWrap"></div>
   </div>
   <div class="det-spec">
     <h4 data-tk="Häsiýetleri" data-ru="Характеристики">Häsiýetleri</h4>
     <div class="spec-row"><span style="color:var(--m)" data-tk="Kategoriýa:" data-ru="Категория:">Kategoriýa:</span><b id="detCat"></b></div>
-    <div class="spec-row"><span style="color:var(--m)" data-tk="Brend:" data-ru="Бренд:">Brend:</span><b id="detBr"></b></div>
+    <div class="spec-row"><span style="color:var(--m)" data-tk="Bölümçe:" data-ru="Подкатегория:">Bölümçe:</span><b id="detSub"></b></div>
+    <div class="spec-row"><span style="color:var(--m)" data-tk="Haryt kody:" data-ru="Код товара:">Haryt kody:</span><b id="detCode"></b></div>
   </div>
   <div class="det-sim">
     <div class="stitle" style="margin-top:0"><span data-tk="Meňzeş harytlar" data-ru="Похожие товары">Meňzeş harytlar</span></div>
     <div class="sim-scroll" id="detSim"></div>
   </div>
-  <div class="det-bar">
-    <button class="btn1" id="detAddBtn">🛒 Sebede goş</button>
+</div>
+
+<!-- CUSTOM QUANTITY MODAL -->
+<div class="modal" id="qtyModal">
+  <div class="mbox">
+    <div class="stitle"><span data-tk="Mukdary saýlaň" data-ru="Выберите количество">Mukdary saýlaň</span><span class="cls" data-m="qtyModal" style="cursor:pointer;font-size:18px">✕</span></div>
+    <div id="qtyItemTitle" style="font-size:13px;color:var(--m);margin-bottom:8px"></div>
+    <input type="number" id="qtyInput" min="0" inputmode="numeric" style="font-size:18px;font-weight:800;text-align:center">
+    <div class="qty-presets">
+      <button type="button" class="qp-btn" onclick="setPresetQ(1)">1 sany</button>
+      <button type="button" class="qp-btn" onclick="setPresetQ(5)">5 sany</button>
+      <button type="button" class="qp-btn" onclick="setPresetQ(10)">10 sany</button>
+      <button type="button" class="qp-btn" id="qpMaxBtn">Ählisi</button>
+    </div>
+    <button class="btn1" id="btnConfirmQty" data-tk="TAÝÝAR" data-ru="ГОТОВО">TAÝÝAR</button>
+  </div>
+</div>
+
+<!-- VISUAL SCANNER MODAL -->
+<div class="modal" id="camModal">
+  <div class="mbox">
+    <div class="stitle"><span data-tk="Surat boýunça gözleg" data-ru="Поиск по фото">Surat boýunça gözleg</span><span class="cls" data-m="camModal" style="cursor:pointer;font-size:18px">✕</span></div>
+    <input type="file" id="camFile" accept="image/*" style="display:none">
+    <div class="scan-box" onclick="document.getElementById('camFile').click()">
+      <div class="scan-line"></div>
+      <div class="scan-ico">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+      </div>
+      <div style="font-weight:800;font-size:14px;color:var(--p)" data-tk="Kamerany aç / Surat saýla" data-ru="Открыть камеру / Выбрать фото">Kamerany aç / Surat saýla</div>
+      <div style="font-size:11.5px;color:var(--m);margin-top:3px" data-tk="Harydyň suratyny ýükläň — bazadan meňzeşlerini tapalyň" data-ru="Загрузите фото товара — мы найдём похожие в базе">Harydyň suratyny ýükläň — bazadan meňzeşlerini tapalyň</div>
+      <img id="camPreview" class="cam-prev" alt="Preview">
+    </div>
+    <div id="scanResultBox" style="display:none;background:var(--g);padding:10px;border-radius:11px;margin-bottom:8px;font-size:12.5px"></div>
+    <input id="camNote" placeholder="Harydyň adyny ýazyň (meselem: ruçka, depder)...">
+    <input id="camPhone" type="tel" placeholder="Siziň telefon belgiňiz (+993...)">
+    <button class="btn1" id="btnSendCam" style="background:var(--ok)">📩 Dükana ugrat (Gmail we SMS)</button>
+  </div>
+</div>
+<div class="modal" id="addrModal">
+  <div class="mbox">
+    <div class="stitle"><span data-tk="Salgym we maglumatlarym" data-ru="Мой адрес и данные">Salgym we maglumatlarym</span><span class="cls" data-m="addrModal" style="cursor:pointer">✕</span></div>
+    <input id="svNm" placeholder="Adyňyz / Имя">
+    <input id="svPh" type="tel" placeholder="Telefon (+993...)">
+    <input id="svAd" placeholder="Eltip bermek salgysy / Адрес доставки">
+    <button class="btn1" id="btnSaveAddr">💾 Ýatda sakla</button>
   </div>
 </div>
 
 <div class="modal" id="admLogin">
   <div class="mbox">
-    <div class="stitle"><span>Admin Giriş</span><span class="cls" data-m="admLogin" style="cursor:pointer">✕</span></div>
-    <input type="password" id="admPass" placeholder="Parol (1234)">
+    <div class="stitle"><span>🔐 Admin Giriş</span><span class="cls" data-m="admLogin" style="cursor:pointer">✕</span></div>
+    <input type="password" id="admPass" placeholder="Paroly ýazyň...">
     <button class="btn1" id="btnCheckAdm">GIRMEK</button>
   </div>
 </div>
 
 <div class="modal" id="fm">
   <div class="mbox">
-    <div class="stitle"><span>Filter</span><span class="cls" data-m="fm" style="cursor:pointer">✕</span></div>
-    <select id="fcat"></select>
-    <select id="fbr"></select>
+    <div class="stitle"><span data-tk="Giňişleýin Filter" data-ru="Расширенный Фильтр">Giňişleýin Filter</span><span class="cls" data-m="fm" style="cursor:pointer;font-size:18px">✕</span></div>
+    <input type="hidden" id="fcat" value="">
+    <input type="hidden" id="fsub" value="">
+
+    <div class="flist-box" id="fListWrap"></div>
+
+    <span class="flabel" data-tk="Baha aralygy (TMT):" data-ru="Диапазон цен (TMT):">Baha aralygy (TMT):</span>
     <div style="display:flex;gap:8px">
-      <input type="number" id="mn" placeholder="Min baha">
-      <input type="number" id="mx" placeholder="Maks baha">
+      <input type="number" id="mn" placeholder="Min (0)">
+      <input type="number" id="mx" placeholder="Maks (500)">
     </div>
-    <button class="btn1" id="btnApplyF">KABUL ET</button>
-    <button class="btn2" id="btnResetF">Arassala</button>
+    <label style="font-size:13px;display:flex;align-items:center;gap:8px;margin:6px 0 12px;cursor:pointer">
+      <input type="checkbox" id="fOnlyLow" style="width:18px;height:18px;margin:0">
+      <span data-tk="Diňe az galan harytlar (≤ 5 sany)" data-ru="Только заканчивающиеся (≤ 5 шт)">Diňe az galan harytlar (≤ 5 sany)</span>
+    </label>
+    <button class="btn1" id="btnApplyF" data-tk="FILTRI ULANYŇ" data-ru="ПРИМЕНИТЬ ФИЛЬТР">FILTRI ULANYŇ</button>
+    <button class="btn2" id="btnResetF" data-tk="Ähli filtrleri arassala" data-ru="Сбросить все фильтры">Ähli filtrleri arassala</button>
   </div>
 </div>
 
 <div class="modal" id="sm">
   <div class="mbox">
-    <div class="stitle"><span>Yzygiderlik</span><span class="cls" data-m="sm" style="cursor:pointer">✕</span></div>
-    <div class="pitem" id="srt1"><span>Arzandan gymmada ↑</span></div>
-    <div class="pitem" id="srt2"><span>Gymmatdan arzana ↓</span></div>
+    <div class="stitle"><span data-tk="Yzygiderlik" data-ru="Сортировка">Yzygiderlik</span><span class="cls" data-m="sm" style="cursor:pointer;font-size:18px">✕</span></div>
+    <div class="srt-card" id="srt1">
+      <div class="srt-ico">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><polyline points="5 12 12 5 19 12"/></svg>
+      </div>
+      <div class="srt-txt">
+        <b data-tk="Arzandan gymmada" data-ru="От дешёвых к дорогим">Arzandan gymmada</b>
+        <span data-tk="Ilki iň amatly bahaly harytlar" data-ru="Сначала самые доступные цены">Ilki iň amatly bahaly harytlar</span>
+      </div>
+    </div>
+    <div class="srt-card" id="srt2">
+      <div class="srt-ico" style="background:linear-gradient(135deg,#e59424,#d97706)">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><polyline points="19 12 12 19 5 12"/></svg>
+      </div>
+      <div class="srt-txt">
+        <b data-tk="Gymmatdan arzana" data-ru="От дорогих к дешёвым">Gymmatdan arzana</b>
+        <span data-tk="Ilki ýokary bahaly we VIP harytlar" data-ru="Сначала премиум товары">Ilki ýokary bahaly we VIP harytlar</span>
+      </div>
+    </div>
   </div>
 </div>
 
 <div class="nav">
   <button class="nbtn act" data-t="home"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg><span data-tk="Baş sahypa" data-ru="Главная">Baş sahypa</span></button>
   <button class="nbtn" data-t="menu"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg><span data-tk="Menýu" data-ru="Меню">Menýu</span></button>
-  <button class="nbtn" data-t="cart"><span class="cbdg" id="cnt">0</span><svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg><span data-tk="Sebet" data-ru="Корзина">Sebet</span></button>
+  <button class="nbtn" data-t="cart" id="navCartBtn"><span class="cbdg" id="cnt">0</span><svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg><span data-tk="Sebet" data-ru="Корзина">Sebet</span></button>
   <button class="nbtn" data-t="fav"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg><span data-tk="Halananlar" data-ru="Избранное">Halananlar</span></button>
   <button class="nbtn" data-t="prof"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span data-tk="Profil" data-ru="Профиль">Profil</span></button>
 </div>
 <script>
 var githubBaza = [
-  { id: "1", t: "Kagyz A4 DOUBLE A 80gms", p: 78, cost: 65, s: 10, c: "Kagyz", b: "Double A" },
-  { id: "2", t: "Faýl Dolphin 40micr 100s", p: 20, cost: 15, s: 15, c: "Ofis", b: "Dolphin" },
-  { id: "3", t: "Ruçka Pensan My-Tech 0.7mm gök", p: 3.5, cost: 2, s: 50, c: "Ýazuw", b: "Pensan" },
-  { id: "4", t: "Depder 48 list gözenek Hatber", p: 6, cost: 4, s: 35, c: "Kagyz", b: "Hatber" }
+  { id: "1", t: "Kagyz A4 DOUBLE A 80gms (500 list)", p: 78, cost: 65, s: 10, c: "Kagyz", sub: "Printer kagyzy", d: "Ýokary hilli ak A4 printer kagyzy, 80g/m², 500 sahypa." },
+  { id: "2", t: "Faýl Dolphin 40micr 100s", p: 20, cost: 15, s: 4, c: "Ofis", sub: "Faýl we papkalar", d: "A4 ölçegli berk polipropilen faýllar, 100 sanylyk gap." },
+  { id: "3", t: "Ruçka Pensan My-Tech 0.7mm gök", p: 3.5, cost: 2, s: 50, c: "Ýazuw", sub: "Şarikli ruçkalar", d: "Inçe 0.7mm uçly ýumşak ýazýan gök şarikli ruçka." },
+  { id: "4", t: "Depder 48 list gözenek Hatber", p: 6, cost: 4, s: 35, c: "Kagyz", sub: "Mekdep depderleri", d: "48 sahypalyk gözenekli mekdep depderi, galyň daşlyk." },
+  { id: "5", t: "Kalkulýator CASIO DJ-120D Plus", p: 145, cost: 115, s: 3, c: "Ofis", sub: "Kalkulýatorlar", d: "12 razrýadly ofis kalkulýatory, gün batareýasy we ýat funksiýasy." },
+  { id: "6", t: "Depder 12 list gözenek", p: 2, cost: 1.2, s: 80, c: "Kagyz", sub: "Mekdep depderleri", d: "Başlangyç synplar üçin 12 sahypalyk gözenekli depder." },
+  { id: "7", t: "Depder 12 list çyzykly", p: 2, cost: 1.2, s: 75, c: "Kagyz", sub: "Mekdep depderleri", d: "Başlangyç synplar üçin 12 sahypalyk çyzykly depder." },
+  { id: "8", t: "Ýönekeý galam HB Maped", p: 2.5, cost: 1.5, s: 60, c: "Ýazuw", sub: "Ýönekeý galamlar", d: "Döwülmeýän grafit özegi bolan ýönekeý galam." },
+  { id: "9", t: "Pozgyç Maped Soft", p: 3, cost: 1.8, s: 40, c: "Ýazuw", sub: "Pozgyç we uçlaýjylar", d: "Kagyzy zaýalamaýan ýumşak ak pozgyç." },
+  { id: "10", t: "Albom surat üçin 24 list", p: 12, cost: 8, s: 25, c: "Döredijilik", sub: "Surat albomlary", d: "Surat çekmek üçin galyň kagyzly 24 sahypalyk albom." },
+  { id: "11", t: "Reňkli galamlar 12 reňk Faber-Castell", p: 24, cost: 17, s: 20, c: "Döredijilik", sub: "Reňkli galamlar", d: "12 sany ýagty reňkli ýokary hilli galamlar toplumy." },
+  { id: "12", t: "Sirkul we çyzgyç toplumy Maped", p: 28, cost: 20, s: 15, c: "Ýazuw", sub: "Çyzuw esbaplary", d: "Ýokary synplar we geometriýa sapagy üçin metal sirkul toplumy." },
+  { id: "13", t: "Gündelik (Dnewnik) mekdep üçin", p: 15, cost: 10, s: 30, c: "Kagyz", sub: "Gündelik we bloknotlar", d: "Gaty daşlykly standart mekdep gündeligi." }
 ];
 
-var hSvg0 = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>';
-var hSvg1 = '<svg width="16" height="16" viewBox="0 0 24 24" fill="#ef4444" stroke="#ef4444" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>';
+var hSvg0 = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>';
+var hSvg1 = '<svg width="16" height="16" viewBox="0 0 24 24" fill="#f43f5e" stroke="#f43f5e" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>';
 var shSvg = '<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>';
 
 var lImg = document.getElementById("logoImg");
-lImg.onload = function(){ document.getElementById("logoTxt").style.display = "none"; };
-lImg.onerror = function(){
-  if(!this.dataset.t){ this.dataset.t = "1"; this.src = "img/logo.jpg"; }
-  else { this.style.display = "none"; }
-};
+if(lImg){
+  lImg.onload = function(){ document.getElementById("logoTxt").style.display = "none"; };
+  lImg.onerror = function(){ if(!this.dataset.t){ this.dataset.t = "1"; this.src = "img/logo.jpg"; } else { this.style.display = "none"; } };
+}
 
 var cats = [
   {id:"Ofis",tk:"Ofis üçin",ru:"Для офиса",i:"🗂️",img:"img/ofis.jpg"},
@@ -360,19 +487,57 @@ var cats = [
 function lsGet(k,d){ try{ var v=localStorage.getItem(k); return v?JSON.parse(v):d; }catch(e){ return d; } }
 function lsSet(k,v){ try{ localStorage.setItem(k,JSON.stringify(v)); }catch(e){} }
 
-var db = lsGet("ay_db_v10", githubBaza);
+var db = lsGet("ay_db_v12", githubBaza);
 var favs = lsGet("ay_favs", []);
 var views = lsGet("ay_views", {});
 var orders = lsGet("ay_orders", []);
+var customSchool = lsGet("ay_custom_school", {});
+var cbBal = parseFloat(lsGet("ay_cb", 0)) || 0;
+var cbMeta = lsGet("ay_cb_meta", {spent: 0, earned: 0});
+var userAddr = lsGet("ay_uaddr", {nm:"", ph:"", ad:""});
+var admPassSaved = lsGet("ay_apass", "1234");
 var m1 = lsGet("ay_m1", "aycyzuw.tm.arkadag@gmail.com");
 var m2 = lsGet("ay_m2", "aycyzuw.tm2026@gmail.com");
 var smsPh = lsGet("ay_sms", "+99365637644");
 var st = lsGet("ay_st", {s:0,p:0,c:0});
-var cart = [], lang = "tk", taps = 0, tt, curDet = null;
+var cart = [], lang = "tk", taps = 0, tt, curDet = null, curQtyItem = null;
+var fLow = false, fUnder10 = false;
+var curGrade = 1, curTier = "cheap", curSchoolItems = [];
+
+function getCbTier(){
+  var sp = cbMeta.spent || 0;
+  if(sp >= 1000) return {rate: 0.05, pct: 5, tk: "🥇 ALTYN DEREJE", ru: "🥇 ЗОЛОТОЙ СТАТУС", nextTk: "Iň ýokary VIP dereje!", nextRu: "Максимальный VIP статус!", prog: 100, left: 0};
+  if(sp >= 300) return {rate: 0.03, pct: 3, tk: "🥈 KÜMÜŞ DEREJE", ru: "🥈 СЕРЕБРЯНЫЙ СТАТУС", nextTk: "Altyn (5%)", nextRu: "Золото (5%)", prog: Math.min(100, Math.round(((sp-300)/700)*100)), left: Math.max(0, 1000 - sp)};
+  return {rate: 0.02, pct: 2, tk: "🥉 BÜRÜNÇ DEREJE", ru: "🥉 БРОНЗОВЫЙ СТАТУС", nextTk: "Kümüş (3%)", nextRu: "Серебро (3%)", prog: Math.min(100, Math.round((sp/300)*100)), left: Math.max(0, 300 - sp)};
+}
+
+function updCbUI(){
+  var t = getCbTier();
+  document.getElementById("profCbVal").innerText = cbBal.toFixed(2);
+  document.getElementById("cbAvail").innerText = cbBal.toFixed(2);
+  document.getElementById("cbUseWrap").style.display = cbBal > 0 ? "flex" : "none";
+  document.getElementById("cbTierName").innerText = t[lang];
+  document.getElementById("cbRateTxt").innerText = t.pct + (lang==="tk" ? "% Keşbek" : "% Кэшбэк");
+  document.getElementById("cbProgBar").style.width = Math.max(8, t.prog) + "%";
+  document.getElementById("cbNextTier").innerText = lang==="tk" ? t.nextTk : t.nextRu;
+  document.getElementById("cbProgLeft").innerText = t.left > 0
+    ? (lang==="tk" ? "Indiki derejä: " + t.left.toFixed(0) + " m galdy" : "До след. уровня: " + t.left.toFixed(0) + " m")
+    : (lang==="tk" ? "VIP Altyn dereje işjeň" : "VIP Золото активно");
+  document.getElementById("cbTotalSpent").innerText = (cbMeta.spent || 0).toFixed(2);
+  document.getElementById("cbTotalEarned").innerText = (cbMeta.earned || 0).toFixed(2);
+}
+function normCat(raw){
+  if(!raw) return "Umumy";
+  var s = String(raw).trim().toLowerCase();
+  for(var i=0;i<cats.length;i++){
+    if(cats[i].id.toLowerCase()===s || cats[i].tk.toLowerCase()===s || cats[i].ru.toLowerCase()===s) return cats[i].id;
+  }
+  return aCat(raw);
+}
 
 function aCat(n){
   var s=String(n).toLowerCase();
-  if(/ручк|ruck|карандаш|galam|маркер|marker|ластик|стиралк|pozgy|точилк|линейк|циркуль|корректор|замазк/.test(s))return"Ýazuw";
+  if(/ручк|ruck|карандаш|galam|маркер|marker|ластик|стиралк|pozgy|точилк|линейк|циркуль|sirkul|корректор|замазк/.test(s))return"Ýazuw";
   if(/краск|krask|гуаш|акварел|акрил|кист|kist|brush|холст|holst|мольберт|пластилин|палитр/.test(s))return"Döredijilik";
   if(/тетрад|depder|блокнот|bloknot|блакнот|ежедневник|дневник|gundelik|бумаг|kagyz|альбом|albom|скетчбук|ватман|стикер|zametka/.test(s))return"Kagyz";
   if(/папк|papk|файл|faýl|степлер|stepler|скоб|дырокол|скотч|калькулятор|органайзер|зажим|скрепк|ножниц|клей|печат/.test(s))return"Ofis";
@@ -383,26 +548,183 @@ function aCat(n){
   return"Umumy";
 }
 
-function aBr(n){
-  var bs=["Dolphin","Hatber","Maped","ErichKrause","Faber-Castell","Pensan","Student","Сонет","Гамма","Луч","Double A","Yalong","Kangaro","Cello","Piano","Deli"];
-  for(var i=0;i<bs.length;i++) if(String(n).toLowerCase().indexOf(bs[i].toLowerCase())>-1) return bs[i];
-  return"Beýleki";
+function ico(c){ for(var i=0;i<cats.length;i++) if(cats[i].id===c) return cats[i].i; return"📦"; }
+function catName(c){ for(var i=0;i<cats.length;i++) if(cats[i].id===c) return cats[i][lang]; return c; }
+
+/* 1-12 SYNP MEKDEP BAZARY */
+function findBestMatch(kw, tier){
+  var matches = [];
+  for(var i=0;i<db.length;i++){
+    if(db[i].s > 0 && db[i].t.toLowerCase().indexOf(kw.toLowerCase()) > -1) matches.push(db[i]);
+  }
+  if(!matches.length) return null;
+  matches.sort(function(a,b){ return a.p - b.p; });
+  if(tier === "cheap") return matches;
+  if(tier === "pro") return matches[matches.length - 1];
+  return matches[Math.floor(matches.length / 2)];
 }
 
-function ico(c){
-  for(var i=0;i<cats.length;i++) if(cats[i].id===c) return cats[i].i;
-  return"📦";
+function buildSchoolList(){
+  var gScroll = document.getElementById("gradeScroll");
+  if(!gScroll) return;
+  gScroll.innerHTML = "";
+  for(var g=1; g<=12; g++){
+    var gp = document.createElement("div");
+    gp.className = "g-pill" + (g === curGrade ? " act" : "");
+    gp.innerHTML = '<b>'+g+'</b><span>'+(lang==="tk"?"synp":"класс")+'</span>';
+    (function(gr){ gp.onclick = function(){ curGrade = gr; buildSchoolList(); }; })(g);
+    gScroll.appendChild(gp);
+  }
+
+  var wrap = document.getElementById("schoolListWrap"); wrap.innerHTML = "";
+  curSchoolItems = [];
+  var tot = 0;
+  var customKey = curGrade + "_" + curTier;
+
+  if(customSchool[customKey] && customSchool[customKey].length){
+    var list = customSchool[customKey];
+    for(var cIdx=0; cIdx<list.length; cIdx++){
+      var entry = list[cIdx];
+      var foundDb = null;
+      for(var dIdx=0; dIdx<db.length; dIdx++){
+        if(String(db[dIdx].id) === String(entry.id) || db[dIdx].t.toLowerCase() === String(entry.t).toLowerCase()){
+          foundDb = db[dIdx]; break;
+        }
+      }
+      var itm = foundDb
+        ? {id:foundDb.id, t:foundDb.t, p:foundDb.p, cost:foundDb.cost||0, s:foundDb.s||20, c:foundDb.c, q:entry.q||1}
+        : {id:entry.id||("CS_"+cIdx), t:entry.t, p:entry.p||5, cost:0, s:20, c:"Kagyz", q:entry.q||1};
+      curSchoolItems.push(itm);
+    }
+  } else {
+    var recipe = [];
+    if(curGrade <= 4){
+      recipe = [
+        {kw:"12 list gözenek", defName:"Depder 12 list gözenek", q:5, p:2, c:"Kagyz"},
+        {kw:"12 list çyzyk", defName:"Depder 12 list çyzykly", q:5, p:2, c:"Kagyz"},
+        {kw:"ruçka", defName:"Ruçka gök şarikli", q:3, p:3.5, c:"Ýazuw"},
+        {kw:"ýönekeý galam", defName:"Ýönekeý galam HB", q:3, p:2.5, c:"Ýazuw"},
+        {kw:"pozgyç", defName:"Pozgyç ýumşak", q:2, p:3, c:"Ýazuw"},
+        {kw:"albom", defName:"Surat albomy 24 list", q:1, p:12, c:"Döredijilik"},
+        {kw:"reňkli galam", defName:"Reňkli galamlar 12 reňk", q:1, p:24, c:"Döredijilik"},
+        {kw:"gündelik", defName:"Mekdep gündeligi", q:1, p:15, c:"Kagyz"}
+      ];
+    } else if(curGrade <= 8){
+      recipe = [
+        {kw:"48 list", defName:"Depder 48 list gözenek", q:8, p:6, c:"Kagyz"},
+        {kw:"ruçka", defName:"Ruçka gök 0.7mm", q:5, p:3.5, c:"Ýazuw"},
+        {kw:"ýönekeý galam", defName:"Ýönekeý galam HB", q:3, p:2.5, c:"Ýazuw"},
+        {kw:"pozgyç", defName:"Pozgyç Maped", q:1, p:3, c:"Ýazuw"},
+        {kw:"sirkul", defName:"Sirkul we çyzgyç toplumy", q:1, p:28, c:"Ýazuw"},
+        {kw:"gündelik", defName:"Mekdep gündeligi", q:1, p:15, c:"Kagyz"}
+      ];
+    } else {
+      recipe = [
+        {kw:"48 list", defName:"Depder 48/96 list umumy", q:10, p:6, c:"Kagyz"},
+        {kw:"ruçka", defName:"Ruçka gök/gara", q:6, p:3.5, c:"Ýazuw"},
+        {kw:"sirkul", defName:"Sirkul we çyzgyç toplumy", q:1, p:28, c:"Ýazuw"},
+        {kw:"kalkulýator", defName:"Inžener/Ofis kalkulýatory", q:1, p:45, c:"Ofis"},
+        {kw:"faýl", defName:"Faýl bukjasy", q:1, p:20, c:"Ofis"},
+        {kw:"gündelik", defName:"Mekdep gündeligi", q:1, p:15, c:"Kagyz"}
+      ];
+    }
+    var mult = curTier === "cheap" ? 0.85 : (curTier === "pro" ? 1.35 : 1);
+    for(var i=0; i<recipe.length; i++){
+      var r = recipe[i];
+      var real = findBestMatch(r.kw, curTier);
+      var itemObj = real ? {id:real.id, t:real.t, p:real.p, cost:real.cost||0, s:real.s, c:real.c, q:r.q}
+                         : {id:"S_"+curGrade+"_"+i, t:r.defName, p:+(r.p*mult).toFixed(1), cost:+(r.p*0.7).toFixed(1), s:20, c:r.c, q:r.q};
+      curSchoolItems.push(itemObj);
+    }
+  }
+
+  for(var m=0; m<curSchoolItems.length; m++){
+    var it = curSchoolItems[m];
+    tot += it.p * it.q;
+    var row = document.createElement("div"); row.className = "b-item";
+    var th = document.createElement("div"); th.className = "b-thumb";
+    var im = document.createElement("img"); im.src = "img/" + it.id + ".jpg";
+    (function(ic){ im.onerror = function(){ this.parentElement.innerHTML = ic; }; })(ico(it.c));
+    th.appendChild(im);
+    var mid = document.createElement("div"); mid.className = "b-mid";
+    mid.innerHTML = '<h5>'+it.t+'</h5><span>'+it.q+' sany × '+it.p+' m</span>';
+    var rt = document.createElement("div"); rt.className = "b-right";
+    rt.innerHTML = '<b>'+(it.p * it.q).toFixed(1)+' m</b>';
+    row.appendChild(th); row.appendChild(mid); row.appendChild(rt);
+    wrap.appendChild(row);
+  }
+  document.getElementById("schoolTotal").innerText = tot.toFixed(2);
+}
+function flyToCart(el){
+  if(!el) return;
+  var r = el.getBoundingClientRect();
+  var target = document.getElementById("navCartBtn").getBoundingClientRect();
+  var dot = document.createElement("div");
+  dot.className = "fly-dot"; dot.innerText = "+1";
+  dot.style.left = (r.left + r.width/2 - 14) + "px";
+  dot.style.top = r.top + "px";
+  document.body.appendChild(dot);
+  requestAnimationFrame(function(){
+    dot.style.left = (target.left + target.width/2 - 10) + "px";
+    dot.style.top = (target.top + 4) + "px";
+    dot.style.opacity = "0.2"; dot.style.transform = "scale(0.6)";
+  });
+  setTimeout(function(){
+    dot.remove();
+    var b = document.getElementById("cnt");
+    b.classList.add("bump");
+    setTimeout(function(){ b.classList.remove("bump"); }, 220);
+  }, 650);
 }
 
-function catName(c){
-  for(var i=0;i<cats.length;i++) if(cats[i].id===c) return cats[i][lang];
-  return c;
+function getCartQty(id){ for(var i=0;i<cart.length;i++) if(cart[i].id===id) return cart[i].q; return 0; }
+
+function setExactQty(p, val){
+  var n = parseInt(val, 10);
+  if(isNaN(n) || n <= 0){
+    cart = cart.filter(function(it){ return it.id !== p.id; });
+  } else {
+    var maxS = p.s || 999;
+    if(n > maxS){ alert(lang==="tk" ? "Bu harytdan "+maxS+" sany elýeterli!" : "Доступно только "+maxS+" шт!"); n = maxS; }
+    var found = false;
+    for(var i=0;i<cart.length;i++) if(cart[i].id===p.id){ cart[i].q = n; found = true; }
+    if(!found) cart.push({id:p.id, t:p.t, p:p.p, cost:p.cost||0, q:n, max:maxS});
+  }
+  updCart(); render();
+  if(curDet && curDet.id === p.id) updDetBtn(p);
+}
+
+function promptQty(p){
+  curQtyItem = p;
+  document.getElementById("qtyItemTitle").innerText = p.t;
+  var inp = document.getElementById("qtyInput");
+  inp.value = getCartQty(p.id) || 1;
+  inp.max = p.s || 999;
+  document.getElementById("qpMaxBtn").innerText = (lang==="tk"?"Ählisi":"Все");
+  document.getElementById("qpMaxBtn").onclick = function(){ inp.value = p.s || 50; };
+  document.getElementById("qtyModal").classList.add("open");
+  setTimeout(function(){ inp.focus(); inp.select(); }, 100);
+}
+window.setPresetQ = function(n){
+  if(!curQtyItem) return;
+  document.getElementById("qtyInput").value = Math.min(n, curQtyItem.s || 999);
+};
+document.getElementById("btnConfirmQty").onclick = function(){
+  if(curQtyItem) setExactQty(curQtyItem, document.getElementById("qtyInput").value);
+  document.getElementById("qtyModal").classList.remove("open");
+};
+
+function addCart(p, btnEl){
+  var cur = getCartQty(p.id);
+  var maxS = p.s || 999;
+  if(cur + 1 > maxS){ alert(lang==="tk" ? "Bu harytdan "+maxS+" sany elýeterli!" : "Доступно только "+maxS+" шт!"); return; }
+  setExactQty(p, cur + 1);
+  if(btnEl) flyToCart(btnEl);
 }
 
 function toggleFav(id){
   var idx = favs.indexOf(id);
-  if(idx > -1) favs.splice(idx, 1);
-  else favs.push(id);
+  if(idx > -1) favs.splice(idx, 1); else favs.push(id);
   lsSet("ay_favs", favs);
   render(); renderFavs();
   if(curDet && curDet.id === id) updDetFav(id);
@@ -410,18 +732,34 @@ function toggleFav(id){
 
 function updDetFav(id){
   var isF = favs.indexOf(id) > -1;
-  document.getElementById("detTopFav").innerHTML = isF ? hSvg1 : hSvg0;
-  document.getElementById("detFloatFav").innerHTML = isF ? hSvg1 : hSvg0;
+  var btn = document.getElementById("detTopFav");
+  btn.innerHTML = isF ? hSvg1 : hSvg0;
+  btn.classList.toggle("liked", isF);
   document.getElementById("detLikes").innerText = (isF ? 1 : 0) + (parseInt(id,36)%5 + 1);
 }
 
 function shareProd(x){
   var txt = x.t + " — " + x.p + " m\n" + location.href;
-  if(navigator.share){ navigator.share({title: x.t, text: txt}).catch(function(){}); }
-  else if(navigator.clipboard){
-    navigator.clipboard.writeText(txt).then(function(){
-      alert(lang==="tk"?"Salgy kopiýalandy!":"Ссылка скопирована!");
-    }).catch(function(){});
+  if(navigator.share) navigator.share({title: x.t, text: txt}).catch(function(){});
+  else if(navigator.clipboard) navigator.clipboard.writeText(txt).then(function(){ alert(lang==="tk"?"Salgy kopiýalandy!":"Ссылка скопирована!"); });
+}
+
+function updDetBtn(x){
+  var w = document.getElementById("detBarWrap"); w.innerHTML = "";
+  var q = getCartQty(x.id);
+  if(x.s <= 0){
+    w.innerHTML = '<button class="btn1" disabled style="opacity:.6">'+(lang==="tk"?"Gutarandy":"Нет в наличии")+'</button>';
+  } else if(q > 0){
+    var box = document.createElement("div"); box.className = "iqty"; box.style.height = "44px";
+    var bm = document.createElement("button"); bm.innerText = "−"; bm.onclick = function(){ setExactQty(x, q-1); };
+    var sp = document.createElement("span"); sp.innerText = q + (lang==="tk"?" sany (üýtget)":" шт (изм.)"); sp.onclick = function(){ promptQty(x); };
+    var bp = document.createElement("button"); bp.innerText = "+"; bp.disabled = q >= x.s; bp.onclick = function(){ addCart(x, bp); };
+    box.appendChild(bm); box.appendChild(sp); box.appendChild(bp); w.appendChild(box);
+  } else {
+    var b = document.createElement("button"); b.className = "btn1";
+    b.innerText = lang==="tk" ? "🛒 Sebede goş" : "🛒 Добавить в корзину";
+    b.onclick = function(){ addCart(x, b); };
+    w.appendChild(b);
   }
 }
 
@@ -434,26 +772,20 @@ function openDet(x){
   document.getElementById("detPrc").innerText = x.p + " m";
   document.getElementById("detViews").innerText = views[x.id];
   document.getElementById("detCat").innerText = catName(x.c);
-  document.getElementById("detBr").innerText = x.b;
+  document.getElementById("detSub").innerText = x.sub || (lang==="tk"?"Umumy":"Общее");
+  document.getElementById("detCode").innerText = "#" + x.id;
+  document.getElementById("detDesc").innerText = x.d || (lang==="tk" ? "Ýokary hilli original kanselýariýa önümi. Mekdep we ofis ulanyşy üçin niýetlenen." : "Качественный оригинальный товар для школы и офиса.");
   document.getElementById("detTopShare").innerHTML = shSvg;
-  document.getElementById("detFloatShare").innerHTML = shSvg;
   updDetFav(x.id);
+  updDetBtn(x);
 
   var iw = document.getElementById("detImgWrap"); iw.innerHTML = "";
   var im = document.createElement("img"); im.src = "img/" + x.id + ".jpg";
   (function(ic){ im.onerror = function(){ iw.innerHTML = ic; }; })(ico(x.c));
   iw.appendChild(im);
 
-  var ab = document.getElementById("detAddBtn");
-  if(x.s <= 0){ ab.disabled = true; ab.innerText = lang==="tk" ? "Gutarandy" : "Нет в наличии"; }
-  else {
-    ab.disabled = false; ab.innerText = lang==="tk" ? "🛒 Sebede goş" : "🛒 Добавить в корзину";
-    ab.onclick = function(){ addCart(x); alert(lang==="tk"?"Sebede goşuldy!":"Добавлено в корзину!"); };
-  }
   document.getElementById("detTopFav").onclick = function(){ toggleFav(x.id); };
-  document.getElementById("detFloatFav").onclick = function(){ toggleFav(x.id); };
   document.getElementById("detTopShare").onclick = function(){ shareProd(x); };
-  document.getElementById("detFloatShare").onclick = function(){ shareProd(x); };
 
   var simBox = document.getElementById("detSim"); simBox.innerHTML = "";
   var scnt = 0;
@@ -493,76 +825,187 @@ function makeCard(x){
   var info = document.createElement("div"); info.className = "cbody";
   info.innerHTML = '<div class="prc">' + x.p + ' m</div><div class="ttl">' + x.t + '</div>';
 
-  var btn = document.createElement("button"); btn.className = "add";
-  if(x.s <= 0){ btn.disabled = true; btn.innerText = lang === "tk" ? "Gutarandy" : "Нет в наличии"; }
-  else {
+  var q = getCartQty(x.id);
+  if(x.s <= 0){
+    var btn = document.createElement("button"); btn.className = "add"; btn.disabled = true;
+    btn.innerText = lang === "tk" ? "Gutarandy" : "Нет в наличии";
+    info.appendChild(btn);
+  } else if(q > 0){
+    var qbox = document.createElement("div"); qbox.className = "iqty";
+    qbox.onclick = function(e){ e.stopPropagation(); };
+    var bm = document.createElement("button"); bm.innerText = "−"; bm.onclick = function(){ setExactQty(x, q-1); };
+    var sp = document.createElement("span"); sp.innerText = q; sp.onclick = function(){ promptQty(x); };
+    var bp = document.createElement("button"); bp.innerText = "+"; bp.disabled = q >= x.s; bp.onclick = function(){ addCart(x, bp); };
+    qbox.appendChild(bm); qbox.appendChild(sp); qbox.appendChild(bp);
+    info.appendChild(qbox);
+  } else {
+    var btn = document.createElement("button"); btn.className = "add";
     btn.innerText = lang === "tk" ? "+ Sebede goş" : "+ В корзину";
-    btn.onclick = function(e){ e.stopPropagation(); addCart(x); };
+    btn.onclick = function(e){ e.stopPropagation(); addCart(x, btn); };
+    info.appendChild(btn);
   }
-  info.appendChild(btn); card.appendChild(pimg); card.appendChild(info);
+  card.appendChild(pimg); card.appendChild(info);
   return card;
 }
 function makeCatCard(c, fc){
   var d = document.createElement("div"); d.className = "ccard";
   var box = document.createElement("div"); box.className = "cbox";
   if(c.img){
-    var im = document.createElement("img");
-    im.src = c.img;
-    im.alt = c[lang];
+    var im = document.createElement("img"); im.src = c.img; im.alt = c[lang];
     im.onerror = function(){ box.innerHTML = c.i; };
     box.appendChild(im);
-  } else {
-    box.innerHTML = c.i;
-  }
-  var sp = document.createElement("span");
-  sp.innerText = c[lang];
-  d.appendChild(box);
-  d.appendChild(sp);
-  d.onclick = function(){ fc.value = c.id; showTab("home"); render(); };
+  } else box.innerHTML = c.i;
+  var sp = document.createElement("span"); sp.innerText = c[lang];
+  d.appendChild(box); d.appendChild(sp);
+  d.onclick = function(){
+    fc.value = c.id;
+    document.getElementById("fsub").value = "";
+    renderFilterList();
+    showTab("home");
+    render();
+    window.scrollTo({top: 0, behavior: "smooth"});
+  };
   return d;
 }
 
-function initF(){
-  var g1=document.getElementById("cgrid1"), g2=document.getElementById("cgrid2"), fc=document.getElementById("fcat"), fb=document.getElementById("fbr");
-  g1.innerHTML=""; g2.innerHTML="";
-  fc.innerHTML='<option value="">' + (lang==="tk"?"Ähli kategoriýalar":"Все категории") + '</option>';
-  for(var i=0;i<cats.length;i++){
-    var c=cats[i];
-    g1.appendChild(makeCatCard(c, fc));
-    g2.appendChild(makeCatCard(c, fc));
-    var o=document.createElement("option"); o.value=c.id; o.innerText=c[lang]; fc.appendChild(o);
-  }
-  var brs={};
-  fb.innerHTML='<option value="">' + (lang==="tk"?"Ähli brendler":"Все бренды") + '</option>';
-  for(var j=0;j<db.length;j++){
-    var item=db[j];
-    if(!brs[item.b]){ brs[item.b]=1; var ob=document.createElement("option"); ob.value=item.b; ob.innerText=item.b; fb.appendChild(ob); }
-  }
-}
+function renderFilterList(){
+  var wrap = document.getElementById("fListWrap");
+  if(!wrap) return;
+  var fc = document.getElementById("fcat");
+  var fsub = document.getElementById("fsub");
+  var curCat = fc.value;
+  var curSub = fsub.value;
+  wrap.innerHTML = "";
 
-function render(){
-  var qv=document.getElementById("q").value, q=qv.toLowerCase();
-  var fc=document.getElementById("fcat").value, fb=document.getElementById("fbr").value;
-  var mn=+document.getElementById("mn").value||0, mx=+document.getElementById("mx").value||999999;
-  var hz=document.getElementById("hideZero").checked, pg=document.getElementById("pgrid");
-  document.getElementById("clrQ").style.display = qv ? "block" : "none";
-  pg.innerHTML="";
-  var cnt=0;
-  for(var i=0;i<db.length;i++){
-    var x=db[i];
-    if((!hz||x.s>0) && (x.t.toLowerCase().indexOf(q)>-1 || String(x.id).toLowerCase().indexOf(q)>-1) && (!fc||x.c===fc) && (!fb||x.b===fb) && (x.p>=mn && x.p<=mx)){
-      if(cnt<100) pg.appendChild(makeCard(x));
-      cnt++;
+  if(!curCat){
+    // 1-nji basgançak: Kategoriýalar sanawy (emojisiz, arassa setirler)
+    var rAll = document.createElement("div");
+    rAll.className = "flist-row" + (curCat === "" ? " act" : "");
+    rAll.innerHTML = '<span>' + (lang==="tk" ? "Ähli kategoriýalar" : "Все категории") + '</span><span class="flist-arr">›</span>';
+    rAll.onclick = function(){ fc.value = ""; fsub.value = ""; renderFilterList(); };
+    wrap.appendChild(rAll);
+
+    for(var i=0; i<cats.length; i++){
+      var c = cats[i];
+      var row = document.createElement("div");
+      row.className = "flist-row";
+      row.innerHTML = '<span>' + c[lang] + '</span><span class="flist-arr">›</span>';
+      (function(cid){
+        row.onclick = function(){
+          fc.value = cid;
+          fsub.value = "";
+          renderFilterList();
+        };
+      })(c.id);
+      wrap.appendChild(row);
+    }
+  } else {
+    // 2-nji basgançak: Yza gaýdyş + Saýlanan kategoriýa + Kiçi bölümçeleri
+    var back = document.createElement("div");
+    back.className = "flist-back";
+    back.innerHTML = '<span>‹</span><span>' + (lang==="tk" ? "Ähli kategoriýalar" : "Все категории") + '</span>';
+    back.onclick = function(){ fc.value = ""; fsub.value = ""; renderFilterList(); };
+    wrap.appendChild(back);
+
+    var head = document.createElement("div");
+    head.className = "flist-head";
+    head.innerText = catName(curCat);
+    wrap.appendChild(head);
+
+    var rAllSub = document.createElement("div");
+    rAllSub.className = "flist-row" + (curSub === "" ? " act" : "");
+    rAllSub.innerHTML = '<span>' + (lang==="tk" ? "Ähli harytlar" : "Все товары") + '</span><span class="flist-arr">›</span>';
+    rAllSub.onclick = function(){ fsub.value = ""; renderFilterList(); };
+    wrap.appendChild(rAllSub);
+
+    var subs = {};
+    for(var j=0; j<db.length; j++){
+      if(db[j].c === curCat && db[j].sub) subs[db[j].sub] = 1;
+    }
+    var keys = Object.keys(subs);
+    for(var k=0; k<keys.length; k++){
+      var sname = keys[k];
+      var srow = document.createElement("div");
+      srow.className = "flist-row" + (curSub === sname ? " act" : "");
+      srow.innerHTML = '<span>' + sname + '</span><span class="flist-arr">›</span>';
+      (function(sn){
+        srow.onclick = function(){
+          fsub.value = (fsub.value === sn) ? "" : sn;
+          renderFilterList();
+        };
+      })(sname);
+      wrap.appendChild(srow);
     }
   }
 }
 
+function initF(){
+  var g1 = document.getElementById("cgrid1"),
+      g2 = document.getElementById("cgrid2"),
+      fc = document.getElementById("fcat");
+
+  g1.innerHTML = ""; g2.innerHTML = "";
+  for(var i=0; i<cats.length; i++){
+    g1.appendChild(makeCatCard(cats[i], fc));
+    g2.appendChild(makeCatCard(cats[i], fc));
+  }
+  renderFilterList();
+  buildSchoolList();
+}
+
+function render(){
+  var qv=document.getElementById("q").value.trim(), q=qv.toLowerCase();
+  var fc=document.getElementById("fcat").value, fsub=document.getElementById("fsub").value;
+  var mn=+document.getElementById("mn").value||0, mx=+document.getElementById("mx").value||999999;
+  var hz=document.getElementById("hideZero").checked, pg=document.getElementById("pgrid");
+  document.getElementById("clrQ").style.display = qv ? "block" : "none";
+
+  var isFiltered = Boolean(qv || fc || fsub || mn>0 || mx<999999 || fLow || fUnder10);
+  document.getElementById("homeTopBlocks").style.display = isFiltered ? "none" : "block";
+
+  var cb = document.getElementById("catBanner");
+  if(fc){
+    cb.style.display = "flex";
+    document.getElementById("catBannerTitle").innerText = catName(fc) + (fsub ? " › " + fsub : "");
+  } else {
+    cb.style.display = "none";
+  }
+
+  pg.innerHTML="";
+  var cnt=0;
+  for(var i=0;i<db.length;i++){
+    var x=db[i];
+    var okLow = !fLow || (x.s > 0 && x.s <= 5);
+    var ok10 = !fUnder10 || (x.p <= 10);
+    if((!hz||x.s>0) && okLow && ok10 && (x.t.toLowerCase().indexOf(q)>-1 || String(x.id).toLowerCase().indexOf(q)>-1 || (x.sub && x.sub.toLowerCase().indexOf(q)>-1)) && (!fc||x.c===fc) && (!fsub||x.sub===fsub) && (x.p>=mn && x.p<=mx)){
+      if(cnt<120) pg.appendChild(makeCard(x));
+      cnt++;
+    }
+  }
+  if(!cnt){
+    pg.innerHTML = '<div class="empty-box" style="grid-column:1/-1"><p>'+(lang==="tk"?"Bu gözleg boýunça haryt tapylmady":"Товары не найдены")+'</p><button class="btn2" style="max-width:200px;margin:12px auto" onclick="resetAllFilters()">'+(lang==="tk"?"Ählisini görkez":"Показать все")+'</button></div>';
+  }
+}
+
+function resetAllFilters(){
+  document.getElementById("q").value="";
+  document.getElementById("fcat").value="";
+  document.getElementById("fsub").value="";
+  document.getElementById("mn").value="";
+  document.getElementById("mx").value="";
+  document.getElementById("fOnlyLow").checked = false;
+  fLow = false; fUnder10 = false;
+  document.getElementById("chipLow").classList.remove("act");
+  document.getElementById("chip10").classList.remove("act");
+  renderFilterList();
+  render();
+}
 function renderFavs(){
   var fg = document.getElementById("fgrid"); fg.innerHTML = ""; var found = 0;
   for(var i=0;i<db.length;i++){
     if(favs.indexOf(db[i].id) > -1){ fg.appendChild(makeCard(db[i])); found++; }
   }
-  if(!found) fg.innerHTML = '<p style="grid-column:1/-1;text-align:center;color:var(--m);padding:30px">' + (lang==="tk"?"Halanan haryt ýok":"Нет избранных товаров") + '</p>';
+  if(!found) fg.innerHTML = '<div class="empty-box" style="grid-column:1/-1"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg><p>' + (lang==="tk"?"Halanan haryt ýok":"Нет избранных товаров") + '</p></div>';
 }
 
 function renderStockList(){
@@ -572,27 +1015,20 @@ function renderStockList(){
     row.innerHTML = '<span style="max-width:65%"><b>['+x.id+']</b> '+x.t+'</span>';
     var inp = document.createElement("input"); inp.type = "number"; inp.value = x.s;
     inp.style.cssText = "width:65px;padding:4px 6px;margin:0;text-align:center";
-    (function(idx){ inp.onchange = function(){ db[idx].s = Math.max(0, parseFloat(this.value) || 0); lsSet("ay_db_v10", db); render(); }; })(i);
+    (function(idx){ inp.onchange = function(){ db[idx].s = Math.max(0, parseFloat(this.value) || 0); lsSet("ay_db_v12", db); render(); }; })(i);
     row.appendChild(inp); sl.appendChild(row);
   }
 }
 
 function renderOrders(){
   var ol = document.getElementById("olist");
-  if(!orders.length){ ol.innerHTML = '<p style="text-align:center;color:var(--m);padding:30px">' + (lang==="tk"?"Heniz sargyt ýok":"Заказов пока нет") + '</p>'; return; }
+  if(!orders.length){ ol.innerHTML = '<div class="empty-box"><p>' + (lang==="tk"?"Heniz sargyt ýok":"Заказов пока нет") + '</p></div>'; return; }
   var h = "";
   for(var i=orders.length-1;i>=0;i--){
     var o = orders[i];
     h += '<div style="background:var(--c);border:1px solid var(--b);padding:12px;border-radius:11px;margin-bottom:8px;font-size:13px"><b>Sargyt '+o.id+' — '+o.tot+'</b><br><span style="color:var(--m)">'+o.nm+' ('+o.ph+') - '+o.ad+'</span><div style="margin-top:6px;white-space:pre-wrap;font-size:11.5px;background:var(--g);padding:8px;border-radius:8px">'+o.det+'</div></div>';
   }
   ol.innerHTML = h;
-}
-function addCart(p){
-  var f=null;
-  for(var i=0;i<cart.length;i++) if(cart[i].id===p.id) f=cart[i];
-  if(f){ if(f.q < p.s) f.q++; else alert(lang==="tk"?"Ammarda diňe "+p.s+" sany bar!":"На складе только "+p.s+" шт!"); }
-  else { cart.push({id:p.id,t:p.t,p:p.p,cost:p.cost,q:1,max:p.s}); }
-  updCart();
 }
 
 function updCart(){
@@ -602,19 +1038,28 @@ function updCart(){
     var div = document.createElement("div"); div.className = "citem";
     div.innerHTML = '<div style="flex:1"><div style="font-size:13px;font-weight:600">'+item.t+'</div><div style="font-size:12px;color:var(--p);font-weight:700">'+(item.p*item.q).toFixed(2)+' m</div></div>';
     var qc = document.createElement("div"); qc.className = "qctrl";
-    var bm = document.createElement("button"); bm.className="qbtn"; bm.innerText="-";
-    var qn = document.createElement("span"); qn.style.fontSize="13px"; qn.innerText=item.q;
-    var bp = document.createElement("button"); bp.className="qbtn"; bp.innerText="+";
-    (function(idx){
-      bm.onclick = function(){ cart[idx].q--; if(cart[idx].q<=0) cart.splice(idx,1); updCart(); };
-      bp.onclick = function(){ if(cart[idx].q < cart[idx].max){ cart[idx].q++; updCart(); } };
-    })(i);
+    var bm = document.createElement("button"); bm.className="qbtn"; bm.innerText="−";
+    var qn = document.createElement("span"); qn.className="qnum"; qn.innerText=item.q;
+    var bp = document.createElement("button"); bp.className="qbtn"; bp.innerText="+"; bp.disabled = item.q >= item.max;
+    (function(it){
+      bm.onclick = function(){ setExactQty(it, it.q-1); };
+      qn.onclick = function(){ promptQty({id:it.id, t:it.t, p:it.p, cost:it.cost, s:it.max}); };
+      bp.onclick = function(){ if(it.q < it.max) setExactQty(it, it.q+1); else alert("Bu harytdan "+it.max+" sany elýeterli!"); };
+    })(item);
     qc.appendChild(bm); qc.appendChild(qn); qc.appendChild(bp); div.appendChild(qc); cl.appendChild(div);
   }
+  var useCb = document.getElementById("useCbChk").checked;
+  var finalTot = useCb ? Math.max(0, t - cbBal) : t;
   document.getElementById("cnt").innerText = c;
-  document.getElementById("tot").innerText = t.toFixed(2);
+  document.getElementById("tot").innerText = finalTot.toFixed(2);
   document.getElementById("obox").style.display = cart.length ? "block" : "none";
-  if(!cart.length) cl.innerHTML = '<p style="text-align:center;color:var(--m);padding:30px">'+(lang==="tk"?"Sebet boş":"Корзина пуста")+'</p>';
+  if(userAddr.nm && !document.getElementById("nm").value) document.getElementById("nm").value = userAddr.nm;
+  if(userAddr.ph && !document.getElementById("ph").value) document.getElementById("ph").value = userAddr.ph;
+  if(userAddr.ad && !document.getElementById("ad").value) document.getElementById("ad").value = userAddr.ad;
+
+  if(!cart.length){
+    cl.innerHTML = '<div class="empty-box"><svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg><p style="margin-bottom:14px">'+(lang==="tk"?"Sebediňiz häzirlikçe boş":"Ваша корзина пока пуста")+'</p><button class="btn1" style="max-width:210px;margin:0 auto" onclick="showTab(\'home\')">'+(lang==="tk"?"🛍️ Söwda başlamak":"🛍️ Начать покупки")+'</button></div>';
+  }
 }
 
 function showTab(t){
@@ -622,8 +1067,14 @@ function showTab(t){
   for(var i=0;i<s.length;i++) s[i].classList.remove("act");
   for(var j=0;j<n.length;j++) n[j].classList.toggle("act", n[j].getAttribute("data-t")===t);
   document.getElementById("s-"+t).classList.add("act");
+
+  document.getElementById("searchWrap").style.display = (t === "home") ? "block" : "none";
+  document.getElementById("filterBar").style.display = (t === "home") ? "grid" : "none";
+
   if(t==="fav") renderFavs();
   if(t==="orders") renderOrders();
+  if(t==="prof") updCbUI();
+  if(t==="school") buildSchoolList();
 }
 
 function setL(l){
@@ -633,7 +1084,7 @@ function setL(l){
   var els=document.querySelectorAll("[data-tk]");
   for(var i=0;i<els.length;i++) els[i].innerText = els[i].getAttribute("data-"+l);
   document.getElementById("q").placeholder = l==="tk"?"Gözleg...":"Поиск...";
-  initF(); render(); updCart();
+  updCbUI(); initF(); render(); updCart();
 }
 
 function updRep(){
@@ -652,80 +1103,286 @@ function goSlide(n){
 }
 setInterval(function(){ goSlide((curSlide + 1) % 3); }, 4000);
 
+/* EVENT LISTENERS */
+document.getElementById("openSchoolBuilder").onclick = function(){ showTab("school"); window.scrollTo({top:0,behavior:"smooth"}); };
+document.getElementById("backFromSchool").onclick = function(){ showTab("home"); };
+var tTabs = document.querySelectorAll(".t-tab");
+for(var ti=0; ti<tTabs.length; ti++){
+  tTabs[ti].onclick = function(){
+    for(var k=0;k<tTabs.length;k++) tTabs[k].classList.remove("act");
+    this.classList.add("act");
+    curTier = this.getAttribute("data-tier");
+    buildSchoolList();
+  };
+}
+document.getElementById("btnAddAllSchool").onclick = function(){
+  for(var i=0;i<curSchoolItems.length;i++){
+    var it = curSchoolItems[i];
+    setExactQty(it, getCartQty(it.id) + it.q);
+  }
+  flyToCart(this);
+  alert(lang==="tk" ? curGrade+"-nji synp toplumy sebede goşuldy!" : "Набор для "+curGrade+" класса добавлен в корзину!");
+};
+
 document.getElementById("detBack").onclick = function(){ document.getElementById("detPage").classList.remove("open"); };
 document.getElementById("logoBtn").onclick = function(){
   taps++; clearTimeout(tt); tt = setTimeout(function(){ taps=0; }, 800);
   if(taps===3){ taps=0; document.getElementById("admLogin").classList.add("open"); }
+  else { showTab("home"); }
 };
 document.getElementById("ltm").onclick = function(){ setL("tk"); };
 document.getElementById("lru").onclick = function(){ setL("ru"); };
 document.getElementById("q").onkeyup = render;
 document.getElementById("hideZero").onchange = render;
 document.getElementById("clrQ").onclick = function(){ document.getElementById("q").value=""; render(); };
+document.getElementById("btnExitCat").onclick = resetAllFilters;
+document.getElementById("btnAll").onclick = resetAllFilters;
+document.getElementById("useCbChk").onchange = updCart;
+
+document.getElementById("chipLow").onclick = function(){ fLow = !fLow; this.classList.toggle("act", fLow); document.getElementById("fOnlyLow").checked = fLow; render(); };
+document.getElementById("chip10").onclick = function(){ fUnder10 = !fUnder10; this.classList.toggle("act", fUnder10); render(); };
 document.getElementById("btnSort").onclick = function(){ document.getElementById("sm").classList.add("open"); };
-document.getElementById("btnFilt").onclick = function(){ document.getElementById("fm").classList.add("open"); };
-document.getElementById("btnAll").onclick = function(){ document.getElementById("q").value=""; document.getElementById("fcat").value=""; document.getElementById("fbr").value=""; document.getElementById("mn").value=""; document.getElementById("mx").value=""; render(); };
-document.getElementById("btnApplyF").onclick = function(){ render(); document.getElementById("fm").classList.remove("open"); };
-document.getElementById("btnResetF").onclick = function(){ document.getElementById("btnAll").onclick(); document.getElementById("fm").classList.remove("open"); };
+document.getElementById("btnFilt").onclick = function(){ renderFilterList(); document.getElementById("fm").classList.add("open"); };
+document.getElementById("btnApplyF").onclick = function(){
+  fLow = document.getElementById("fOnlyLow").checked;
+  document.getElementById("chipLow").classList.toggle("act", fLow);
+  render();
+  document.getElementById("fm").classList.remove("open");
+};
+document.getElementById("btnResetF").onclick = function(){ resetAllFilters(); document.getElementById("fm").classList.remove("open"); };
 document.getElementById("srt1").onclick = function(){ db.sort(function(a,b){return a.p-b.p;}); render(); document.getElementById("sm").classList.remove("open"); };
 document.getElementById("srt2").onclick = function(){ db.sort(function(a,b){return b.p-a.p;}); render(); document.getElementById("sm").classList.remove("open"); };
+/* VISUAL PRODUCT SCANNER */
+function renderCamMatches(list){
+  var rb = document.getElementById("scanResultBox");
+  rb.style.display = "block";
+  if(!list.length){
+    rb.innerHTML = "ℹ️ Bazada meňzeş haryt tapylmady. Aşakda harydyň adyny ýazyp <b>«Dükana ugrat»</b> düwmesine basyň!";
+    return;
+  }
+  var html = "<div style='font-weight:700;margin-bottom:6px'>🔍 Bazadan tapylan meňzeş harytlar ("+list.length+"):</div><div class='cam-matches'>";
+  for(var i=0; i<Math.min(4, list.length); i++){
+    var it = list[i];
+    html += "<div class='cam-m-item' onclick='openCamProd(\""+it.id+"\")'><span style='font-size:12.5px;font-weight:600'>"+it.t+"</span><b style='color:var(--p);font-size:13px'>"+it.p+" m ›</b></div>";
+  }
+  html += "</div>";
+  rb.innerHTML = html;
+}
+
+window.openCamProd = function(id){
+  document.getElementById("camModal").classList.remove("open");
+  for(var i=0;i<db.length;i++) if(db[i].id === id){ openDet(db[i]); break; }
+};
+
+document.getElementById("btnCam").onclick = function(){
+  document.getElementById("scanResultBox").style.display = "none";
+  document.getElementById("camPreview").style.display = "none";
+  document.getElementById("camNote").value = "";
+  document.getElementById("camModal").classList.add("open");
+};
+
+document.getElementById("camFile").onchange = function(e){
+  var file = e.target.files[0];
+  if(!file) return;
+  var fname = file.name.toLowerCase();
+  var rd = new FileReader();
+  rd.onload = function(ev){
+    var img = document.getElementById("camPreview");
+    img.src = ev.target.result; img.style.display = "block";
+    var tempImg = new Image();
+    tempImg.onload = function(){
+      var cv = document.createElement("canvas"); cv.width = 24; cv.height = 24;
+      var ctx = cv.getContext("2d"); ctx.drawImage(tempImg, 0, 0, 24, 24);
+      var d = ctx.getImageData(6, 6, 12, 12).data, r=0, g=0, b=0, cnt=0;
+      for(var i=0;i<d.length;i+=4){ r+=d[i]; g+=d[i+1]; b+=d[i+2]; cnt++; }
+      r=Math.round(r/cnt); g=Math.round(g/cnt); b=Math.round(b/cnt);
+
+      var kwList = [];
+      if(b > r+20 && b > g+15) kwList.push("gök", "ruçka", "faýl");
+      else if(r > g+25 && r > b+25) kwList.push("reňkli", "albom", "galam");
+      else if(r > 195 && g > 195 && b > 195) kwList.push("kagyz", "a4", "depder", "pozgyç");
+      else if(r < 85 && g < 85 && b < 85) kwList.push("kalkulýator", "galam", "sirkul");
+      else kwList.push("depder", "gündelik", "ruçka");
+
+      var matches = db.filter(function(x){
+        var tLow = x.t.toLowerCase();
+        for(var k=0; k<kwList.length; k++) if(tLow.indexOf(kwList[k]) > -1 || fname.indexOf(x.id) > -1) return true;
+        return false;
+      });
+      renderCamMatches(matches);
+    };
+    tempImg.src = ev.target.result;
+  };
+  rd.readAsDataURL(file);
+};
+
+document.getElementById("camNote").onkeyup = function(){
+  var val = this.value.trim().toLowerCase();
+  if(val.length < 2) return;
+  var found = db.filter(function(x){ return x.t.toLowerCase().indexOf(val) > -1 || (x.sub && x.sub.toLowerCase().indexOf(val) > -1); });
+  renderCamMatches(found);
+};
+
+document.getElementById("btnSendCam").onclick = function(){
+  var note = document.getElementById("camNote").value.trim() || "Surat boýunça haryt gözleýärin";
+  var cph = document.getElementById("camPhone").value.trim() || userAddr.ph || "Görkezilmedik";
+  var mainMail = m1 || "aycyzuw.tm.arkadag@gmail.com";
+  var btn = this; btn.disabled = true; btn.innerText = "Ugradylýar...";
+  fetch("https://formsubmit.co" + encodeURIComponent(mainMail), {
+    method: "POST",
+    headers: { "Content-Type": "application/json", "Accept": "application/json" },
+    body: JSON.stringify({ _subject: "AÝ-ÇYZUW Surat Gözlegi", _captcha: "false", Musderi_Tel: cph, Bellik: note })
+  }).finally(function(){
+    btn.disabled = false; btn.innerText = "📩 Dükana ugrat (Gmail we SMS)";
+    document.getElementById("camModal").classList.remove("open");
+    alert(lang==="tk"?"Talabyňyz dükana ugradyldy! Ýakyn wagtda habarlaşarys.":"Ваш запрос отправлен в магазин!");
+  });
+};
+
+/* PROFILE, CALL & SMS */
 document.getElementById("goOrd").onclick = function(){ showTab("orders"); };
 document.getElementById("backProf").onclick = function(){ showTab("prof"); };
 document.getElementById("goLang").onclick = function(){ setL(lang==="tk"?"ru":"tk"); };
 document.getElementById("goDark").onclick = function(){ document.body.classList.toggle("dark"); };
+document.getElementById("goAddr").onclick = function(){
+  document.getElementById("svNm").value = userAddr.nm;
+  document.getElementById("svPh").value = userAddr.ph;
+  document.getElementById("svAd").value = userAddr.ad;
+  document.getElementById("addrModal").classList.add("open");
+};
+document.getElementById("btnSaveAddr").onclick = function(){
+  userAddr = { nm: document.getElementById("svNm").value.trim(), ph: document.getElementById("svPh").value.trim(), ad: document.getElementById("svAd").value.trim() };
+  lsSet("ay_uaddr", userAddr);
+  document.getElementById("addrModal").classList.remove("open");
+  alert(lang==="tk"?"Maglumatlaryňyz ýatda saklandy!":"Данные сохранены!");
+};
+document.getElementById("goCall").onclick = function(){
+  var cleanPh = String(smsPh).replace(/[^0-9+]/g, "");
+  location.href = "tel:" + cleanPh;
+};
+document.getElementById("goSms").onclick = function(){
+  var cleanPh = String(smsPh).replace(/[^0-9+]/g, "");
+  location.href = "sms:" + cleanPh + "?body=" + encodeURIComponent("Salam AÝ-ÇYZUW! Soragym bar: ");
+};
+/* ADMIN & SCHOOL LIST EDITOR */
+function initAdminSchoolEditor(){
+  var gs = document.getElementById("admSchGrade");
+  if(!gs) return;
+  gs.innerHTML = "";
+  for(var g=1; g<=12; g++){
+    var op = document.createElement("option");
+    op.value = g; op.innerText = g + "-nji synp";
+    gs.appendChild(op);
+  }
+  function loadSchText(){
+    var key = gs.value + "_" + document.getElementById("admSchTier").value;
+    var arr = customSchool[key] || [];
+    var lines = [];
+    for(var i=0; i<arr.length; i++){
+      lines.push(arr[i].id ? (arr[i].id + "\t" + arr[i].q) : (arr[i].t + "\t" + arr[i].q + "\t" + arr[i].p));
+    }
+    document.getElementById("admSchBox").value = lines.join("\n");
+  }
+  gs.onchange = loadSchText;
+  document.getElementById("admSchTier").onchange = loadSchText;
+  loadSchText();
+}
+
+document.getElementById("btnSaveSchList").onclick = function(){
+  var g = document.getElementById("admSchGrade").value;
+  var tr = document.getElementById("admSchTier").value;
+  var raw = document.getElementById("admSchBox").value.trim();
+  var key = g + "_" + tr;
+  if(!raw){
+    delete customSchool[key];
+    lsSet("ay_custom_school", customSchool);
+    buildSchoolList();
+    return alert(g + "-nji synp üçin adaty sanaw dikeldildi!");
+  }
+  var lines = raw.split(/\r?\n/), list = [];
+  for(var i=0; i<lines.length; i++){
+    var cols = lines[i].split(/\t|\|/);
+    if(cols.length < 2) continue;
+    var col1 = cols[0].trim();
+    var q = parseInt(cols[1], 10) || 1;
+    var p = cols[2] ? (parseFloat(String(cols[2]).replace(",", ".")) || 5) : 0;
+    var inDb = null;
+    for(var j=0; j<db.length; j++){
+      if(String(db[j].id) === col1 || db[j].t.toLowerCase() === col1.toLowerCase()){ inDb = db[j]; break; }
+    }
+    if(inDb) list.push({id: inDb.id, t: inDb.t, q: q, p: inDb.p});
+    else list.push({id: "", t: col1, q: q, p: p || 5});
+  }
+  customSchool[key] = list;
+  lsSet("ay_custom_school", customSchool);
+  buildSchoolList();
+  alert("✅ " + g + "-nji synp sanawy ýatda saklandy (" + list.length + " haryt)!");
+};
+
 document.getElementById("btnCheckAdm").onclick = function(){
-  if(document.getElementById("admPass").value === "1234"){
+  if(document.getElementById("admPass").value === admPassSaved){
     document.getElementById("adminPanel").style.display = "block";
     document.getElementById("admMail1").value = m1; document.getElementById("admMail2").value = m2; document.getElementById("admSms").value = smsPh;
     document.getElementById("admStat").innerText = "Jemi haryt sany: " + db.length;
-    updRep(); renderStockList(); document.getElementById("admLogin").classList.remove("open"); showTab("prof");
+    updRep(); renderStockList(); initAdminSchoolEditor();
+    document.getElementById("admLogin").classList.remove("open"); showTab("prof");
   } else alert("Nädogry parol!");
 };
 
 document.getElementById("btnSaveMail").onclick = function(){
+  var np = document.getElementById("admNewPass").value.trim();
+  if(np){ admPassSaved = np; lsSet("ay_apass", admPassSaved); document.getElementById("admNewPass").value = ""; }
   m1 = document.getElementById("admMail1").value.trim(); m2 = document.getElementById("admMail2").value.trim(); smsPh = document.getElementById("admSms").value.trim();
   lsSet("ay_m1", m1); lsSet("ay_m2", m2); lsSet("ay_sms", smsPh);
-  alert("Gmail we SMS belgi ýatda saklandy!");
+  alert("Sazlamalar" + (np ? " we täze parol" : "") + " ýatda saklandy!");
 };
 
 document.getElementById("btnResetRep").onclick = function(){ st = {s:0, p:0, c:0}; lsSet("ay_st", st); updRep(); };
 document.getElementById("btnClear").onclick = function(){
   if(confirm("Ähli ýatda saklanan maglumatlary arassalamalymy?")){
-    try{ localStorage.removeItem("ay_db_v10"); }catch(e){}
+    localStorage.removeItem("ay_db_v12");
     db = githubBaza.slice(); render(); renderStockList(); initF();
     document.getElementById("admStat").innerText = "Jemi haryt sany: " + db.length;
   }
 };
 document.getElementById("btnLogout").onclick = function(){ document.getElementById("adminPanel").style.display = "none"; document.getElementById("admPass").value = ""; };
 
+/* 6 SÜTÜNLİ EXCEL IMPORT: 1.Barkod | 2.Ady | 3.Satuw | 4.Aluw | 5.Kategoriýa | 6.Kiçi bölümçe */
 document.getElementById("btnImport").onclick = function(){
   var raw = document.getElementById("pasteBox").value.trim();
   if(!raw) return alert("Excel maglumatyny goýuň!");
   var lines = raw.split(/\r?\n/), added = 0;
   for(var i=0; i<lines.length; i++){
     var cols = lines[i].split("\t");
-    if(cols.length < 4) continue;
-    var id = cols.shift().trim();
-    var t = cols.shift().trim();
-    var s = parseFloat(String(cols.shift()).replace(",", ".")) || 0;
-    var p = parseFloat(String(cols.shift()).replace(",", ".")) || 0;
-    var cost = cols.length ? (parseFloat(String(cols.shift()).replace(",", ".")) || 0) : 0;
+    if(cols.length < 3) continue;
+    var id = cols[0].trim();
+    var t = cols[1].trim();
+    var p = parseFloat(String(cols[2]).replace(",", ".")) || 0;
+    var cost = cols[3] ? (parseFloat(String(cols[3]).replace(",", ".")) || 0) : 0;
+    var catRaw = cols[4] ? cols[4].trim() : "";
+    var subRaw = cols[5] ? cols[5].trim() : "";
     if(!id || !t) continue;
+    var cId = catRaw ? normCat(catRaw) : aCat(t);
     var found = false;
     for(var j=0; j<db.length; j++){
-      if(db[j].id === id){ db[j].t = t; db[j].s = s; db[j].p = p; if(cost) db[j].cost = cost; found = true; break; }
+      if(String(db[j].id) === id){
+        db[j].t = t; db[j].p = p; if(cost) db[j].cost = cost;
+        db[j].c = cId; if(subRaw) db[j].sub = subRaw;
+        if(db[j].s <= 0) db[j].s = 20;
+        found = true; break;
+      }
     }
-    if(!found) db.push({id:id, t:t, p:p, cost:cost, s:s, c:aCat(t), b:aBr(t)});
+    if(!found) db.push({id:id, t:t, p:p, cost:cost, s:20, c:cId, sub:subRaw || "Umumy"});
     added++;
   }
-  lsSet("ay_db_v10", db); render(); renderStockList(); initF();
+  lsSet("ay_db_v12", db); render(); renderStockList(); initF();
   document.getElementById("admStat").innerText = "Ýüklendi: " + added + " | Jemi: " + db.length;
   document.getElementById("pasteBox").value = "";
 };
 
 document.getElementById("btnCopyGit").onclick = function(){
   var txt = "var githubBaza = " + JSON.stringify(db, null, 2) + ";";
-  if(navigator.clipboard){ navigator.clipboard.writeText(txt).then(function(){ alert("baza.js üçin kod kopiýalandy!"); }).catch(function(){ alert("Kopiýalap bolmady!"); }); }
+  if(navigator.clipboard) navigator.clipboard.writeText(txt).then(function(){ alert("baza.js üçin kod kopiýalandy!"); });
 };
 
 document.getElementById("btnOrd").onclick = function(){
@@ -739,22 +1396,30 @@ document.getElementById("btnOrd").onclick = function(){
     tot += it.p * it.q; prof += (it.p - (it.cost||0)) * it.q;
     for(var j=0; j<db.length; j++) if(db[j].id === it.id) db[j].s = Math.max(0, db[j].s - it.q);
   }
-  var oid = "#" + String(Date.now()).slice(-5), totStr = tot.toFixed(2) + " m";
+  var tierInfo = getCbTier();
+  var useCb = document.getElementById("useCbChk").checked;
+  var usedAmt = useCb ? Math.min(tot, cbBal) : 0;
+  var payTot = tot - usedAmt;
+  var earnedCb = +(payTot * tierInfo.rate).toFixed(2);
+  cbBal = +(cbBal - usedAmt + earnedCb).toFixed(2);
+  cbMeta.spent = +((cbMeta.spent || 0) + payTot).toFixed(2);
+  cbMeta.earned = +((cbMeta.earned || 0) + earnedCb).toFixed(2);
+  lsSet("ay_cb", cbBal); lsSet("ay_cb_meta", cbMeta); updCbUI();
+
+  var oid = "#" + String(Date.now()).slice(-5), totStr = payTot.toFixed(2) + " m";
+  if(usedAmt > 0) det += "\nUlanylan keşbek: -" + usedAmt.toFixed(2) + " m";
+  det += "\nGazanylan keşbek (+"+tierInfo.pct+"%): +" + earnedCb.toFixed(2) + " m";
+
   orders.push({id:oid, nm:nm, ph:ph, ad:ad, det:det, tot:totStr});
-  st.s += tot; st.p += prof; st.c += 1;
-  lsSet("ay_db_v10", db); lsSet("ay_orders", orders); lsSet("ay_st", st);
+  st.s += payTot; st.p += prof; st.c += 1;
+  lsSet("ay_db_v12", db); lsSet("ay_orders", orders); lsSet("ay_st", st);
 
   var mainMail = m1 || "aycyzuw.tm.arkadag@gmail.com";
   var payload = {
     _subject: "AÝ-ÇYZUW Täze Sargyt " + oid,
     _template: "table",
     _captcha: "false",
-    Sargyt_ID: oid,
-    Musderi: nm,
-    Telefon: ph,
-    Salgy: ad,
-    Harytlar: det,
-    Jemi: totStr
+    Sargyt_ID: oid, Musderi: nm, Telefon: ph, Salgy: ad, Harytlar: det, Jemi: totStr
   };
   if(m2) payload._cc = m2;
 
@@ -765,8 +1430,9 @@ document.getElementById("btnOrd").onclick = function(){
   }).finally(function(){
     btn.disabled = false;
     btn.innerText = lang==="tk" ? "SARGYDY TASSYKLA" : "ПОДТВЕРДИТЬ ЗАКАЗ";
+    document.getElementById("useCbChk").checked = false;
     cart = []; updCart(); render();
-    alert(lang==="tk"?"Sargydyňyz kabul edildi! ("+oid+")":"Ваш заказ принят! ("+oid+")");
+    alert(lang==="tk"?"Sargydyňyz kabul edildi! ("+oid+")\n+"+earnedCb+" m keşbek hasabyňyza goşuldy!":"Ваш заказ принят! ("+oid+")");
     showTab("orders");
   });
 };
@@ -776,7 +1442,7 @@ for(var i=0;i<nbtns.length;i++) nbtns[i].onclick = function(){ showTab(this.getA
 var clsBtns = document.querySelectorAll(".cls");
 for(var j=0;j<clsBtns.length;j++) clsBtns[j].onclick = function(){ document.getElementById(this.getAttribute("data-m")).classList.remove("open"); };
 
-initF(); render(); updCart();
+updCbUI(); initF(); render(); updCart();
 </script>
 </body>
 </html>
