@@ -583,6 +583,15 @@ function updCart() {
   document.getElementById("sumTot").innerText = grandTot.toFixed(2) + " m.";
   document.getElementById("chkFinalTot").innerText = finalPay.toFixed(2) + " m.";
   document.getElementById("chkDelivTxt").innerText = delivCost > 0
+      ? (lang === "tk" ? "Standart eltip bermek (20.00 m.)" : "Стандартная доставка (20.00 m.)")
+    : (lang === "tk" ? "Mugt eltip bermek (100 m-dan ýokary)" : "Бесплатная доставка (от 100 м)");
+
+  var hasItems = cart.length > 0;
+  document.getElementById("cartMainCard").style.display = hasItems ? "block" : "none";
+  document.getElementById("btnClearCart").style.display = hasItems ? "block" : "none";
+  document.getElementById("cartEmptyWrap").innerHTML = hasItems ? "" : '<div class="empty-box"><p style="margin-bottom:14px">' + (lang === "tk" ? "Sebediňiz häzirlikçe boş" : "Ваша корзина пока пуста") + '</p><button class="btn1" style="max-width:210px;margin:0 auto" onclick="showTab(\'home\')">' + (lang === "tk" ? "🛍️ Söwda başlamak" : "🛍️ Начать покупки") + '</button></div>';
+}
+
 /* === BÖLEK 7/8: SAHYPALAR WE 1688 STILI KAMERA === */
 function showTab(t) {
   var s = document.querySelectorAll(".sec"), n = document.querySelectorAll(".nbtn");
