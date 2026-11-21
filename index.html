@@ -9,6 +9,8 @@
 </head>
 <body>
 
+<div id="toastBox" class="toast-msg"></div>
+
 <div class="hdr">
   <div class="top">
     <div class="brand" id="logoBtn">
@@ -44,7 +46,6 @@
     </div>
   </div>
 </div>
-
 <!-- BAŞ SAHYPA -->
 <div id="s-home" class="sec act">
   <div id="homeTopBlocks">
@@ -64,11 +65,11 @@
             <p data-tk="200 m-dan ýokary sargytlara Arkadag şäherine eltip bermek MUGT!" data-ru="Бесплатная доставка по г. Аркадаг от 200 м!">200 m-dan ýokary sargytlara Arkadag şäherine eltip bermek MUGT!</p>
           </div>
         </div>
-        <div class="slide" onclick="showTab('bundle')">
+        <div class="slide" onclick="showTab('menu')">
           <img src="img/slayd3.jpg" alt="" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
           <div class="sfallback">
-            <h3 data-tk="OFIS WE SOWGAT TOPLUMLARY" data-ru="ОФИСНЫЕ И ПОДАРОЧНЫЕ НАБОРЫ">OFIS WE SOWGAT TOPLUMLARY</h3>
-            <p data-tk="Býudjetiňize görä taýýar toplumlary bir basyşda sebede goşuň!" data-ru="Готовые наборы под ваш бюджет в один клик!">Býudjetiňize görä taýýar toplumlary bir basyşda sebede goşuň!</p>
+            <h3 data-tk="MEKDEP WE OFIS HARYTLARY" data-ru="ШКОЛЬНЫЕ И ОФИСНЫЕ ТОВАРЫ">MEKDEP WE OFIS HARYTLARY</h3>
+            <p data-tk="Ýokary hilli kanselýariýa önümleri we çalt eltip bermek hyzmaty!" data-ru="Качественные канцтовары и быстрая доставка!">Ýokary hilli kanselýariýa önümleri we çalt eltip bermek hyzmaty!</p>
           </div>
         </div>
       </div>
@@ -76,17 +77,6 @@
         <div class="sdot act" onclick="event.stopPropagation();goSlide(0)"></div>
         <div class="sdot" onclick="event.stopPropagation();goSlide(1)"></div>
         <div class="sdot" onclick="event.stopPropagation();goSlide(2)"></div>
-      </div>
-    </div>
-
-    <div class="mb-banner" id="openBundleBuilder">
-      <img src="img/sowgat_toplum.jpg" id="seasonBannerImg" alt="" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-      <div class="mb-fallback" style="display:flex">
-        <div>
-          <div class="sh-title" id="seasonTitle" data-tk="🎁 Täze ýyl we Sowgat Toplumy" data-ru="🎁 Новогодние и Подарочные Наборы">🎁 Täze ýyl we Sowgat Toplumy</div>
-          <div class="sh-sub" id="seasonSub" data-tk="Ýaşy we býudjetiňizi saýlaň — taýýar sowgat sanawyny bir basyşda sebede goşuň!" data-ru="Выберите возраст и бюджет — добавьте готовый набор в корзину!">Ýaşy we býudjetiňizi saýlaň — taýýar sowgat sanawyny bir basyşda sebede goşuň!</div>
-        </div>
-        <button class="sh-btn" data-tk="Saýla ›" data-ru="Выбрать ›">Saýla ›</button>
       </div>
     </div>
 
@@ -105,29 +95,6 @@
   </div>
   <div class="pgrid" id="pgrid"></div>
 </div>
-<!-- TAÝÝAR TOPLUMLAR -->
-<div id="s-bundle" class="sec">
-  <div class="stitle">
-    <span id="backFromBundle" style="cursor:pointer;display:inline-flex;align-items:center;gap:6px">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5"/><polyline points="12 19 5 12 12 5"/></svg>
-      <span id="bundlePageTitle" data-tk="🎁 Sowgat we Ofis Toplumy" data-ru="🎁 Подарочные и Офисные Наборы">🎁 Sowgat we Ofis Toplumy</span>
-    </span>
-  </div>
-  <div class="grade-scroll" id="gradeScroll"></div>
-  <div class="tier-tabs" id="tierTabs">
-    <div class="t-tab act" data-tier="cheap"><span data-tk="💸 Iň arzan" data-ru="💸 Эконом">💸 Iň arzan</span><small data-tk="Tygşytly bukja" data-ru="Бюджетный">Tygşytly bukja</small></div>
-    <div class="t-tab" data-tier="mid"><span data-tk="⚖️ Aralyk baha" data-ru="⚖️ Стандарт">⚖️ Aralyk baha</span><small data-tk="Ortaça hil" data-ru="Оптимальный">Ortaça hil</small></div>
-    <div class="t-tab" data-tier="pro"><span data-tk="💎 Ýokary hilli" data-ru="💎 Премиум">💎 Ýokary hilli</span><small data-tk="Iň gowy brendler" data-ru="Лучшие бренды">Iň gowy brendler</small></div>
-  </div>
-  <div id="schoolListWrap"></div>
-  <div style="background:var(--c);border:1px solid var(--b);border-radius:14px;padding:12px;margin-top:10px">
-    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;font-size:15px">
-      <span data-tk="Toplumyň jemi bahasy:" data-ru="Итого за набор:">Toplumyň jemi bahasy:</span>
-      <b style="font-size:18px;color:var(--p)"><span id="schoolTotal">0.00</span> m</b>
-    </div>
-    <button class="btn1" id="btnAddAllSchool" data-tk="🛒 Ählisini sebede goş" data-ru="🛒 Добавить всё в корзину">🛒 Ählisini sebede goş</button>
-  </div>
-</div>
 
 <!-- MENÝU -->
 <div id="s-menu" class="sec">
@@ -135,7 +102,7 @@
   <div class="cgrid" id="cgrid2"></div>
 </div>
 
-<!-- TÄZE SEBET -->
+<!-- SEBET -->
 <div id="s-cart" class="sec">
   <div class="stitle">
     <span data-tk="Sebet" data-ru="Корзина">Sebet</span>
@@ -214,14 +181,8 @@
       <div>Sargyt sany: <b id="repCount">0</b></div>
       <button id="btnResetRep" class="btn2" style="padding:5px;font-size:11.5px">↺ Hasabaty nolla</button>
     </div>
-    <span class="flabel">Baş sahypa banneri (Möwsüm):</span>
-    <select id="admSeasonMode">
-      <option value="gift">🎁 Täze ýyl we Sowgat Toplumy</option>
-      <option value="office">🏢 Ofis we Edara Toplumy</option>
-      <option value="school">🎒 Mekdep Bazary (1–12 synp)</option>
-    </select>
     <span class="flabel">Täze Admin paroly:</span>
-    <input id="admNewPass" type="password" placeholder="Täze parol ýazyň">
+    <input id="admNewPass" type="password" autocomplete="new-password" placeholder="Täze parol ýazyň">
     <span class="flabel">Sargyt gelýän Gmail we SMS belgi:</span>
     <input id="admMail1" placeholder="1-nji Gmail (Özüňiziňki)">
     <input id="admMail2" placeholder="2-nji Gmail (Dükan)">
@@ -401,7 +362,7 @@
 <div class="modal" id="admLogin">
   <div class="mbox">
     <div class="stitle"><span>🔐 Admin Giriş</span><span class="cls" data-m="admLogin" style="cursor:pointer">✕</span></div>
-    <input type="password" id="admPass" placeholder="Paroly ýazyň...">
+    <input type="password" id="admPass" autocomplete="new-password" placeholder="Paroly ýazyň...">
     <button class="btn1" id="btnCheckAdm">GIRMEK</button>
   </div>
 </div>
