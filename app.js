@@ -1,4 +1,4 @@
-/* === BÖLEK 1/7: IKONKALAR, TOAST HABARNAMA WE KATEGORIÝALAR === */
+/* === BÖLEK 1/7: IKONKALAR (BIRMEŇZEŞ ÝÜREK WE OWADAN GÖZ), TOAST === */
 var toastTimer;
 function showToast(msg) {
   var tb = document.getElementById("toastBox");
@@ -9,8 +9,9 @@ function showToast(msg) {
   toastTimer = setTimeout(function () { tb.classList.remove("show"); }, 2600);
 }
 
-var hSvg0 = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>';
-var hSvg1 = '<svg width="15" height="15" viewBox="0 0 24 24" fill="rgba(244,63,94,0.16)" stroke="#f43f5e" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>';
+var hSvg0 = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>';
+var hSvg1 = '<svg width="16" height="16" viewBox="0 0 24 24" fill="#f43f5e" stroke="#f43f5e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>';
+var eyeSvg = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#13669e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>';
 var shSvg = '<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>';
 var phSvg = '<div class="p-ph"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>AÝ-ÇYZUW</span></div>';
 
@@ -36,36 +37,50 @@ var cats = [
 ];
 
 var knownBrands = ["Double A", "Dolphin", "Pensan", "Hatber", "CASIO", "Maped", "Faber-Castell", "ErichKrause", "Berlingo", "Koh-i-Noor", "Attache", "Brauberg", "Centrum", "Deli", "Pilot", "Bic"];
-/* === BÖLEK 2/7: TM/RU TERJIME WE AKYLLY KATEGORIÝA === */
+/* === BÖLEK 2/7: TM/RU TERJIME WE AKYLLY KATEGORIÝA/BÖLÜMÇE === */
 var dictPairs = [
-  ["тетрадь", "depder"], ["ручка", "ruçka"], ["шариковая", "şarikli"], ["гелевая", "gelli"],
-  ["карандаш", "galam"], ["простой", "ýönekeý"], ["цветные", "reňkli"], ["ластик", "pozgyç"],
-  ["точилка", "uçlaýjy"], ["линейка", "çyzgyç"], ["циркуль", "sirkul"], ["маркер", "marker"],
-  ["бумага", "kagyz"], ["альбом", "albom"], ["дневник", "gündelik"], ["блокнот", "bloknot"],
-  ["папка", "papka"], ["файл", "faýl"], ["степлер", "stepler"], ["скобы", "skoba"],
-  ["ножницы", "gaýçy"], ["клей", "ýelim"], ["калькулятор", "kalkulýator"], ["пенал", "penal"],
-  ["рюкзак", "rukzak"], ["краски", "boýaglar"], ["акварель", "akwarel"], ["гуашь", "guaş"],
-  ["кисть", "çotga"], ["пластилин", "plastilin"], ["книга", "kitap"], ["черная", "gara"],
-  ["синяя", "gök"], ["красная", "gyzyl"], ["зеленая", "ýaşyl"], ["клетку", "gözenek"],
-  ["линию", "çyzykly"], ["лист", "list"], ["набор", "toplum"], ["для школы", "mekdep üçin"],
-  ["для офиса", "ofis üçin"], ["umumy", "общие"], ["şarikli ruçkalar", "шариковые ручки"],
-  ["mekdep depderleri", "школьные тетради"], ["printer kagyzy", "офисная бумага"],
-  ["ýönekeý galamlar", "простые карандаши"], ["reňkli galamlar", "цветные карандаши"],
-  ["pozgyç we uçlaýjylar", "ластики и точилки"], ["çyzuw esbaplary", "чертежные принадлежности"],
-  ["faýl we papkalar", "файлы и папки"], ["kalkulýatorlar", "калькуляторы"],
-  ["surat albomlary", "альбомы для рисования"], ["gündelik we bloknotlar", "дневники и блокноты"]
+  ["шариковая ручка", "şarikli ruçka"], ["гелевая ручка", "gelli ruçka"],
+  ["простой карандаш", "ýönekeý galam"], ["цветные карандаши", "reňkli galamlar"],
+  ["цветной карандаш", "reňkli galam"], ["офисная бумага", "ofis kagyzy"],
+  ["школьная тетрадь", "mekdep depderi"], ["альбом для рисования", "surat albomy"],
+  ["шариковые ручки", "şarikli ruçkalar"], ["школьные тетради", "mekdep depderleri"],
+  ["простые карандаши", "ýönekeý galamlar"], ["ластики и точилки", "pozgyç we uçlaýjylar"],
+  ["чертежные принадлежности", "çyzuw esbaplary"], ["файлы и папки", "faýl we papkalar"],
+  ["дневники и блокноты", "gündelik we bloknotlar"], ["тетрадь", "depder"],
+  ["ручка", "ruçka"], ["шариковая", "şarikli"], ["гелевая", "gelli"],
+  ["карандаш", "galam"], ["простой", "ýönekeý"], ["цветные", "reňkli"],
+  ["ластик", "pozgyç"], ["точилка", "uçlaýjy"], ["линейка", "çyzgyç"],
+  ["циркуль", "sirkul"], ["маркер", "marker"], ["бумага", "kagyz"],
+  ["альбом", "albom"], ["дневник", "gündelik"], ["блокнот", "bloknot"],
+  ["папка", "papka"], ["файл", "faýl"], ["степлер", "stepler"],
+  ["скобы", "skoba"], ["ножницы", "gaýçy"], ["клей", "ýelim"],
+  ["калькулятор", "kalkulýator"], ["пенал", "penal"], ["рюкзак", "rukzak"],
+  ["краски", "boýaglar"], ["акварель", "akwarel"], ["гуашь", "guaş"],
+  ["кисть", "çotga"], ["пластилин", "plastilin"], ["книга", "kitap"],
+  ["веревка", "ýüp"], ["глянцевая", "ýylpyldawuk"], ["обложка", "daşlyk"],
+  ["скотч", "skoç"], ["дырокол", "deşiji"], ["корректор", "korrektor"],
+  ["черная", "gara"], ["синяя", "gök"], ["красная", "gyzyl"],
+  ["зеленая", "ýaşyl"], ["белая", "ak"], ["желтая", "sary"],
+  ["клетку", "gözenek"], ["линию", "çyzykly"], ["лист", "list"],
+  ["набор", "toplum"], ["для школы", "mekdep üçin"], ["для офиса", "ofis üçin"],
+  ["для", "üçin"], ["цвет", "reňk"], ["см", "sm"], ["мм", "mm"],
+  ["umumy", "общие"], ["kalkulýatorlar", "калькуляторы"], ["surat albomlary", "альбомы для рисования"]
 ];
 
 function trText(str, targetLang) {
   if (!str) return "";
   var res = String(str);
   for (var i = 0; i < dictPairs.length; i++) {
-    var ruW = dictPairs[i], tkW = dictPairs[i];
+    var ruW = dictPairs[i];
+    var tkW = dictPairs[i];
     var from = targetLang === "tk" ? ruW : tkW;
     var to = targetLang === "tk" ? tkW : ruW;
-    var rx = new RegExp(from, "gi");
+    var esc = from.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    var rx = new RegExp(esc, "gi");
     res = res.replace(rx, function (m) {
-      return m === m.toUpperCase() ? to.charAt(0).toUpperCase() + to.slice(1) : to;
+      return m.charAt(0) === m.charAt(0).toUpperCase()
+        ? to.charAt(0).toUpperCase() + to.slice(1)
+        : to;
     });
   }
   return res;
@@ -73,30 +88,40 @@ function trText(str, targetLang) {
 
 function detectCatSub(name) {
   var s = String(name).toLowerCase();
-  if (/ручк|ruck|ruçk/.test(s)) return { c: "Ýazuw", sub: "Şarikli ruçkalar" };
+  if (/ручк|ruck|ruçk/.test(s)) return { c: "Ýazuw", sub: /гел|gel/.test(s) ? "Gelli ruçkalar" : "Şarikli ruçkalar" };
   if (/карандаш|galam/.test(s)) return { c: "Ýazuw", sub: /цвет|reňk/.test(s) ? "Reňkli galamlar" : "Ýönekeý galamlar" };
   if (/ластик|стиралк|pozgy|точилк|uçla/.test(s)) return { c: "Ýazuw", sub: "Pozgyç we uçlaýjylar" };
-  if (/линейк|çyzgy|циркуль|sirkul/.test(s)) return { c: "Ýazuw", sub: "Çyzuw esbaplary" };
-  if (/маркер|marker|корректор|замазк/.test(s)) return { c: "Ýazuw", sub: "Marker we korrektorlar" };
+  if (/линейк|çyzgy|циркуль|sirkul|транспортир|угольник/.test(s)) return { c: "Ýazuw", sub: "Çyzuw esbaplary" };
+  if (/маркер|marker|корректор|замазк|выделител/.test(s)) return { c: "Ýazuw", sub: "Marker we korrektorlar" };
   if (/тетрад|depder/.test(s)) return { c: "Kagyz", sub: "Mekdep depderleri" };
-  if (/бумаг|kagyz|a4|а4/.test(s)) return { c: "Kagyz", sub: "Printer kagyzy" };
-  if (/блокнот|bloknot|дневник|gündelik|gundelik/.test(s)) return { c: "Kagyz", sub: "Gündelik we bloknotlar" };
+  if (/бумаг|kagyz|a4|а4|ватман|картон/.test(s)) return { c: "Kagyz", sub: "Printer we reňkli kagyz" };
+  if (/блокнот|bloknot|дневник|gündelik|gundelik|ежедневник/.test(s)) return { c: "Kagyz", sub: "Gündelik we bloknotlar" };
   if (/альбом|albom|скетчбук/.test(s)) return { c: "Döredijilik", sub: "Surat albomlary" };
-  if (/краск|boýag|гуаш|акварел|кист|çotga|пластилин|холст/.test(s)) return { c: "Döredijilik", sub: "Boýag we çotgalar" };
-  if (/папк|papka|файл|faýl/.test(s)) return { c: "Ofis", sub: "Faýl we papkalar" };
+  if (/краск|boýag|гуаш|акварел|кист|çotga|пластилин|холст|мел|фломастер/.test(s)) return { c: "Döredijilik", sub: "Boýag, çotga we plastilin" };
+  if (/папк|papka|файл|faýl|скоросшиват|планшет/.test(s)) return { c: "Ofis", sub: "Faýl we papkalar" };
   if (/калькулятор|kalkulýator/.test(s)) return { c: "Ofis", sub: "Kalkulýatorlar" };
-  if (/степлер|stepler|скоб|дырокол|скотч|ножниц|gaýçy|клей|ýelim/.test(s)) return { c: "Ofis", sub: "Ofis esbaplary" };
-  if (/пенал|penal|рюкзак|rukzak|портфел|сумк|обложк/.test(s)) return { c: "Torba", sub: "Mekdep torba we penallar" };
-  if (/книг|kitap|сказк|словарь|пропис|атлас/.test(s)) return { c: "Kitap", sub: "Okuw kitaplary" };
-  if (/лего|lego|кукл|машин|пазл|шахмат|игра|oýun|мяч/.test(s)) return { c: "Oýunjak", sub: "Çaga oýunjaklary" };
-  if (/шар|şar|свеч|подар|лента|конверт/.test(s)) return { c: "Baýramçylyk", sub: "Baýramçylyk bezegleri" };
-  return { c: "Umumy", sub: "Umumy harytlar" };
+  if (/степлер|stepler|скоб|дырокол|скотч|ножниц|gaýçy|клей|ýelim|скрепк|кнопк|подставк/.test(s)) return { c: "Ofis", sub: "Ofis esbaplary" };
+  if (/пенал|penal|рюкзак|rukzak|портфел|сумк|обложк|мешок|ланч/.test(s)) return { c: "Torba", sub: "Mekdep torba, penal we daşlyk" };
+  if (/книг|kitap|сказк|словарь|пропис|атлас|глобус|энциклопед/.test(s)) return { c: "Kitap", sub: "Okuw kitaplary we gollanmalar" };
+  if (/лего|lego|кукл|машин|пазл|шахмат|игра|oýun|мяч|конструктор/.test(s)) return { c: "Oýunjak", sub: "Çaga oýunjaklary" };
+  if (/шар|şar|свеч|подар|лента|конверт|веревк|ýüp|бант|открытк|пакет/.test(s)) return { c: "Baýramçylyk", sub: "Baýramçylyk we sowgat bezegleri" };
+  return { c: "Umumy", sub: "Beýleki harytlar" };
+}
+
+function autoCategorizeAll(list) {
+  if (!Array.isArray(list)) return [];
+  for (var i = 0; i < list.length; i++) {
+    var det = detectCatSub(list[i].t);
+    list[i].c = det.c;
+    list[i].sub = det.sub;
+  }
+  return list;
 }
 /* === BÖLEK 3/7: YATDA SAKLAÝJY, KEŞBEK WE FLY-TO-CART === */
 function lsGet(k, d) { try { var v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch (e) { return d; } }
 function lsSet(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
 
-var db = lsGet("ay_db_v18", githubBaza);
+var db = autoCategorizeAll(lsGet("ay_db_v19", githubBaza));
 var favs = lsGet("ay_favs", []);
 var views = lsGet("ay_views", {});
 var orders = lsGet("ay_orders", []);
@@ -232,7 +257,12 @@ function toggleFav(id) {
 function updDetFav(id) {
   var isF = favs.indexOf(id) > -1;
   document.getElementById("detTopFav").innerHTML = isF ? hSvg1 : hSvg0;
-  document.getElementById("detLikes").innerText = (isF ? 1 : 0) + (parseInt(id, 36) % 5 + 1);
+  var lkCnt = (isF ? 1 : 0) + (parseInt(id, 36) % 5 + 1);
+  var statSpans = document.querySelectorAll("#detPage .stat-item");
+  if (statSpans.length >= 2) {
+    statSpans.innerHTML = (isF ? hSvg1 : hSvg0) + " <b id='detLikes'>" + lkCnt + "</b>";
+    statSpans.innerHTML = eyeSvg + " <b id='detViews'>" + (views[id] || 15) + "</b>";
+  }
 }
 
 function updDetBtn(x) {
@@ -266,7 +296,6 @@ function openDet(x) {
   document.getElementById("detTopTitle").innerText = titleTr;
   document.getElementById("detName").innerText = titleTr;
   document.getElementById("detPrc").innerText = x.p + " m";
-  document.getElementById("detViews").innerText = views[x.id];
   document.getElementById("detCat").innerText = catName(x.c);
   document.getElementById("detSub").innerText = trText(x.sub || "Umumy", lang);
   document.getElementById("detCode").innerText = x.id;
@@ -507,7 +536,7 @@ function renderStockList() {
     row.innerHTML = '<span style="max-width:65%"><b>[' + x.id + ']</b> ' + x.t + '</span>';
     var inp = document.createElement("input"); inp.type = "number"; inp.value = x.s;
     inp.style.cssText = "width:65px;padding:4px 6px;margin:0;text-align:center";
-    (function (idx) { inp.onchange = function () { db[idx].s = Math.max(0, parseFloat(this.value) || 0); lsSet("ay_db_v18", db); render(); }; })(i);
+    (function (idx) { inp.onchange = function () { db[idx].s = Math.max(0, parseFloat(this.value) || 0); lsSet("ay_db_v19", db); render(); }; })(i);
     row.appendChild(inp); sl.appendChild(row);
   }
 }
@@ -653,7 +682,10 @@ function goSlide(n) {
 setInterval(function () { goSlide((curSlide + 1) % 3); }, 4000);
 
 document.getElementById("btnClearCart").onclick = function () {
-  if (confirm(lang === "tk" ? "Sebedi doly arassalamalymy?" : "Очистить всю корзину?")) { cart = []; updCart(); render(); }
+  cart = [];
+  updCart();
+  render();
+  showToast(lang === "tk" ? "🗑️ Sebet arassalandy" : "🗑️ Корзина очищена");
 };
 document.getElementById("btnOpenCheckout").onclick = function () {
   if (userAddr.nm && !document.getElementById("nm").value) document.getElementById("nm").value = userAddr.nm;
@@ -833,11 +865,11 @@ document.getElementById("btnImport").onclick = function () {
     if (!line) continue;
     var cols = line.indexOf("\t") > -1 ? line.split("\t") : line.split(/\s{2,}/);
     if (cols.length < 4) continue;
-    var id = String(cols[0]).trim();
-    var t = String(cols[1]).trim();
-    var cost = parseFloat(String(cols[2]).replace(",", ".")) || 0;
-    var p = parseFloat(String(cols[3]).replace(",", ".")) || 0;
-    var imgUrl = cols[4] ? String(cols[4]).trim() : "";
+    var id = String(cols).trim();
+    var t = String(cols).trim();
+    var cost = parseFloat(String(cols).replace(",", ".")) || 0;
+    var p = parseFloat(String(cols).replace(",", ".")) || 0;
+    var imgUrl = cols ? String(cols).trim() : "";
     if (!id || !t) continue;
 
     var autoCat = detectCatSub(t);
@@ -856,7 +888,7 @@ document.getElementById("btnImport").onclick = function () {
     }
     added++;
   }
-  lsSet("ay_db_v18", db); render(); renderStockList(); initF();
+  lsSet("ay_db_v19", db); render(); renderStockList(); initF();
   document.getElementById("admStat").innerText = "✅ Ýüklendi: " + added + " | Jemi: " + db.length;
   document.getElementById("pasteBox").value = "";
   showToast("✅ " + added + " sany haryt ýüklendi!");
@@ -914,7 +946,7 @@ document.getElementById("btnOrd").onclick = function () {
 
   orders.push({ id: oid, nm: nm, ph: ph, ad: ad, det: mailDet, cleanDet: cleanDet, tot: totStr });
   st.s += payTot; st.p += prof; st.c += 1;
-  lsSet("ay_db_v18", db); lsSet("ay_orders", orders); lsSet("ay_st", st);
+  lsSet("ay_db_v19", db); lsSet("ay_orders", orders); lsSet("ay_st", st);
 
   var mainMail = m1 || "aycyzuw.tm.arkadag@gmail.com";
   var payload = {
@@ -1011,7 +1043,7 @@ document.getElementById("btnSaveMail").onclick = function () {
   showToast("✅ Ýatda saklandy!");
 };
 document.getElementById("btnResetRep").onclick = function () { st = { s: 0, p: 0, c: 0 }; lsSet("ay_st", st); updRep(); };
-document.getElementById("btnClear").onclick = function () { if (confirm("Arassalamalymy?")) { localStorage.removeItem("ay_db_v18"); db = githubBaza.slice(); render(); renderStockList(); initF(); } };
+document.getElementById("btnClear").onclick = function () { if (confirm("Arassalamalymy?")) { localStorage.removeItem("ay_db_v19"); db = autoCategorizeAll(githubBaza.slice()); render(); renderStockList(); initF(); } };
 document.getElementById("btnLogout").onclick = function () { document.getElementById("adminPanel").style.display = "none"; document.getElementById("admPass").value = ""; };
 document.getElementById("btnCopyGit").onclick = function () { if (navigator.clipboard) navigator.clipboard.writeText("var githubBaza = " + JSON.stringify(db, null, 2) + ";").then(function () { showToast("📋 baza.js üçin kopiýalandy!"); }); };
 
