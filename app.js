@@ -1,6 +1,6 @@
-/* === BÖLEK 1/8: IKONKALAR, LOGO WE KATEGORIÝALAR === */
-var hSvg0 = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>';
-var hSvg1 = '<svg width="16" height="16" viewBox="0 0 24 24" fill="#f43f5e" stroke="#f43f5e" stroke-width="2.1"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>';
+/* === BÖLEK 1/8: IKONKALAR (NÄZIK ÝÜREK), LOGO WE KATEGORIÝALAR === */
+var hSvg0 = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>';
+var hSvg1 = '<svg width="15" height="15" viewBox="0 0 24 24" fill="rgba(244,63,94,0.16)" stroke="#f43f5e" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>';
 var shSvg = '<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>';
 var phSvg = '<div class="p-ph"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>AÝ-ÇYZUW</span></div>';
 
@@ -86,7 +86,7 @@ function detectCatSub(name) {
 function lsGet(k, d) { try { var v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch (e) { return d; } }
 function lsSet(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
 
-var db = lsGet("ay_db_v16", githubBaza);
+var db = lsGet("ay_db_v17", githubBaza);
 var favs = lsGet("ay_favs", []);
 var views = lsGet("ay_views", {});
 var orders = lsGet("ay_orders", []);
@@ -232,7 +232,6 @@ function buildSchoolList() {
   document.getElementById("schoolTotal").innerText = tot.toFixed(2);
 }
 
-/* HARYT ÜSTÜNDEN SEBEDE UÇUP GIRÝÄN ANIMASIÝA */
 function flyToCart(el, imgUrl) {
   if (!el) return;
   var card = el.closest(".card") || el.closest(".det-info") || el;
@@ -421,7 +420,7 @@ function makeCard(x) {
   card.appendChild(pimg); card.appendChild(info);
   return card;
 }
-/* === BÖLEK 6/8: AKYLLY FILTER, SEBET WE ARKADAG FAKTURA === */
+/* === BÖLEK 6/8: FILTR, HALANANLAR WE SARGYT TARYHY === */
 function makeCatCard(c, fc) {
   var d = document.createElement("div"); d.className = "ccard";
   var box = document.createElement("div"); box.className = "cbox";
@@ -579,7 +578,7 @@ function renderStockList() {
     row.innerHTML = '<span style="max-width:65%"><b>[' + x.id + ']</b> ' + x.t + '</span>';
     var inp = document.createElement("input"); inp.type = "number"; inp.value = x.s;
     inp.style.cssText = "width:65px;padding:4px 6px;margin:0;text-align:center";
-    (function (idx) { inp.onchange = function () { db[idx].s = Math.max(0, parseFloat(this.value) || 0); lsSet("ay_db_v16", db); render(); }; })(i);
+    (function (idx) { inp.onchange = function () { db[idx].s = Math.max(0, parseFloat(this.value) || 0); lsSet("ay_db_v17", db); render(); }; })(i);
     row.appendChild(inp); sl.appendChild(row);
   }
 }
@@ -619,7 +618,7 @@ function updCart() {
     top.appendChild(delBtn);
 
     var bot = document.createElement("div"); bot.className = "citem-bot";
-    bot.innerHTML = '<div class="citem-prc">' + (item.p * item.q).toFixed(2) + ' m.</div>';
+    bot.innerHTML = '<div class="citem-prc">' + (item.p * item.q).toFixed(2) + ' m</div>';
     var qc = document.createElement("div"); qc.className = "qctrl-new";
     var bm = document.createElement("button"); bm.innerText = "−";
     var qn = document.createElement("span"); qn.innerText = item.q;
@@ -646,7 +645,7 @@ function updCart() {
   document.getElementById("btnClearCart").style.display = hasItems ? "block" : "none";
   document.getElementById("cartEmptyWrap").innerHTML = hasItems ? "" : '<div class="empty-box"><p>' + (lang === "tk" ? "Sebediňiz häzir boş" : "Ваша корзина пуста") + '</p></div>';
 
-  /* ARKADAG ŞÄHERI: 200 M-DAN GEÇSE MUGT, ÝOGSA 10 M */
+  /* ARKADAG ŞÄHERI: 200 M-DAN GEÇSE 0.00 M, ÝOGSA 10.00 M */
   var delivCost = (subTot > 0 && subTot < 200) ? 10 : 0;
   var grandTot = subTot + delivCost;
   var useCb = document.getElementById("useCbChk").checked;
@@ -659,8 +658,8 @@ function updCart() {
   var pill = document.getElementById("freeShipPill");
   if (subTot >= 200) {
     pill.className = "free-badge ok";
-    pill.innerText = lang === "tk" ? "🎉 Mugt eltip bermek!" : "🎉 Бесплатно!";
-    document.getElementById("shipProgTxt").innerText = lang === "tk" ? "✅ Arkadag şäherine eltip bermek MUGT!" : "✅ Доставка по г. Аркадаг БЕСПЛАТНО!";
+    pill.innerText = "🚚 0.00 m";
+    document.getElementById("shipProgTxt").innerText = lang === "tk" ? "✅ Arkadag şäherine eltip bermek 0.00 m!" : "✅ Доставка по г. Аркадаг 0.00 м!";
   } else {
     pill.className = "free-badge";
     pill.innerText = "🚚 10.00 m";
@@ -669,15 +668,17 @@ function updCart() {
   }
 
   document.getElementById("cnt").innerText = c;
-  document.getElementById("navCartLbl").innerText = subTot > 0 ? (subTot.toFixed(2) + " m.") : (lang === "tk" ? "Sebet" : "Корзина");
-  document.getElementById("sumSub").innerText = subTot.toFixed(2) + " m.";
-  document.getElementById("sumDel").innerText = delivCost > 0 ? (delivCost.toFixed(2) + " m.") : (lang === "tk" ? "Mugt (0 m.)" : "Бесплатно");
-  document.getElementById("sumTot").innerText = grandTot.toFixed(2) + " m.";
+  document.getElementById("navCartLbl").innerText = subTot > 0 ? (subTot.toFixed(2) + " m") : (lang === "tk" ? "Sebet" : "Корзина");
+  document.getElementById("sumSub").innerText = subTot.toFixed(2) + " m";
+  document.getElementById("sumDel").innerText = delivCost.toFixed(2) + " m";
+  document.getElementById("sumTot").innerText = grandTot.toFixed(2) + " m";
 
   if (document.getElementById("invSub")) {
+    var nextNo = String((st.c || 0) + 101).padStart(5, "0");
+    document.getElementById("invNum").innerText = "FAKTURA № " + nextNo;
     document.getElementById("invDate").innerText = new Date().toLocaleDateString("ru-RU");
     document.getElementById("invSub").innerText = subTot.toFixed(2) + " m";
-    document.getElementById("invDel").innerText = delivCost > 0 ? (delivCost.toFixed(2) + " m") : (lang === "tk" ? "Mugt (0.00 m)" : "Бесплатно");
+    document.getElementById("invDel").innerText = delivCost.toFixed(2) + " m";
     document.getElementById("invCbRow").style.display = usedAmt > 0 ? "flex" : "none";
     document.getElementById("invCbVal").innerText = "-" + usedAmt.toFixed(2) + " m";
     document.getElementById("invGrand").innerText = finalPay.toFixed(2) + " m";
@@ -747,7 +748,7 @@ function searchByAiTokens(tokens) {
   rb.style.display = "block";
   var cleanWords = tokens.filter(function (w) { return w && w.length >= 2; });
   if (!cleanWords.length) {
-    rb.innerHTML = lang === "tk" ? "⚠️ Suratdan ýazgy okalmady. Aşakda harydyň adyny ýazyp dükana ugradyň:" : "⚠️ Текст не распознан. Напишите название ниже и отправьте:";
+    rb.innerHTML = lang === "tk" ? "⚠️ Suratdan ýazgy okalmady. Ýagtyrak ýerde düşüriň ýa-da aşakda adyny ýazyp ugradyň:" : "⚠️ Текст не распознан. Снимите при хорошем свете или напишите название:";
     return;
   }
   var scored = [];
@@ -756,8 +757,8 @@ function searchByAiTokens(tokens) {
     var hay = (x.id + " " + x.t + " " + trText(x.t, "tk") + " " + trText(x.t, "ru")).toLowerCase();
     for (var k = 0; k < cleanWords.length; k++) {
       var w = cleanWords[k].toLowerCase();
-      if (String(x.id).toLowerCase() === w) score += 10;
-      else if (hay.indexOf(w) > -1) score += 2;
+      if (String(x.id).toLowerCase() === w) score += 15;
+      else if (hay.indexOf(w) > -1) score += 3;
     }
     if (score > 0) scored.push({ item: x, score: score });
   }
@@ -776,7 +777,7 @@ function searchByAiTokens(tokens) {
   rb.innerHTML = html;
 }
 
-async function analyzeImageWithAI(imgSource) {
+async function analyzeCanvasWithAI(canvasEl) {
   var rb = document.getElementById("scanResultBox");
   rb.style.display = "block";
   rb.innerHTML = lang === "tk" ? "⏳ AI suraty seljerýär (barkod we ýazgylar okalýar)..." : "⏳ AI анализирует фото (чтение штрихкода и текста)...";
@@ -785,14 +786,14 @@ async function analyzeImageWithAI(imgSource) {
   try {
     if ("BarcodeDetector" in window) {
       var bd = new BarcodeDetector();
-      var codes = await bd.detect(imgSource);
+      var codes = await bd.detect(canvasEl);
       for (var i = 0; i < codes.length; i++) if (codes[i].rawValue) tokens.push(codes[i].rawValue);
     }
   } catch (e) {}
 
   if (!tokens.length && window.Tesseract) {
     try {
-      var res = await Tesseract.recognize(imgSource, "eng+rus");
+      var res = await Tesseract.recognize(canvasEl, "eng+rus");
       var rawTxt = (res && res.data && res.data.text) ? res.data.text : "";
       var words = rawTxt.replace(/[^a-zA-Zа-яА-ЯёЁäöüňýžşçÄÖÜŇÝŽŞÇ0-9\s]/g, " ").split(/\s+/);
       for (var j = 0; j < words.length; j++) if (words[j].length >= 3) tokens.push(words[j]);
@@ -812,11 +813,16 @@ document.getElementById("btnCam").onclick = function () {
   document.getElementById("camNote").value = "";
   document.getElementById("camFull").classList.add("open");
   if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-    navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } })
-      .then(function (stream) { camStream = stream; document.getElementById("camVideo").srcObject = stream; })
-      .catch(function () {});
+    navigator.mediaDevices.getUserMedia({ video: { facingMode: { ideal: "environment" }, width: { ideal: 1280 } } })
+      .then(function (stream) {
+        camStream = stream;
+        var v = document.getElementById("camVideo");
+        v.srcObject = stream;
+        v.play();
+      }).catch(function () {});
   }
 };
+
 document.getElementById("camCloseBtn").onclick = function () { stopCamera(); document.getElementById("camFull").classList.remove("open"); };
 document.getElementById("camFlashBtn").onclick = function () {
   if (!camStream) return;
@@ -827,29 +833,52 @@ document.getElementById("camFlashBtn").onclick = function () {
     this.classList.toggle("on", flashOn);
   }
 };
+
 document.getElementById("camSnapBtn").onclick = function () {
-  var vid = document.getElementById("camVideo"), cv = document.createElement("canvas");
-  cv.width = vid.videoWidth || 400; cv.height = vid.videoHeight || 400;
-  cv.getContext("2d").drawImage(vid, 0, 0, cv.width, cv.height);
+  var vid = document.getElementById("camVideo");
+  if (!vid || vid.readyState < 2 || !vid.videoWidth) {
+    document.getElementById("camFile").click();
+    return;
+  }
+  var cv = document.createElement("canvas");
+  cv.width = vid.videoWidth;
+  cv.height = vid.videoHeight;
+  var ctx = cv.getContext("2d");
+  ctx.filter = "contrast(1.25) brightness(1.08)";
+  ctx.drawImage(vid, 0, 0, cv.width, cv.height);
   var prev = document.getElementById("camPreview");
-  prev.onload = function () { analyzeImageWithAI(prev); };
-  prev.src = cv.toDataURL("image/jpeg", 0.85);
+  prev.src = cv.toDataURL("image/jpeg", 0.9);
   prev.style.display = "block";
+  analyzeCanvasWithAI(cv);
 };
+
 document.getElementById("camFile").onchange = function (e) {
   var file = e.target.files[0]; if (!file) return;
   var rd = new FileReader();
   rd.onload = function (ev) {
-    var prev = document.getElementById("camPreview");
-    prev.onload = function () { analyzeImageWithAI(prev); };
-    prev.src = ev.target.result;
-    prev.style.display = "block";
+    var imgObj = new Image();
+    imgObj.onload = function () {
+      var cv = document.createElement("canvas");
+      var scale = Math.min(1, 1000 / Math.max(imgObj.width, imgObj.height));
+      cv.width = Math.round(imgObj.width * scale);
+      cv.height = Math.round(imgObj.height * scale);
+      var ctx = cv.getContext("2d");
+      ctx.filter = "contrast(1.2)";
+      ctx.drawImage(imgObj, 0, 0, cv.width, cv.height);
+      var prev = document.getElementById("camPreview");
+      prev.src = cv.toDataURL("image/jpeg", 0.9);
+      prev.style.display = "block";
+      analyzeCanvasWithAI(cv);
+    };
+    imgObj.src = ev.target.result;
   };
   rd.readAsDataURL(file);
 };
+
 document.getElementById("camNote").onkeyup = function () {
   if (this.value.trim().length >= 2) searchByAiTokens(this.value.trim().split(/\s+/));
 };
+
 document.getElementById("btnSendCam").onclick = function () {
   var note = document.getElementById("camNote").value.trim() || "AI Surat boýunça gözleg";
   var mainMail = m1 || "aycyzuw.tm.arkadag@gmail.com";
@@ -872,11 +901,11 @@ document.getElementById("btnImport").onclick = function () {
   for (var i = 0; i < lines.length; i++) {
     var cols = lines[i].split("\t");
     if (cols.length < 4) continue;
-    var id = cols[0].trim();
-    var t = cols[1].trim();
-    var cost = parseFloat(String(cols[2]).replace(",", ".")) || 0;
-    var p = parseFloat(String(cols[3]).replace(",", ".")) || 0;
-    var imgUrl = cols[4] ? cols[4].trim() : "";
+    var id = cols.trim();
+    var t = cols.trim();
+    var cost = parseFloat(String(cols).replace(",", ".")) || 0;
+    var p = parseFloat(String(cols).replace(",", ".")) || 0;
+    var imgUrl = cols ? cols.trim() : "";
     if (!id || !t) continue;
 
     var autoCat = detectCatSub(t);
@@ -895,7 +924,7 @@ document.getElementById("btnImport").onclick = function () {
     }
     added++;
   }
-  lsSet("ay_db_v16", db); render(); renderStockList(); initF();
+  lsSet("ay_db_v17", db); render(); renderStockList(); initF();
   document.getElementById("admStat").innerText = "✅ Ýüklendi: " + added + " | Jemi: " + db.length;
   document.getElementById("pasteBox").value = "";
 };
@@ -938,8 +967,9 @@ document.getElementById("btnOrd").onclick = function () {
   cbMeta.earned = +((cbMeta.earned || 0) + earnedCb).toFixed(2);
   lsSet("ay_cb", cbBal); lsSet("ay_cb_meta", cbMeta); updCbUI();
 
-  var oid = "#" + String(Date.now()).slice(-5), totStr = payTot.toFixed(2) + " m";
-  var footInfo = "\nHarytlar: " + subTot.toFixed(2) + " m | Eltip bermek (Arkadag): " + (delivCost > 0 ? delivCost.toFixed(2) + " m" : "Mugt");
+  var invNo = String((st.c || 0) + 101).padStart(5, "0");
+  var oid = "#" + invNo, totStr = payTot.toFixed(2) + " m";
+  var footInfo = "\nHarytlar: " + subTot.toFixed(2) + " m | Eltip bermek (Arkadag): " + delivCost.toFixed(2) + " m";
   if (usedAmt > 0) footInfo += "\nKeşbek aýyrmasy: -" + usedAmt.toFixed(2) + " m";
   if (nt) footInfo += "\nBellik: " + nt;
 
@@ -948,20 +978,20 @@ document.getElementById("btnOrd").onclick = function () {
 
   orders.push({ id: oid, nm: nm, ph: ph, ad: ad, det: mailDet, cleanDet: cleanDet, tot: totStr });
   st.s += payTot; st.p += prof; st.c += 1;
-  lsSet("ay_db_v16", db); lsSet("ay_orders", orders); lsSet("ay_st", st);
+  lsSet("ay_db_v17", db); lsSet("ay_orders", orders); lsSet("ay_st", st);
 
   var mainMail = m1 || "aycyzuw.tm.arkadag@gmail.com";
   var payload = {
-    _subject: "AÝ-ÇYZUW Täze Sargyt " + oid + " (" + totStr + ")",
+    _subject: "AÝ-ÇYZUW Faktura № " + invNo + " (" + totStr + ")",
     _template: "table",
     _captcha: "false",
-    Sargyt_ID: oid,
+    Faktura_No: invNo,
     Musderi_Ady: nm,
     Telefon: ph,
     Salgy: ad,
     Bellik: nt || "Ýok",
     Harytlar_we_Suratlar: mailDet,
-    Eltip_bermek: delivCost > 0 ? (delivCost.toFixed(2) + " m") : "Mugt (0.00 m)",
+    Eltip_bermek: delivCost.toFixed(2) + " m",
     Jemi_Toleg: totStr
   };
   if (m2) payload._cc = m2;
@@ -975,7 +1005,7 @@ document.getElementById("btnOrd").onclick = function () {
     document.getElementById("useCbChk").checked = false;
     document.getElementById("chkPage").classList.remove("open");
     cart = []; updCart(); render();
-    alert(lang === "tk" ? "Sargydyňyz kabul edildi! (" + oid + ")" : "Ваш заказ принят! (" + oid + ")");
+    alert(lang === "tk" ? "Sargydyňyz kabul edildi! (Faktura № " + invNo + ")" : "Ваш заказ принят! (Фактура № " + invNo + ")");
     showTab("orders");
   });
 };
@@ -990,9 +1020,18 @@ for (var ti = 0; ti < tTabs.length; ti++) {
   };
 }
 document.getElementById("btnAddAllSchool").onclick = function () {
-  for (var i = 0; i < curSchoolItems.length; i++) setExactQty(curSchoolItems[i], getCartQty(curSchoolItems[i].id) + curSchoolItems[i].q);
-  flyToCart(this, curSchoolItems[0] ? getProdImgUrl(curSchoolItems[0]) : "");
-  alert(lang === "tk" ? "Toplum sebede goşuldy!" : "Набор добавлен в корзину!");
+  var rows = document.querySelectorAll("#schoolListWrap .b-item");
+  for (var i = 0; i < curSchoolItems.length; i++) {
+    setExactQty(curSchoolItems[i], getCartQty(curSchoolItems[i].id) + curSchoolItems[i].q);
+    if (rows[i]) {
+      (function (el, item, delay) {
+        setTimeout(function () { flyToCart(el, getProdImgUrl(item)); }, delay);
+      })(rows[i], curSchoolItems[i], i * 110);
+    }
+  }
+  setTimeout(function () {
+    alert(lang === "tk" ? "Toplum sebede goşuldy!" : "Набор добавлен в корзину!");
+  }, 450);
 };
 
 document.getElementById("detBack").onclick = function () { document.getElementById("detPage").classList.remove("open"); };
@@ -1053,7 +1092,7 @@ document.getElementById("btnSaveMail").onclick = function () {
   alert("Ýatda saklandy!");
 };
 document.getElementById("btnResetRep").onclick = function () { st = { s: 0, p: 0, c: 0 }; lsSet("ay_st", st); updRep(); };
-document.getElementById("btnClear").onclick = function () { if (confirm("Arassalamalymy?")) { localStorage.removeItem("ay_db_v16"); db = githubBaza.slice(); render(); renderStockList(); initF(); } };
+document.getElementById("btnClear").onclick = function () { if (confirm("Arassalamalymy?")) { localStorage.removeItem("ay_db_v17"); db = githubBaza.slice(); render(); renderStockList(); initF(); } };
 document.getElementById("btnLogout").onclick = function () { document.getElementById("adminPanel").style.display = "none"; };
 document.getElementById("btnCopyGit").onclick = function () { if (navigator.clipboard) navigator.clipboard.writeText("var githubBaza = " + JSON.stringify(db, null, 2) + ";").then(function () { alert("baza.js üçin kopiýalandy!"); }); };
 
