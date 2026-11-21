@@ -295,7 +295,9 @@ function openDet(x) {
   document.getElementById("detCat").innerText = catName(x.c);
   document.getElementById("detSub").innerText = trText(x.sub || "Umumy", lang);
   document.getElementById("detCode").innerText = x.id;
-  document.getElementById("detDesc").innerText = x.d ? trText(x.d, lang) : (lang === "tk" ? titleTr + " — ýokary hilli original kanselýariýa önümi." : titleTr + " — качественный оригинальный товар.");
+  document.getElementById("detDesc").style.display = x.d ? "block" : "none";
+document.getElementById("detDesc").innerText = x.d ? trText(x.d, lang) : "";
+
   document.getElementById("detTopShare").innerHTML = shSvg;
   updDetFav(x.id); updDetBtn(x);
 
