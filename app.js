@@ -865,6 +865,43 @@ document.getElementById("btnImport").onclick = function () {
     if (!line) continue;
     var cols = line.indexOf("\t") > -1 ? line.split("\t") : line.split(/\s{2,}/);
     if (cols.length < 4) continue;
+    var id = String(cols.shift()).trim();
+    var t = String(cols.shift()).trim();
+    var stk = parseFloat(String(cols.shift()).replace(",", ".")) || 20;
+    var p = parseFloat(String(cols.shift()).replace(",", ".")) || 0;
+    var cost = cols.length ? (parseFloat(String(cols.shift()).replace(",", ".")) || 0) : 0;
+    var imgUrl = cols.length ? String(cols.shift()).trim() : "";
+    if (!id || !t) continue;
+
+    var autoCat = detectCatSub(t);
+    var found = false;
+    for (var j = 0; j < db.length; j++) {
+      if (String(db[j].id) === id) {
+        db[j].t = t; db[j].s = stk; db[j].p = p; db[j].cost = cost;
+        db[j].c = autoCat.c; db[j].sub = autoCat.sub;
+        if (imgUrl) db[j].img = imgUrl;
+        found = true; break;
+      }
+    }
+    if (!found) {
+      db.push({ id: id, t: t, s: stk, p: p, cost: cost, c: autoCat.c, sub: autoCat.sub, img: imgUrl });
+    }
+    added++;
+  }
+  lsSet("ay_db_v19", db); render(); renderStockList(); initF();
+  document.getElementById("admStat").innerText = "✅ Ýüklendi: " + added + " | Jemi: " + db.length;
+  document.getElementById("pasteBox").value = "";
+  showToast("✅ " + added + " sany haryt ýüklendi!");
+};
+
+  var raw = document.getElementById("pasteBox").value.trim();
+  if (!raw) { showToast("⚠️ Excel maglumatyny goýuň!"); return; }
+  var lines = raw.split(/\r?\n/), added = 0;
+  for (var i = 0; i < lines.length; i++) {
+    var line = lines[i].trim();
+    if (!line) continue;
+    var cols = line.indexOf("\t") > -1 ? line.split("\t") : line.split(/\s{2,}/);
+    if (cols.length < 4) continue;
     var id = String(cols).trim();
     var t = String(cols).trim();
     var cost = parseFloat(String(cols).replace(",", ".")) || 0;
