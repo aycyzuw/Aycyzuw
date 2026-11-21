@@ -502,7 +502,7 @@ function render() {
     var okPrice = (x.p >= fMin && x.p <= fMax);
     var okBrand = !fBrand || (x.t.toLowerCase().indexOf(fBrand.toLowerCase()) > -1);
     if ((!hz || x.s > 0) && okPrice && okBrand && (x.t.toLowerCase().indexOf(q) > -1 || trTitle.indexOf(q) > -1 || String(x.id).toLowerCase().indexOf(q) > -1) && (!fc || x.c === fc) && (!fsub || x.sub === fsub)) {
-      if (cnt < 120) pg.appendChild(makeCard(x));
+      if (cnt < 1000) pg.appendChild(makeCard(x));
       cnt++;
     }
   }
