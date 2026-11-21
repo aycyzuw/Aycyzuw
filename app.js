@@ -1,23 +1,8 @@
-/* === BÖLEK 1/8: BAZA WE IKONKALAR === */
-var githubBaza = [
-  { id: "1", t: "Kagyz A4 DOUBLE A 80gms (500 list)", p: 78, cost: 65, s: 10, c: "Kagyz", sub: "Printer kagyzy", d: "Ýokary hilli ak A4 printer kagyzy, 80g/m², 500 sahypa." },
-  { id: "2", t: "Faýl Dolphin 40micr 100s", p: 20, cost: 15, s: 4, c: "Ofis", sub: "Faýl we papkalar", d: "A4 ölçegli berk polipropilen faýllar, 100 sanylyk gap." },
-  { id: "3", t: "Ruçka Pensan My-Tech 0.7mm gök", p: 3.5, cost: 2, s: 50, c: "Ýazuw", sub: "Şarikli ruçkalar", d: "Inçe 0.7mm uçly ýumşak ýazýan gök şarikli ruçka." },
-  { id: "4", t: "Depder 48 list gözenek Hatber", p: 6, cost: 4, s: 35, c: "Kagyz", sub: "Mekdep depderleri", d: "48 sahypalyk gözenekli mekdep depderi, galyň daşlyk." },
-  { id: "5", t: "Kalkulýator CASIO DJ-120D Plus", p: 145, cost: 115, s: 3, c: "Ofis", sub: "Kalkulýatorlar", d: "12 razrýadly ofis kalkulýatory, gün batareýasy." },
-  { id: "6", t: "Depder 12 list gözenek", p: 2, cost: 1.2, s: 80, c: "Kagyz", sub: "Mekdep depderleri", d: "Başlangyç synplar üçin 12 sahypalyk gözenekli depder." },
-  { id: "7", t: "Depder 12 list çyzykly", p: 2, cost: 1.2, s: 75, c: "Kagyz", sub: "Mekdep depderleri", d: "Başlangyç synplar üçin 12 sahypalyk çyzykly depder." },
-  { id: "8", t: "Ýönekeý galam HB Maped", p: 2.5, cost: 1.5, s: 60, c: "Ýazuw", sub: "Ýönekeý galamlar", d: "Döwülmeýän grafit özegi bolan ýönekeý galam." },
-  { id: "9", t: "Pozgyç Maped Soft", p: 3, cost: 1.8, s: 40, c: "Ýazuw", sub: "Pozgyç we uçlaýjylar", d: "Kagyzy zaýalamaýan ýumşak ak pozgyç." },
-  { id: "10", t: "Albom surat üçin 24 list", p: 12, cost: 8, s: 25, c: "Döredijilik", sub: "Surat albomlary", d: "Surat çekmek üçin galyň kagyzly 24 sahypalyk albom." },
-  { id: "11", t: "Reňkli galamlar 12 reňk Faber-Castell", p: 24, cost: 17, s: 20, c: "Döredijilik", sub: "Reňkli galamlar", d: "12 sany ýagty reňkli ýokary hilli galamlar toplumy." },
-  { id: "12", t: "Sirkul we çyzgyç toplumy Maped", p: 28, cost: 20, s: 15, c: "Ýazuw", sub: "Çyzuw esbaplary", d: "Metal sirkul we çyzgyç toplumy." },
-  { id: "13", t: "Gündelik (Dnewnik) mekdep üçin", p: 15, cost: 10, s: 30, c: "Kagyz", sub: "Gündelik we bloknotlar", d: "Gaty daşlykly standart mekdep gündeligi." }
-];
-
+/* === BÖLEK 1/8: IKONKALAR, LOGO WE KATEGORIÝALAR === */
 var hSvg0 = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>';
 var hSvg1 = '<svg width="16" height="16" viewBox="0 0 24 24" fill="#f43f5e" stroke="#f43f5e" stroke-width="2.1"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>';
 var shSvg = '<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>';
+var phSvg = '<div class="p-ph"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>AÝ-ÇYZUW</span></div>';
 
 var lImg = document.getElementById("logoImg");
 if (lImg) {
@@ -39,6 +24,8 @@ var cats = [
   { id: "Baýramçylyk", tk: "Baýramçylyk", ru: "Праздник", i: "🎈", img: "img/bayramcylyk.jpg" },
   { id: "Umumy", tk: "Umumy harytlar", ru: "Общие товары", i: "🛍️", img: "img/umumy.jpg" }
 ];
+
+var knownBrands = ["Double A", "Dolphin", "Pensan", "Hatber", "CASIO", "Maped", "Faber-Castell", "ErichKrause", "Berlingo", "Koh-i-Noor", "Attache", "Brauberg", "Centrum", "Deli", "Pilot", "Bic"];
 /* === BÖLEK 2/8: TM/RU TERJIME WE AKYLLY KATEGORIÝA === */
 var dictPairs = [
   ["тетрадь", "depder"], ["ручка", "ruçka"], ["шариковая", "şarikli"], ["гелевая", "gelli"],
@@ -95,11 +82,11 @@ function detectCatSub(name) {
   if (/шар|şar|свеч|подар|лента|конверт/.test(s)) return { c: "Baýramçylyk", sub: "Baýramçylyk bezegleri" };
   return { c: "Umumy", sub: "Umumy harytlar" };
 }
-/* === BÖLEK 3/8: YATDA SAKLAÝJY, KEŞBEK WE MEKDEP BAZARY === */
+/* === BÖLEK 3/8: YATDA SAKLAÝJY, KEŞBEK WE MÖWSÜM TOPLUMLARY === */
 function lsGet(k, d) { try { var v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch (e) { return d; } }
 function lsSet(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
 
-var db = lsGet("ay_db_v15", githubBaza);
+var db = lsGet("ay_db_v16", githubBaza);
 var favs = lsGet("ay_favs", []);
 var views = lsGet("ay_views", {});
 var orders = lsGet("ay_orders", []);
@@ -111,9 +98,10 @@ var m1 = lsGet("ay_m1", "aycyzuw.tm.arkadag@gmail.com");
 var m2 = lsGet("ay_m2", "aycyzuw.tm2026@gmail.com");
 var smsPh = lsGet("ay_sms", "+99365637644");
 var st = lsGet("ay_st", { s: 0, p: 0, c: 0 });
+var seasonMode = lsGet("ay_season", "gift");
 
 var cart = [], lang = "tk", taps = 0, tt, curDet = null, curQtyItem = null;
-var fLow = false, fUnder10 = false;
+var fMin = 0, fMax = Infinity, fBrand = "";
 var curGrade = 1, curTier = "cheap", curSchoolItems = [];
 
 function ico(c) { for (var i = 0; i < cats.length; i++) if (cats[i].id === c) return cats[i].i; return "📦"; }
@@ -126,6 +114,30 @@ function getProdImgUrl(x) {
     return "img/" + s + (s.indexOf(".") === -1 ? ".jpg" : "");
   }
   return "img/" + x.id + ".jpg";
+}
+
+function applySeasonBanner() {
+  var t = document.getElementById("seasonTitle"), sub = document.getElementById("seasonSub"), bTitle = document.getElementById("bundlePageTitle");
+  if (!t) return;
+  if (seasonMode === "school") {
+    t.setAttribute("data-tk", "🎒 Mekdep Bazary"); t.setAttribute("data-ru", "🎒 Школьный Базар");
+    sub.setAttribute("data-tk", "1–12 synp we býudjetiňizi saýlaň — taýýar sanawy bir basyşda sebede goşuň!");
+    sub.setAttribute("data-ru", "Выберите класс (1–12) и бюджет — добавьте готовый список в корзину!");
+    bTitle.setAttribute("data-tk", "🎒 Mekdep Bazary"); bTitle.setAttribute("data-ru", "🎒 Школьный Базар");
+  } else if (seasonMode === "office") {
+    t.setAttribute("data-tk", "🏢 Ofis we Edara Toplumy"); t.setAttribute("data-ru", "🏢 Офисные Наборы");
+    sub.setAttribute("data-tk", "Ofisiňiz üçin kagyz we ýazuw esbaplaryny bir basyşda sebede goşuň!");
+    sub.setAttribute("data-ru", "Бумага и канцтовары для вашего офиса в один клик!");
+    bTitle.setAttribute("data-tk", "🏢 Ofis Toplumy"); bTitle.setAttribute("data-ru", "🏢 Офисный Набор");
+  } else {
+    t.setAttribute("data-tk", "🎁 Täze ýyl we Sowgat Toplumy"); t.setAttribute("data-ru", "🎁 Новогодние и Подарочные Наборы");
+    sub.setAttribute("data-tk", "Ýaşy we býudjetiňizi saýlaň — taýýar sowgat sanawyny bir basyşda sebede goşuň!");
+    sub.setAttribute("data-ru", "Выберите возраст и бюджет — добавьте готовый набор в корзину!");
+    bTitle.setAttribute("data-tk", "🎁 Sowgat Toplumy"); bTitle.setAttribute("data-ru", "🎁 Подарочный Набор");
+  }
+  t.innerText = t.getAttribute("data-" + lang);
+  sub.innerText = sub.getAttribute("data-" + lang);
+  bTitle.innerText = bTitle.getAttribute("data-" + lang);
 }
 
 function getCbTier() {
@@ -150,12 +162,12 @@ function updCbUI() {
   document.getElementById("cbTotalSpent").innerText = (cbMeta.spent || 0).toFixed(2);
   document.getElementById("cbTotalEarned").innerText = (cbMeta.earned || 0).toFixed(2);
 }
-
+/* === BÖLEK 4/8: TOPLUMLAR WE HARYT ÜSTÜNDEN FLY-TO-CART ANIMASIÝA === */
 function findBestMatch(kw, tier) {
   var matches = db.filter(function (x) { return x.s > 0 && x.t.toLowerCase().indexOf(kw.toLowerCase()) > -1; });
   if (!matches.length) return null;
   matches.sort(function (a, b) { return a.p - b.p; });
-  if (tier === "cheap") return matches[0];
+  if (tier === "cheap") return matches;
   if (tier === "pro") return matches[matches.length - 1];
   return matches[Math.floor(matches.length / 2)];
 }
@@ -164,40 +176,54 @@ function buildSchoolList() {
   var gScroll = document.getElementById("gradeScroll");
   if (!gScroll) return;
   gScroll.innerHTML = "";
-  for (var g = 1; g <= 12; g++) {
+  var count = seasonMode === "school" ? 12 : 4;
+  var labelsGift = ["3–5 ýaş", "6–9 ýaş", "10–14 ýaş", "Ulylar"];
+  var labelsOff = ["Kiçi ofis", "Orta ofis", "Buhgalter", "Ýolbaşçy"];
+  if (curGrade > count) curGrade = 1;
+
+  for (var g = 1; g <= count; g++) {
     var gp = document.createElement("div");
     gp.className = "g-pill" + (g === curGrade ? " act" : "");
-    gp.innerHTML = "<b>" + g + "</b><span>" + (lang === "tk" ? "synp" : "класс") + "</span>";
+    if (seasonMode === "school") {
+      gp.innerHTML = "<b>" + g + "</b><span>" + (lang === "tk" ? "synp" : "класс") + "</span>";
+    } else if (seasonMode === "office") {
+      gp.innerHTML = "<b>" + labelsOff[g - 1] + "</b><span>" + (lang === "tk" ? "toplum" : "набор") + "</span>";
+    } else {
+      gp.innerHTML = "<b>" + labelsGift[g - 1] + "</b><span>" + (lang === "tk" ? "sowgat" : "подарок") + "</span>";
+    }
     (function (gr) { gp.onclick = function () { curGrade = gr; buildSchoolList(); }; })(g);
     gScroll.appendChild(gp);
   }
+
   var wrap = document.getElementById("schoolListWrap"); wrap.innerHTML = "";
   curSchoolItems = []; var tot = 0;
-  var recipe = curGrade <= 4 ? [
-    { kw: "12 list gözenek", defName: "Depder 12 list gözenek", q: 5, p: 2, c: "Kagyz" },
-    { kw: "12 list çyzyk", defName: "Depder 12 list çyzykly", q: 5, p: 2, c: "Kagyz" },
-    { kw: "ruçka", defName: "Ruçka gök şarikli", q: 3, p: 3.5, c: "Ýazuw" },
-    { kw: "galam", defName: "Ýönekeý galam HB", q: 3, p: 2.5, c: "Ýazuw" },
-    { kw: "pozgyç", defName: "Pozgyç ýumşak", q: 2, p: 3, c: "Ýazuw" },
+  var recipe = seasonMode === "office" ? [
+    { kw: "kagyz a4", defName: "Kagyz A4 DOUBLE A (500 list)", q: 2, p: 78, c: "Kagyz" },
+    { kw: "faýl", defName: "Faýl Dolphin 100 sany", q: 1, p: 20, c: "Ofis" },
+    { kw: "ruçka", defName: "Ruçka gök şarikli", q: 5, p: 3.5, c: "Ýazuw" },
+    { kw: "kalkulýator", defName: "Kalkulýator CASIO", q: 1, p: 145, c: "Ofis" }
+  ] : seasonMode === "gift" ? [
     { kw: "albom", defName: "Surat albomy 24 list", q: 1, p: 12, c: "Döredijilik" },
-    { kw: "gündelik", defName: "Mekdep gündeligi", q: 1, p: 15, c: "Kagyz" }
+    { kw: "reňkli galam", defName: "Reňkli galamlar 12 reňk", q: 1, p: 24, c: "Döredijilik" },
+    { kw: "galam", defName: "Ýönekeý galam HB", q: 2, p: 2.5, c: "Ýazuw" },
+    { kw: "pozgyç", defName: "Pozgyç Maped Soft", q: 1, p: 3, c: "Ýazuw" }
   ] : [
-    { kw: "48 list", defName: "Depder 48 list gözenek", q: 8, p: 6, c: "Kagyz" },
-    { kw: "ruçka", defName: "Ruçka gök 0.7mm", q: 5, p: 3.5, c: "Ýazuw" },
+    { kw: "48 list", defName: "Depder 48 list gözenek", q: 6, p: 6, c: "Kagyz" },
+    { kw: "ruçka", defName: "Ruçka gök 0.7mm", q: 4, p: 3.5, c: "Ýazuw" },
     { kw: "galam", defName: "Ýönekeý galam HB", q: 3, p: 2.5, c: "Ýazuw" },
-    { kw: "sirkul", defName: "Sirkul we çyzgyç toplumy", q: 1, p: 28, c: "Ýazuw" },
     { kw: "gündelik", defName: "Mekdep gündeligi", q: 1, p: 15, c: "Kagyz" }
   ];
+
   var mult = curTier === "cheap" ? 0.85 : (curTier === "pro" ? 1.35 : 1);
   for (var i = 0; i < recipe.length; i++) {
     var r = recipe[i], real = findBestMatch(r.kw, curTier);
     var itemObj = real ? { id: real.id, t: real.t, p: real.p, cost: real.cost || 0, s: real.s, c: real.c, img: real.img || "", q: r.q }
-      : { id: "S_" + curGrade + "_" + i, t: r.defName, p: +(r.p * mult).toFixed(1), cost: +(r.p * 0.7).toFixed(1), s: 20, c: r.c, img: "", q: r.q };
+      : { id: "B_" + curGrade + "_" + i, t: r.defName, p: +(r.p * mult).toFixed(1), cost: +(r.p * 0.7).toFixed(1), s: 20, c: r.c, img: "", q: r.q };
     curSchoolItems.push(itemObj); tot += itemObj.p * itemObj.q;
     var row = document.createElement("div"); row.className = "b-item";
     var th = document.createElement("div"); th.className = "b-thumb";
     var im = document.createElement("img"); im.src = getProdImgUrl(itemObj);
-    (function (ic) { im.onerror = function () { this.parentElement.innerHTML = ic; }; })(ico(itemObj.c));
+    im.onerror = function () { this.parentElement.innerHTML = phSvg; };
     th.appendChild(im);
     row.appendChild(th);
     row.innerHTML += '<div class="b-mid"><h5>' + trText(itemObj.t, lang) + '</h5><span>' + itemObj.q + (lang === "tk" ? " sany × " : " шт × ") + itemObj.p + ' m</span></div><div class="b-right"><b>' + (itemObj.p * itemObj.q).toFixed(1) + ' m</b></div>';
@@ -205,24 +231,34 @@ function buildSchoolList() {
   }
   document.getElementById("schoolTotal").innerText = tot.toFixed(2);
 }
-/* === BÖLEK 4/8: SEBET MUKDARY WE HALANANLAR === */
-function flyToCart(el) {
-  if (!el) return;
-  var r = el.getBoundingClientRect();
-  var target = document.getElementById("navCartBtn").getBoundingClientRect();
-  var dot = document.createElement("div");
-  dot.className = "fly-dot"; dot.innerText = "+1";
-  dot.style.left = (r.left + r.width / 2 - 14) + "px";
-  dot.style.top = r.top + "px";
-  document.body.appendChild(dot);
-  requestAnimationFrame(function () {
-    dot.style.left = (target.left + target.width / 2 - 10) + "px";
-    dot.style.top = (target.top + 4) + "px";
-    dot.style.opacity = "0.2"; dot.style.transform = "scale(0.6)";
-  });
-  setTimeout(function () { dot.remove(); }, 650);
-}
 
+/* HARYT ÜSTÜNDEN SEBEDE UÇUP GIRÝÄN ANIMASIÝA */
+function flyToCart(el, imgUrl) {
+  if (!el) return;
+  var card = el.closest(".card") || el.closest(".det-info") || el;
+  var imgBox = card.querySelector(".pimg") || card.querySelector("#detImgWrap") || el;
+  var r = imgBox.getBoundingClientRect();
+  var target = document.getElementById("navCartBtn").getBoundingClientRect();
+
+  var flyer = document.createElement("img");
+  flyer.className = "fly-img";
+  flyer.src = imgUrl || "img/logo.png";
+  flyer.onerror = function () { this.style.background = "var(--p)"; };
+  flyer.style.left = (r.left + r.width / 2 - 27) + "px";
+  flyer.style.top = (r.top + r.height / 2 - 27) + "px";
+  document.body.appendChild(flyer);
+
+  requestAnimationFrame(function () {
+    flyer.style.left = (target.left + target.width / 2 - 12) + "px";
+    flyer.style.top = (target.top + 6) + "px";
+    flyer.style.width = "22px";
+    flyer.style.height = "22px";
+    flyer.style.opacity = "0.25";
+    flyer.style.transform = "rotate(15deg)";
+  });
+  setTimeout(function () { flyer.remove(); }, 650);
+}
+/* === BÖLEK 5/8: SEBET MUKDARY, HALANANLAR WE HARYT KARTLARY === */
 function getCartQty(id) { for (var i = 0; i < cart.length; i++) if (cart[i].id === id) return cart[i].q; return 0; }
 
 function setExactQty(p, val) {
@@ -262,7 +298,7 @@ function addCart(p, btnEl) {
   var maxS = p.s || 999;
   if (cur + 1 > maxS) { alert(lang === "tk" ? "Bu harytdan " + maxS + " sany elýeterli!" : "Доступно только " + maxS + " шт!"); return; }
   setExactQty(p, cur + 1);
-  if (btnEl) flyToCart(btnEl);
+  if (btnEl) flyToCart(btnEl, getProdImgUrl(p));
 }
 
 function toggleFav(id) {
@@ -275,11 +311,10 @@ function toggleFav(id) {
 
 function updDetFav(id) {
   var isF = favs.indexOf(id) > -1;
-  var btn = document.getElementById("detTopFav");
-  btn.innerHTML = isF ? hSvg1 : hSvg0;
+  document.getElementById("detTopFav").innerHTML = isF ? hSvg1 : hSvg0;
   document.getElementById("detLikes").innerText = (isF ? 1 : 0) + (parseInt(id, 36) % 5 + 1);
 }
-/* === BÖLEK 5/8: HARYT DETAIL WE HARYT KARTLARY === */
+
 function updDetBtn(x) {
   var w = document.getElementById("detBarWrap"); w.innerHTML = "";
   var q = getCartQty(x.id);
@@ -310,14 +345,14 @@ function openDet(x) {
   document.getElementById("detViews").innerText = views[x.id];
   document.getElementById("detCat").innerText = catName(x.c);
   document.getElementById("detSub").innerText = trText(x.sub || "Umumy", lang);
-  document.getElementById("detCode").innerText = "#" + x.id;
+  document.getElementById("detCode").innerText = x.id;
   document.getElementById("detDesc").innerText = x.d ? trText(x.d, lang) : (lang === "tk" ? titleTr + " — ýokary hilli original kanselýariýa önümi." : titleTr + " — качественный оригинальный товар.");
   document.getElementById("detTopShare").innerHTML = shSvg;
   updDetFav(x.id); updDetBtn(x);
 
   var iw = document.getElementById("detImgWrap"); iw.innerHTML = "";
   var im = document.createElement("img"); im.src = getProdImgUrl(x);
-  (function (ic) { im.onerror = function () { iw.innerHTML = ic; }; })(ico(x.c));
+  im.onerror = function () { iw.innerHTML = phSvg; };
   iw.appendChild(im);
 
   document.getElementById("detTopFav").onclick = function () { toggleFav(x.id); };
@@ -334,7 +369,7 @@ function openDet(x) {
       var sc = document.createElement("div"); sc.className = "sim-card";
       var si = document.createElement("div"); si.className = "sim-img";
       var simg = document.createElement("img"); simg.src = getProdImgUrl(s);
-      (function (ic) { simg.onerror = function () { this.parentElement.innerHTML = ic; }; })(ico(s.c));
+      simg.onerror = function () { this.parentElement.innerHTML = phSvg; };
       si.appendChild(simg);
       var sb = document.createElement("div"); sb.style.padding = "8px";
       sb.innerHTML = '<div style="font-size:13.5px;font-weight:800;color:var(--p);margin-bottom:2px">' + s.p + ' m</div><div style="font-size:11.5px;height:30px;overflow:hidden">' + trText(s.t, lang) + '</div>';
@@ -358,7 +393,7 @@ function makeCard(x) {
 
   var pimg = document.createElement("div"); pimg.className = "pimg";
   var img = document.createElement("img"); img.src = getProdImgUrl(x);
-  (function (ic) { img.onerror = function () { this.parentElement.innerHTML = ic; }; })(ico(x.c));
+  img.onerror = function () { this.parentElement.innerHTML = phSvg; };
   pimg.appendChild(img);
 
   var info = document.createElement("div"); info.className = "cbody";
@@ -386,7 +421,7 @@ function makeCard(x) {
   card.appendChild(pimg); card.appendChild(info);
   return card;
 }
-/* === BÖLEK 6/8: KATEGORIÝALAR, FILTER WE TÄZE SEBET === */
+/* === BÖLEK 6/8: AKYLLY FILTER, SEBET WE ARKADAG FAKTURA === */
 function makeCatCard(c, fc) {
   var d = document.createElement("div"); d.className = "ccard";
   var box = document.createElement("div"); box.className = "cbox";
@@ -403,6 +438,29 @@ function makeCatCard(c, fc) {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
   return d;
+}
+
+function renderBrandChips() {
+  var wrap = document.getElementById("brandFilterWrap"), box = document.getElementById("brandChips");
+  if (!wrap || !box) return;
+  var foundBrands = [];
+  for (var b = 0; b < knownBrands.length; b++) {
+    var br = knownBrands[b];
+    for (var i = 0; i < db.length; i++) {
+      if (db[i].t.toLowerCase().indexOf(br.toLowerCase()) > -1) { foundBrands.push(br); break; }
+    }
+  }
+  if (!foundBrands.length) { wrap.style.display = "none"; return; }
+  wrap.style.display = "block"; box.innerHTML = "";
+  for (var k = 0; k < foundBrands.length; k++) {
+    var ch = document.createElement("span");
+    ch.className = "b-chip" + (fBrand === foundBrands[k] ? " act" : "");
+    ch.innerText = foundBrands[k];
+    (function (bn) {
+      ch.onclick = function () { fBrand = (fBrand === bn) ? "" : bn; renderBrandChips(); };
+    })(foundBrands[k]);
+    box.appendChild(ch);
+  }
 }
 
 function renderFilterList() {
@@ -451,6 +509,7 @@ function renderFilterList() {
       wrap.appendChild(srow);
     }
   }
+  renderBrandChips();
 }
 
 function initF() {
@@ -469,13 +528,17 @@ function render() {
   var hz = document.getElementById("hideZero").checked, pg = document.getElementById("pgrid");
   document.getElementById("clrQ").style.display = qv ? "block" : "none";
 
-  var isFiltered = Boolean(qv || fc || fsub || fLow || fUnder10);
+  var hasPriceF = (fMin > 0 || fMax < Infinity);
+  var isFiltered = Boolean(qv || fc || fsub || fBrand || hasPriceF);
   document.getElementById("homeTopBlocks").style.display = isFiltered ? "none" : "block";
+  document.getElementById("fBadge").style.display = (fc || fsub || fBrand || hasPriceF) ? "inline" : "none";
 
   var cb = document.getElementById("catBanner");
-  if (fc) {
+  if (fc || fBrand) {
     cb.style.display = "flex";
-    document.getElementById("catBannerTitle").innerText = catName(fc) + (fsub ? " › " + trText(fsub, lang) : "");
+    var lbl = fc ? (catName(fc) + (fsub ? " › " + trText(fsub, lang) : "")) : "";
+    if (fBrand) lbl += (lbl ? " • " : "") + fBrand;
+    document.getElementById("catBannerTitle").innerText = lbl;
   } else cb.style.display = "none";
 
   pg.innerHTML = "";
@@ -483,9 +546,9 @@ function render() {
   for (var i = 0; i < db.length; i++) {
     var x = db[i];
     var trTitle = trText(x.t, lang).toLowerCase();
-    var okLow = !fLow || (x.s > 0 && x.s <= 5);
-    var ok10 = !fUnder10 || (x.p <= 10);
-    if ((!hz || x.s > 0) && okLow && ok10 && (x.t.toLowerCase().indexOf(q) > -1 || trTitle.indexOf(q) > -1 || String(x.id).toLowerCase().indexOf(q) > -1) && (!fc || x.c === fc) && (!fsub || x.sub === fsub)) {
+    var okPrice = (x.p >= fMin && x.p <= fMax);
+    var okBrand = !fBrand || (x.t.toLowerCase().indexOf(fBrand.toLowerCase()) > -1);
+    if ((!hz || x.s > 0) && okPrice && okBrand && (x.t.toLowerCase().indexOf(q) > -1 || trTitle.indexOf(q) > -1 || String(x.id).toLowerCase().indexOf(q) > -1) && (!fc || x.c === fc) && (!fsub || x.sub === fsub)) {
       if (cnt < 120) pg.appendChild(makeCard(x));
       cnt++;
     }
@@ -497,10 +560,9 @@ function resetAllFilters() {
   document.getElementById("q").value = "";
   document.getElementById("fcat").value = "";
   document.getElementById("fsub").value = "";
-  document.getElementById("fOnlyLow").checked = false;
-  fLow = false; fUnder10 = false;
-  document.getElementById("chipLow").classList.remove("act");
-  document.getElementById("chip10").classList.remove("act");
+  document.getElementById("fMinP").value = "";
+  document.getElementById("fMaxP").value = "";
+  fMin = 0; fMax = Infinity; fBrand = "";
   renderFilterList(); render();
 }
 
@@ -517,7 +579,7 @@ function renderStockList() {
     row.innerHTML = '<span style="max-width:65%"><b>[' + x.id + ']</b> ' + x.t + '</span>';
     var inp = document.createElement("input"); inp.type = "number"; inp.value = x.s;
     inp.style.cssText = "width:65px;padding:4px 6px;margin:0;text-align:center";
-    (function (idx) { inp.onchange = function () { db[idx].s = Math.max(0, parseFloat(this.value) || 0); lsSet("ay_db_v15", db); render(); }; })(i);
+    (function (idx) { inp.onchange = function () { db[idx].s = Math.max(0, parseFloat(this.value) || 0); lsSet("ay_db_v16", db); render(); }; })(i);
     row.appendChild(inp); sl.appendChild(row);
   }
 }
@@ -528,21 +590,25 @@ function renderOrders() {
   var h = "";
   for (var i = orders.length - 1; i >= 0; i--) {
     var o = orders[i];
-    h += '<div style="background:var(--c);border:1px solid var(--b);padding:12px;border-radius:12px;margin-bottom:8px;font-size:13px"><b>Sargyt ' + o.id + ' — ' + o.tot + '</b><br><span style="color:var(--m)">' + o.nm + ' (' + o.ph + ') - ' + o.ad + '</span><div style="margin-top:6px;white-space:pre-wrap;font-size:11.5px;background:var(--g);padding:8px;border-radius:8px">' + o.det + '</div></div>';
+    var cleanDet = o.cleanDet || String(o.det || "").replace(/\s*Suraty:.*$/gm, "");
+    h += '<div style="background:var(--c);border:1px solid var(--b);padding:13px;border-radius:14px;margin-bottom:10px;font-size:13px"><div style="display:flex;justify-content:space-between;margin-bottom:4px"><b style="color:var(--p)">Sargyt ' + o.id + '</b><b style="color:var(--ok)">' + o.tot + '</b></div><span style="color:var(--m);font-size:12px">' + o.nm + ' (' + o.ph + ') • ' + o.ad + '</span><div style="margin-top:8px;white-space:pre-wrap;font-size:12px;background:var(--g);padding:9px;border-radius:9px;line-height:1.4">' + cleanDet + '</div></div>';
   }
   ol.innerHTML = h;
 }
-
+/* === BÖLEK 7A: SEBET, ARKADAG 10M/200M ELTIP BERMEK WE FAKTURA === */
 function updCart() {
   var c = 0, subTot = 0, cl = document.getElementById("clist");
+  var invList = document.getElementById("invItemsList");
   cl.innerHTML = "";
+  if (invList) invList.innerHTML = "";
+
   for (var i = 0; i < cart.length; i++) {
     var item = cart[i]; c += item.q; subTot += item.p * item.q;
     var row = document.createElement("div"); row.className = "citem-new";
 
     var imgDiv = document.createElement("div"); imgDiv.className = "citem-img";
     var im = document.createElement("img"); im.src = getProdImgUrl(item);
-    (function (ic) { im.onerror = function () { this.parentElement.innerHTML = ic; }; })(ico(item.c));
+    im.onerror = function () { this.parentElement.innerHTML = phSvg; };
     imgDiv.appendChild(im);
 
     var body = document.createElement("div"); body.className = "citem-body";
@@ -555,9 +621,9 @@ function updCart() {
     var bot = document.createElement("div"); bot.className = "citem-bot";
     bot.innerHTML = '<div class="citem-prc">' + (item.p * item.q).toFixed(2) + ' m.</div>';
     var qc = document.createElement("div"); qc.className = "qctrl-new";
-    var bm = document.createElement("button"); bm.innerText = "‹";
+    var bm = document.createElement("button"); bm.innerText = "−";
     var qn = document.createElement("span"); qn.innerText = item.q;
-    var bp = document.createElement("button"); bp.innerText = "›"; bp.disabled = item.q >= item.max;
+    var bp = document.createElement("button"); bp.innerText = "+"; bp.disabled = item.q >= item.max;
     (function (it) {
       bm.onclick = function () { setExactQty(it, it.q - 1); };
       qn.onclick = function () { promptQty(it); };
@@ -569,43 +635,65 @@ function updCart() {
     body.appendChild(top); body.appendChild(bot);
     row.appendChild(imgDiv); row.appendChild(body);
     cl.appendChild(row);
+
+    if (invList) {
+      invList.innerHTML += '<div class="inv-item-row"><div class="inv-item-name">' + (i + 1) + '. ' + trText(item.t, lang) + '<span class="inv-item-qty">' + item.q + ' × ' + item.p.toFixed(2) + ' m</span></div><div class="inv-item-sum">' + (item.p * item.q).toFixed(2) + ' m</div></div>';
+    }
   }
-
-  var delivCost = (subTot > 0 && subTot < 100) ? 20 : 0;
-  var grandTot = subTot + delivCost;
-  var useCb = document.getElementById("useCbChk").checked;
-  var finalPay = useCb ? Math.max(0, grandTot - cbBal) : grandTot;
-
-  document.getElementById("cnt").innerText = c;
-  document.getElementById("navCartLbl").innerText = subTot > 0 ? (subTot.toFixed(2) + " m.") : (lang === "tk" ? "Sebet" : "Корзина");
-  document.getElementById("sumSub").innerText = "+" + subTot.toFixed(2) + " m.";
-  document.getElementById("sumDel").innerText = delivCost > 0 ? ("+" + delivCost.toFixed(2) + " m.") : (lang === "tk" ? "Mugt (0 m.)" : "Бесплатно");
-  document.getElementById("sumTot").innerText = grandTot.toFixed(2) + " m.";
-  document.getElementById("chkFinalTot").innerText = finalPay.toFixed(2) + " m.";
-  document.getElementById("chkDelivTxt").innerText = delivCost > 0
-      ? (lang === "tk" ? "Standart eltip bermek (20.00 m.)" : "Стандартная доставка (20.00 m.)")
-    : (lang === "tk" ? "Mugt eltip bermek (100 m-dan ýokary)" : "Бесплатная доставка (от 100 м)");
 
   var hasItems = cart.length > 0;
   document.getElementById("cartMainCard").style.display = hasItems ? "block" : "none";
   document.getElementById("btnClearCart").style.display = hasItems ? "block" : "none";
-  document.getElementById("cartEmptyWrap").innerHTML = hasItems ? "" : '<div class="empty-box"><p style="margin-bottom:14px">' + (lang === "tk" ? "Sebediňiz häzirlikçe boş" : "Ваша корзина пока пуста") + '</p><button class="btn1" style="max-width:210px;margin:0 auto" onclick="showTab(\'home\')">' + (lang === "tk" ? "🛍️ Söwda başlamak" : "🛍️ Начать покупки") + '</button></div>';
-}
+  document.getElementById("cartEmptyWrap").innerHTML = hasItems ? "" : '<div class="empty-box"><p>' + (lang === "tk" ? "Sebediňiz häzir boş" : "Ваша корзина пуста") + '</p></div>';
 
-/* === BÖLEK 7/8: SAHYPALAR WE 1688 STILI KAMERA === */
+  /* ARKADAG ŞÄHERI: 200 M-DAN GEÇSE MUGT, ÝOGSA 10 M */
+  var delivCost = (subTot > 0 && subTot < 200) ? 10 : 0;
+  var grandTot = subTot + delivCost;
+  var useCb = document.getElementById("useCbChk").checked;
+  var maxCbUsable = Math.min(subTot, cbBal);
+  var usedAmt = useCb ? maxCbUsable : 0;
+  var finalPay = Math.max(0, grandTot - usedAmt);
+
+  var pct = Math.min(100, Math.round((subTot / 200) * 100));
+  document.getElementById("shipProgFill").style.width = pct + "%";
+  var pill = document.getElementById("freeShipPill");
+  if (subTot >= 200) {
+    pill.className = "free-badge ok";
+    pill.innerText = lang === "tk" ? "🎉 Mugt eltip bermek!" : "🎉 Бесплатно!";
+    document.getElementById("shipProgTxt").innerText = lang === "tk" ? "✅ Arkadag şäherine eltip bermek MUGT!" : "✅ Доставка по г. Аркадаг БЕСПЛАТНО!";
+  } else {
+    pill.className = "free-badge";
+    pill.innerText = "🚚 10.00 m";
+    var left = (200 - subTot).toFixed(2);
+    document.getElementById("shipProgTxt").innerText = lang === "tk" ? "Mugt eltip bermek üçin ýene " + left + " m goşuň" : "До бесплатной доставки ещё " + left + " м";
+  }
+
+  document.getElementById("cnt").innerText = c;
+  document.getElementById("navCartLbl").innerText = subTot > 0 ? (subTot.toFixed(2) + " m.") : (lang === "tk" ? "Sebet" : "Корзина");
+  document.getElementById("sumSub").innerText = subTot.toFixed(2) + " m.";
+  document.getElementById("sumDel").innerText = delivCost > 0 ? (delivCost.toFixed(2) + " m.") : (lang === "tk" ? "Mugt (0 m.)" : "Бесплатно");
+  document.getElementById("sumTot").innerText = grandTot.toFixed(2) + " m.";
+
+  if (document.getElementById("invSub")) {
+    document.getElementById("invDate").innerText = new Date().toLocaleDateString("ru-RU");
+    document.getElementById("invSub").innerText = subTot.toFixed(2) + " m";
+    document.getElementById("invDel").innerText = delivCost > 0 ? (delivCost.toFixed(2) + " m") : (lang === "tk" ? "Mugt (0.00 m)" : "Бесплатно");
+    document.getElementById("invCbRow").style.display = usedAmt > 0 ? "flex" : "none";
+    document.getElementById("invCbVal").innerText = "-" + usedAmt.toFixed(2) + " m";
+    document.getElementById("invGrand").innerText = finalPay.toFixed(2) + " m";
+  }
+}
+/* === BÖLEK 7B: SAHYPALAR WE AI KAMERA (OCR + BARKOD) === */
 function showTab(t) {
   var s = document.querySelectorAll(".sec"), n = document.querySelectorAll(".nbtn");
   for (var i = 0; i < s.length; i++) s[i].classList.remove("act");
   for (var j = 0; j < n.length; j++) n[j].classList.toggle("act", n[j].getAttribute("data-t") === t);
   document.getElementById("s-" + t).classList.add("act");
-
   document.getElementById("searchWrap").style.display = (t === "home") ? "block" : "none";
-  document.getElementById("filterBar").style.display = (t === "home") ? "grid" : "none";
-
   if (t === "fav") renderFavs();
   if (t === "orders") renderOrders();
   if (t === "prof") updCbUI();
-  if (t === "school") buildSchoolList();
+  if (t === "bundle") buildSchoolList();
 }
 
 function setL(l) {
@@ -615,7 +703,7 @@ function setL(l) {
   var els = document.querySelectorAll("[data-tk]");
   for (var i = 0; i < els.length; i++) els[i].innerText = els[i].getAttribute("data-" + l);
   document.getElementById("q").placeholder = l === "tk" ? "Gözleg..." : "Поиск...";
-  updCbUI(); initF(); render(); updCart();
+  applySeasonBanner(); updCbUI(); initF(); render(); updCart();
 }
 
 function updRep() {
@@ -634,9 +722,7 @@ function goSlide(n) {
 setInterval(function () { goSlide((curSlide + 1) % 3); }, 4000);
 
 document.getElementById("btnClearCart").onclick = function () {
-  if (confirm(lang === "tk" ? "Sebedi doly arassalamalymy?" : "Очистить всю корзину?")) {
-    cart = []; updCart(); render();
-  }
+  if (confirm(lang === "tk" ? "Sebedi doly arassalamalymy?" : "Очистить всю корзину?")) { cart = []; updCart(); render(); }
 };
 document.getElementById("btnOpenCheckout").onclick = function () {
   if (userAddr.nm && !document.getElementById("nm").value) document.getElementById("nm").value = userAddr.nm;
@@ -648,13 +734,77 @@ document.getElementById("btnOpenCheckout").onclick = function () {
 document.getElementById("chkBack").onclick = function () { document.getElementById("chkPage").classList.remove("open"); };
 document.getElementById("useCbChk").onchange = updCart;
 
-/* KAMERA FUNKSIÝALARY */
+/* AI SURAT WE BARKOD SKANERI */
 var camStream = null, flashOn = false;
 function stopCamera() {
   if (camStream) { camStream.getTracks().forEach(function (tr) { tr.stop(); }); camStream = null; }
   flashOn = false;
   document.getElementById("camFlashBtn").classList.remove("on");
 }
+
+function searchByAiTokens(tokens) {
+  var rb = document.getElementById("scanResultBox");
+  rb.style.display = "block";
+  var cleanWords = tokens.filter(function (w) { return w && w.length >= 2; });
+  if (!cleanWords.length) {
+    rb.innerHTML = lang === "tk" ? "⚠️ Suratdan ýazgy okalmady. Aşakda harydyň adyny ýazyp dükana ugradyň:" : "⚠️ Текст не распознан. Напишите название ниже и отправьте:";
+    return;
+  }
+  var scored = [];
+  for (var i = 0; i < db.length; i++) {
+    var x = db[i], score = 0;
+    var hay = (x.id + " " + x.t + " " + trText(x.t, "tk") + " " + trText(x.t, "ru")).toLowerCase();
+    for (var k = 0; k < cleanWords.length; k++) {
+      var w = cleanWords[k].toLowerCase();
+      if (String(x.id).toLowerCase() === w) score += 10;
+      else if (hay.indexOf(w) > -1) score += 2;
+    }
+    if (score > 0) scored.push({ item: x, score: score });
+  }
+  scored.sort(function (a, b) { return b.score - a.score; });
+
+  if (!scored.length) {
+    document.getElementById("camNote").value = cleanWords.slice(0, 3).join(" ");
+    rb.innerHTML = (lang === "tk" ? "ℹ️ AI okady: <b>" : "ℹ️ AI прочитал: <b>") + cleanWords.slice(0, 3).join(", ") + "</b><br>" + (lang === "tk" ? "Bazada gabat gelmedi. 'Dükana ugrat' basyp sargap bilersiňiz:" : "Не найдено в базе. Нажмите 'Отправить в магазин':");
+    return;
+  }
+  var html = "<b>🤖 AI Tapylan Harytlar:</b><br>";
+  for (var m = 0; m < Math.min(4, scored.length); m++) {
+    var it = scored[m].item;
+    html += '<div style="padding:6px 0;border-bottom:1px solid var(--b);cursor:pointer;display:flex;justify-content:space-between;align-items:center" onclick="openCamProd(\'' + it.id + '\')"><span>' + trText(it.t, lang) + '</span><b style="color:var(--p);white-space:nowrap;margin-left:8px">' + it.p + ' m ›</b></div>';
+  }
+  rb.innerHTML = html;
+}
+
+async function analyzeImageWithAI(imgSource) {
+  var rb = document.getElementById("scanResultBox");
+  rb.style.display = "block";
+  rb.innerHTML = lang === "tk" ? "⏳ AI suraty seljerýär (barkod we ýazgylar okalýar)..." : "⏳ AI анализирует фото (чтение штрихкода и текста)...";
+  var tokens = [];
+
+  try {
+    if ("BarcodeDetector" in window) {
+      var bd = new BarcodeDetector();
+      var codes = await bd.detect(imgSource);
+      for (var i = 0; i < codes.length; i++) if (codes[i].rawValue) tokens.push(codes[i].rawValue);
+    }
+  } catch (e) {}
+
+  if (!tokens.length && window.Tesseract) {
+    try {
+      var res = await Tesseract.recognize(imgSource, "eng+rus");
+      var rawTxt = (res && res.data && res.data.text) ? res.data.text : "";
+      var words = rawTxt.replace(/[^a-zA-Zа-яА-ЯёЁäöüňýžşçÄÖÜŇÝŽŞÇ0-9\s]/g, " ").split(/\s+/);
+      for (var j = 0; j < words.length; j++) if (words[j].length >= 3) tokens.push(words[j]);
+    } catch (e) {}
+  }
+  searchByAiTokens(tokens);
+}
+
+window.openCamProd = function (id) {
+  stopCamera(); document.getElementById("camFull").classList.remove("open");
+  for (var i = 0; i < db.length; i++) if (db[i].id === id) { openDet(db[i]); break; }
+};
 
 document.getElementById("btnCam").onclick = function () {
   document.getElementById("scanResultBox").style.display = "none";
@@ -667,11 +817,7 @@ document.getElementById("btnCam").onclick = function () {
       .catch(function () {});
   }
 };
-
-document.getElementById("camCloseBtn").onclick = function () {
-  stopCamera(); document.getElementById("camFull").classList.remove("open");
-};
-
+document.getElementById("camCloseBtn").onclick = function () { stopCamera(); document.getElementById("camFull").classList.remove("open"); };
 document.getElementById("camFlashBtn").onclick = function () {
   if (!camStream) return;
   var track = camStream.getVideoTracks()[0];
@@ -681,64 +827,44 @@ document.getElementById("camFlashBtn").onclick = function () {
     this.classList.toggle("on", flashOn);
   }
 };
-
-function searchByCamKeywords(kw) {
-  var q = kw.toLowerCase();
-  var matches = db.filter(function (x) { return x.t.toLowerCase().indexOf(q) > -1 || String(x.id).indexOf(q) > -1; });
-  var rb = document.getElementById("scanResultBox"); rb.style.display = "block";
-  if (!matches.length) {
-    rb.innerHTML = lang === "tk" ? "ℹ️ Bazada tapylmady. Aşakda adyny ýazyp dükana ugradyň:" : "ℹ️ Не найдено. Напишите название ниже и отправьте:";
-    return;
-  }
-  var html = "<b>🔍 Tapylan harytlar:</b><br>";
-  for (var i = 0; i < Math.min(3, matches.length); i++) {
-    html += '<div style="padding:5px 0;border-bottom:1px solid var(--b);cursor:pointer;display:flex;justify-content:space-between" onclick="openCamProd(\'' + matches[i].id + '\')"><span>' + trText(matches[i].t, lang) + '</span><b>' + matches[i].p + ' m ›</b></div>';
-  }
-  rb.innerHTML = html;
-}
-
-window.openCamProd = function (id) {
-  stopCamera(); document.getElementById("camFull").classList.remove("open");
-  for (var i = 0; i < db.length; i++) if (db[i].id === id) { openDet(db[i]); break; }
-};
-
 document.getElementById("camSnapBtn").onclick = function () {
   var vid = document.getElementById("camVideo"), cv = document.createElement("canvas");
-  cv.width = vid.videoWidth || 300; cv.height = vid.videoHeight || 300;
+  cv.width = vid.videoWidth || 400; cv.height = vid.videoHeight || 400;
   cv.getContext("2d").drawImage(vid, 0, 0, cv.width, cv.height);
   var prev = document.getElementById("camPreview");
-  prev.src = cv.toDataURL("image/jpeg", 0.7); prev.style.display = "block";
-  searchByCamKeywords("depder");
+  prev.onload = function () { analyzeImageWithAI(prev); };
+  prev.src = cv.toDataURL("image/jpeg", 0.85);
+  prev.style.display = "block";
 };
-
 document.getElementById("camFile").onchange = function (e) {
   var file = e.target.files[0]; if (!file) return;
   var rd = new FileReader();
   rd.onload = function (ev) {
     var prev = document.getElementById("camPreview");
-    prev.src = ev.target.result; prev.style.display = "block";
-    searchByCamKeywords(file.name.replace(/\.[^/.]+$/, ""));
+    prev.onload = function () { analyzeImageWithAI(prev); };
+    prev.src = ev.target.result;
+    prev.style.display = "block";
   };
   rd.readAsDataURL(file);
 };
-
-document.getElementById("camNote").onkeyup = function () { if (this.value.trim().length >= 2) searchByCamKeywords(this.value.trim()); };
-
+document.getElementById("camNote").onkeyup = function () {
+  if (this.value.trim().length >= 2) searchByAiTokens(this.value.trim().split(/\s+/));
+};
 document.getElementById("btnSendCam").onclick = function () {
-  var note = document.getElementById("camNote").value.trim() || "Surat boýunça gözleg";
+  var note = document.getElementById("camNote").value.trim() || "AI Surat boýunça gözleg";
   var mainMail = m1 || "aycyzuw.tm.arkadag@gmail.com";
   var btn = this; btn.disabled = true; btn.innerText = "...";
   fetch("https://formsubmit.co" + encodeURIComponent(mainMail), {
     method: "POST",
     headers: { "Content-Type": "application/json", "Accept": "application/json" },
-    body: JSON.stringify({ _subject: "AÝ-ÇYZUW Kamera Gözlegi", _captcha: "false", Sorag: note, Musderi: userAddr.ph || "Näbelli" })
+    body: JSON.stringify({ _subject: "AÝ-ÇYZUW AI Kamera Gözlegi", _captcha: "false", Sorag: note, Musderi: userAddr.ph || "Näbelli" })
   }).finally(function () {
-    btn.disabled = false; btn.innerText = "📩 Ugrat";
+    btn.disabled = false; btn.innerText = "📩 Dükana ugrat";
     stopCamera(); document.getElementById("camFull").classList.remove("open");
     alert(lang === "tk" ? "Talabyňyz dükana ugradyldy!" : "Запрос отправлен в магазин!");
   });
 };
-/* === BÖLEK 8/8: 5 SÜTÜNLİ EXCEL, GMAIL SARGYT WE SAZLAMALAR === */
+/* === BÖLEK 8A: EXCEL ÝÜKLEMEK WE GMAIL SARGYT === */
 document.getElementById("btnImport").onclick = function () {
   var raw = document.getElementById("pasteBox").value.trim();
   if (!raw) return alert("Excel maglumatyny goýuň!");
@@ -769,7 +895,7 @@ document.getElementById("btnImport").onclick = function () {
     }
     added++;
   }
-  lsSet("ay_db_v15", db); render(); renderStockList(); initF();
+  lsSet("ay_db_v16", db); render(); renderStockList(); initF();
   document.getElementById("admStat").innerText = "✅ Ýüklendi: " + added + " | Jemi: " + db.length;
   document.getElementById("pasteBox").value = "";
 };
@@ -782,7 +908,7 @@ document.getElementById("btnOrd").onclick = function () {
   if (!nm || !ph || !ad) return alert(lang === "tk" ? "Adyňyzy, telefonyňyzy we salgyňyzy ýazyň!" : "Заполните имя, телефон и адрес!");
 
   var btn = this; btn.disabled = true; btn.innerText = lang === "tk" ? "Iberilýär..." : "Отправка...";
-  var det = "", subTot = 0, prof = 0;
+  var cleanDet = "", mailDet = "", subTot = 0, prof = 0;
   var baseSiteUrl = location.origin + location.pathname.replace(/\/[^\/]*$/, "/");
 
   for (var i = 0; i < cart.length; i++) {
@@ -790,21 +916,21 @@ document.getElementById("btnOrd").onclick = function () {
     var rawImg = getProdImgUrl(it);
     var fullImgLink = (rawImg.indexOf("http") === 0 || rawImg.indexOf("data:") === 0) ? rawImg : (baseSiteUrl + rawImg);
 
-    det += (i + 1) + ". " + it.t + " [Kod: " + it.id + "]\n";
-    det += "   Sany: " + it.q + " | Baha: " + it.p + " m | Jemi: " + (it.p * it.q).toFixed(2) + " m\n";
-    det += "   Suraty: " + fullImgLink + "\n\n";
+    var lineTxt = (i + 1) + ". " + it.t + " (" + it.q + " × " + it.p.toFixed(2) + " m = " + (it.p * it.q).toFixed(2) + " m)";
+    cleanDet += lineTxt + "\n";
+    mailDet += lineTxt + " [Kod: " + it.id + "]\n   Suraty: " + fullImgLink + "\n\n";
 
     subTot += it.p * it.q;
     prof += (it.p - (it.cost || 0)) * it.q;
     for (var j = 0; j < db.length; j++) if (db[j].id === it.id) db[j].s = Math.max(0, db[j].s - it.q);
   }
 
-  var delivCost = (subTot > 0 && subTot < 100) ? 20 : 0;
+  var delivCost = (subTot > 0 && subTot < 200) ? 10 : 0;
   var grandTot = subTot + delivCost;
   var tierInfo = getCbTier();
   var useCb = document.getElementById("useCbChk").checked;
-  var usedAmt = useCb ? Math.min(grandTot, cbBal) : 0;
-  var payTot = grandTot - usedAmt;
+  var usedAmt = useCb ? Math.min(subTot, cbBal) : 0;
+  var payTot = Math.max(0, grandTot - usedAmt);
   var earnedCb = +(subTot * tierInfo.rate).toFixed(2);
 
   cbBal = +(cbBal - usedAmt + earnedCb).toFixed(2);
@@ -813,13 +939,16 @@ document.getElementById("btnOrd").onclick = function () {
   lsSet("ay_cb", cbBal); lsSet("ay_cb_meta", cbMeta); updCbUI();
 
   var oid = "#" + String(Date.now()).slice(-5), totStr = payTot.toFixed(2) + " m";
-  det += "Harytlar jemi: " + subTot.toFixed(2) + " m | Eltip bermek: " + delivCost.toFixed(2) + " m";
-  if (usedAmt > 0) det += "\nUlanylan keşbek: -" + usedAmt.toFixed(2) + " m";
-  if (nt) det += "\nMüşderi belligi: " + nt;
+  var footInfo = "\nHarytlar: " + subTot.toFixed(2) + " m | Eltip bermek (Arkadag): " + (delivCost > 0 ? delivCost.toFixed(2) + " m" : "Mugt");
+  if (usedAmt > 0) footInfo += "\nKeşbek aýyrmasy: -" + usedAmt.toFixed(2) + " m";
+  if (nt) footInfo += "\nBellik: " + nt;
 
-  orders.push({ id: oid, nm: nm, ph: ph, ad: ad, det: det, tot: totStr });
+  cleanDet += footInfo;
+  mailDet += footInfo;
+
+  orders.push({ id: oid, nm: nm, ph: ph, ad: ad, det: mailDet, cleanDet: cleanDet, tot: totStr });
   st.s += payTot; st.p += prof; st.c += 1;
-  lsSet("ay_db_v15", db); lsSet("ay_orders", orders); lsSet("ay_st", st);
+  lsSet("ay_db_v16", db); lsSet("ay_orders", orders); lsSet("ay_st", st);
 
   var mainMail = m1 || "aycyzuw.tm.arkadag@gmail.com";
   var payload = {
@@ -831,8 +960,8 @@ document.getElementById("btnOrd").onclick = function () {
     Telefon: ph,
     Salgy: ad,
     Bellik: nt || "Ýok",
-    Harytlar_we_Suratlar: det,
-    Eltip_bermek: delivCost.toFixed(2) + " m",
+    Harytlar_we_Suratlar: mailDet,
+    Eltip_bermek: delivCost > 0 ? (delivCost.toFixed(2) + " m") : "Mugt (0.00 m)",
     Jemi_Toleg: totStr
   };
   if (m2) payload._cc = m2;
@@ -842,7 +971,7 @@ document.getElementById("btnOrd").onclick = function () {
     headers: { "Content-Type": "application/json", "Accept": "application/json" },
     body: JSON.stringify(payload)
   }).finally(function () {
-    btn.disabled = false; btn.innerText = lang === "tk" ? "Sargyt et" : "Заказать";
+    btn.disabled = false; btn.innerText = lang === "tk" ? "✅ Sargydy tassykla" : "✅ Подтвердить заказ";
     document.getElementById("useCbChk").checked = false;
     document.getElementById("chkPage").classList.remove("open");
     cart = []; updCart(); render();
@@ -850,9 +979,9 @@ document.getElementById("btnOrd").onclick = function () {
     showTab("orders");
   });
 };
-
-document.getElementById("openSchoolBuilder").onclick = function () { showTab("school"); window.scrollTo({ top: 0, behavior: "smooth" }); };
-document.getElementById("backFromSchool").onclick = function () { showTab("home"); };
+/* === BÖLEK 8B: ÄHLI DÜWMELER WE BAŞLANGYÇ IŞE GOÝBERIŞ === */
+document.getElementById("openBundleBuilder").onclick = function () { showTab("bundle"); window.scrollTo({ top: 0, behavior: "smooth" }); };
+document.getElementById("backFromBundle").onclick = function () { showTab("home"); };
 var tTabs = document.querySelectorAll(".t-tab");
 for (var ti = 0; ti < tTabs.length; ti++) {
   tTabs[ti].onclick = function () {
@@ -862,9 +991,10 @@ for (var ti = 0; ti < tTabs.length; ti++) {
 }
 document.getElementById("btnAddAllSchool").onclick = function () {
   for (var i = 0; i < curSchoolItems.length; i++) setExactQty(curSchoolItems[i], getCartQty(curSchoolItems[i].id) + curSchoolItems[i].q);
-  flyToCart(this);
-  alert(lang === "tk" ? curGrade + "-nji synp toplumy sebede goşuldy!" : "Набор для " + curGrade + " класса добавлен!");
+  flyToCart(this, curSchoolItems[0] ? getProdImgUrl(curSchoolItems[0]) : "");
+  alert(lang === "tk" ? "Toplum sebede goşuldy!" : "Набор добавлен в корзину!");
 };
+
 document.getElementById("detBack").onclick = function () { document.getElementById("detPage").classList.remove("open"); };
 document.getElementById("logoBtn").onclick = function () {
   taps++; clearTimeout(tt); tt = setTimeout(function () { taps = 0; }, 800);
@@ -877,14 +1007,22 @@ document.getElementById("hideZero").onchange = render;
 document.getElementById("clrQ").onclick = function () { document.getElementById("q").value = ""; render(); };
 document.getElementById("btnExitCat").onclick = resetAllFilters;
 document.getElementById("btnAll").onclick = resetAllFilters;
-document.getElementById("chipLow").onclick = function () { fLow = !fLow; this.classList.toggle("act", fLow); document.getElementById("fOnlyLow").checked = fLow; render(); };
-document.getElementById("chip10").onclick = function () { fUnder10 = !fUnder10; this.classList.toggle("act", fUnder10); render(); };
+
 document.getElementById("btnSort").onclick = function () { document.getElementById("sm").classList.add("open"); };
 document.getElementById("btnFilt").onclick = function () { renderFilterList(); document.getElementById("fm").classList.add("open"); };
-document.getElementById("btnApplyF").onclick = function () { fLow = document.getElementById("fOnlyLow").checked; document.getElementById("chipLow").classList.toggle("act", fLow); render(); document.getElementById("fm").classList.remove("open"); };
+document.getElementById("btnApplyF").onclick = function () {
+  fMin = parseFloat(document.getElementById("fMinP").value) || 0;
+  var mx = parseFloat(document.getElementById("fMaxP").value);
+  fMax = (!isNaN(mx) && mx > 0) ? mx : Infinity;
+  render(); document.getElementById("fm").classList.remove("open");
+};
 document.getElementById("btnResetF").onclick = function () { resetAllFilters(); document.getElementById("fm").classList.remove("open"); };
+
+document.getElementById("srtDef").onclick = function () { db.sort(function (a, b) { return String(a.id).localeCompare(String(b.id)); }); render(); document.getElementById("sm").classList.remove("open"); };
 document.getElementById("srt1").onclick = function () { db.sort(function (a, b) { return a.p - b.p; }); render(); document.getElementById("sm").classList.remove("open"); };
 document.getElementById("srt2").onclick = function () { db.sort(function (a, b) { return b.p - a.p; }); render(); document.getElementById("sm").classList.remove("open"); };
+document.getElementById("srtAz").onclick = function () { db.sort(function (a, b) { return trText(a.t, lang).localeCompare(trText(b.t, lang)); }); render(); document.getElementById("sm").classList.remove("open"); };
+
 document.getElementById("goOrd").onclick = function () { showTab("orders"); };
 document.getElementById("backProf").onclick = function () { showTab("prof"); };
 document.getElementById("goLang").onclick = function () { setL(lang === "tk" ? "ru" : "tk"); };
@@ -893,9 +1031,11 @@ document.getElementById("goAddr").onclick = function () { document.getElementByI
 document.getElementById("btnSaveAddr").onclick = function () { userAddr = { nm: document.getElementById("svNm").value.trim(), ph: document.getElementById("svPh").value.trim(), ad: document.getElementById("svAd").value.trim() }; lsSet("ay_uaddr", userAddr); document.getElementById("addrModal").classList.remove("open"); alert("Ýatda saklandy!"); };
 document.getElementById("goCall").onclick = function () { location.href = "tel:" + String(smsPh).replace(/[^0-9+]/g, ""); };
 document.getElementById("goSms").onclick = function () { location.href = "sms:" + String(smsPh).replace(/[^0-9+]/g, ""); };
+
 document.getElementById("btnCheckAdm").onclick = function () {
   if (document.getElementById("admPass").value === admPassSaved) {
     document.getElementById("adminPanel").style.display = "block";
+    document.getElementById("admSeasonMode").value = seasonMode;
     document.getElementById("admMail1").value = m1; document.getElementById("admMail2").value = m2; document.getElementById("admSms").value = smsPh;
     document.getElementById("admStat").innerText = "Jemi haryt sany: " + db.length;
     updRep(); renderStockList(); document.getElementById("admLogin").classList.remove("open"); showTab("prof");
@@ -904,6 +1044,8 @@ document.getElementById("btnCheckAdm").onclick = function () {
 document.getElementById("btnSaveMail").onclick = function () {
   var np = document.getElementById("admNewPass").value.trim();
   if (np) { admPassSaved = np; lsSet("ay_apass", admPassSaved); document.getElementById("admNewPass").value = ""; }
+  seasonMode = document.getElementById("admSeasonMode").value;
+  lsSet("ay_season", seasonMode); applySeasonBanner(); buildSchoolList();
   m1 = document.getElementById("admMail1").value.trim();
   m2 = document.getElementById("admMail2").value.trim();
   smsPh = document.getElementById("admSms").value.trim();
@@ -911,14 +1053,13 @@ document.getElementById("btnSaveMail").onclick = function () {
   alert("Ýatda saklandy!");
 };
 document.getElementById("btnResetRep").onclick = function () { st = { s: 0, p: 0, c: 0 }; lsSet("ay_st", st); updRep(); };
-document.getElementById("btnClear").onclick = function () { if (confirm("Arassalamalymy?")) { localStorage.removeItem("ay_db_v15"); db = githubBaza.slice(); render(); renderStockList(); initF(); } };
+document.getElementById("btnClear").onclick = function () { if (confirm("Arassalamalymy?")) { localStorage.removeItem("ay_db_v16"); db = githubBaza.slice(); render(); renderStockList(); initF(); } };
 document.getElementById("btnLogout").onclick = function () { document.getElementById("adminPanel").style.display = "none"; };
-document.getElementById("btnCopyGit").onclick = function () { if (navigator.clipboard) navigator.clipboard.writeText("var githubBaza = " + JSON.stringify(db, null, 2) + ";").then(function () { alert("Kopiýalandy!"); }); };
+document.getElementById("btnCopyGit").onclick = function () { if (navigator.clipboard) navigator.clipboard.writeText("var githubBaza = " + JSON.stringify(db, null, 2) + ";").then(function () { alert("baza.js üçin kopiýalandy!"); }); };
 
 var nbtns = document.querySelectorAll(".nbtn");
 for (var i = 0; i < nbtns.length; i++) nbtns[i].onclick = function () { showTab(this.getAttribute("data-t")); };
 var clsBtns = document.querySelectorAll(".cls");
 for (var j = 0; j < clsBtns.length; j++) clsBtns[j].onclick = function () { document.getElementById(this.getAttribute("data-m")).classList.remove("open"); };
 
-updCbUI(); initF(); render(); updCart();
-
+applySeasonBanner(); updCbUI(); initF(); render(); updCart();
